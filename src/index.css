@@ -93,6 +93,13 @@ body {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+.inputRounded {
+  width: 100%;
+  outline: none;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius:60px;
+}
 
 h1 {
   font-size: var(--h1-font-size);

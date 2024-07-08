@@ -3,7 +3,8 @@ import Address from '@/page/auth/Address';
 import Login from '@/page/auth/Login';
 import Role from '@/page/auth/Role';
 import SignUp from '@/page/auth/SignUp';
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
+import Home from '../page/user/Home'
 import { createBrowserRouter, useNavigate } from 'react-router-dom'
 
 const Root = () => {
@@ -44,7 +45,14 @@ const router = createBrowserRouter([
     },
     {
         path: "/user",
-        element: <div>Dashboard</div>,
+        // element: <Root />,
+        children: [
+            {
+                path: "home",
+                element: <Home />,
+            },
+            
+        ],
     }
 ])
 

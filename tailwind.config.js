@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
@@ -23,7 +23,7 @@ module.exports = {
         transparent: "transparent",
         primaryColor: {
           900: "#2D2D2D",
-          500:"#222222"
+          500: "#222222",
         },
         mouseHoverColor: {
           900: "#2D2D2D",
@@ -36,6 +36,9 @@ module.exports = {
         borderFill: {
           900: "#F2F2F2",
           800: "#E2E2E2",
+        },
+        backgroundFill: {
+          900: "#2D2D2D",
         },
         buttonFill: {
           900: "w-30 h-7", // Note: this is not a valid color value, Tailwind CSS expects hex, rgb, or named colors
@@ -97,11 +100,11 @@ module.exports = {
     screens: {
       "4xl": { max: "2047px" },
       "3xl": { max: "1791px" },
-      '2xl': { max: '1535px' },
-      'xl': { max: '1279px' },
-      'lg': { max: '1023px' },
-      'md': { max: '767px' },
-      'sm': { max: '639px' },
+      "2xl": { max: "1535px" },
+      xl: { max: "1279px" },
+      lg: { max: "1023px" },
+      md: { max: "767px" },
+      sm: { max: "639px" },
     },
     container: {
       center: true,
