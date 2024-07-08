@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/dylan');
+@import url("https://fonts.cdnfonts.com/css/dylan");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -68,7 +68,7 @@
 }
 
 body {
-  font-family: 'Dylan', sans-serif;
+  font-family: "Dylan", sans-serif;
 }
 
 :root {
@@ -80,10 +80,10 @@ body {
   --h3-font-weight: 700;
 }
 
-.label{
+.label {
   font-size: 16px;
   font-weight: 400;
-  color: #2D2D2D;
+  color: #2d2d2d;
 }
 
 .input {
@@ -98,34 +98,34 @@ body {
   outline: none;
   padding: 12px;
   border: 1px solid #ccc;
-  border-radius:60px;
+  border-radius: 60px;
 }
 
 h1 {
   font-size: var(--h1-font-size);
-  font-weight: var(--h1-font-weight)
+  font-weight: var(--h1-font-weight);
 }
 
 h3 {
   font-size: var(--h3-font-size);
-  font-weight: var(--h3-font-weight)
+  font-weight: var(--h3-font-weight);
 }
-
-
 
 /* user menu active color manage */
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-font-weight: 700;
-  color: #2D2D2D !important;
+  font-weight: 700;
+  color: #2d2d2d !important;
 }
 .css-1aquho2-MuiTabs-indicator {
-background-color:#2D2D2D !important; 
+  background-color: #2d2d2d !important;
 }
 button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
-  color: #ABABAB;
+  color: #ababab;
 }
-
-
+/* swiper active bg color */
+.swiper-pagination-bullet-active {
+  background: #ffffff !important;
+}
 @layer base {
   * {
     @apply border-border;
