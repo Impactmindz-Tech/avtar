@@ -111,6 +111,21 @@ h3 {
   font-weight: var(--h3-font-weight)
 }
 
+
+
+/* user menu active color manage */
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+font-weight: 700;
+  color: #2D2D2D !important;
+}
+.css-1aquho2-MuiTabs-indicator {
+background-color:#2D2D2D !important; 
+}
+button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  color: #ABABAB;
+}
+
+
 @layer base {
   * {
     @apply border-border;

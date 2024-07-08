@@ -10,14 +10,21 @@ import arrowDown from "../assets/images/arrowDown.svg";
 import AvatarWalk from "../assets/images/AvatarWalk.svg";
 import search from "../assets/images/search.svg";
 import setting from "../assets/images/setting.svg";
+import cardImage from "../assets/images/cardImage.svg";
+import InstantLiveBtn from "../assets/images/InstantLiveBtn.svg";
+import user from "../assets/images/user.svg";
 export default {
-  auth_img,setting,
+  auth_img,
+  setting,
   search,
+  user,
   AvatarWalk,
+  InstantLiveBtn,
   location,
   arrowDown,
   liveBtn,
   mail_img,
+  cardImage,
   google_img,
   iphone_icon,
   user_icon,
