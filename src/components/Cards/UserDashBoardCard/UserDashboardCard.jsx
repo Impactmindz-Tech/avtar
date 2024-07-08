@@ -3,7 +3,7 @@ import Images from "@/constant/Images";
 
 function UserDashboardCard() {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg ">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg mb-10">
       <UserDashboardCardSwiper />
       <div className="px-5 py-4 ">
         <div className="font-bold text-xl mb-2 relative">

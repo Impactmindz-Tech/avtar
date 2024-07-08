@@ -10,7 +10,7 @@ const Home = () => {
       <UserTopSearch />
       <UserMenuBar />
 
-      <div className="my-10 flex gap-3 flex-wrap">
+      <div className="my-10 flex justify-evenly gap-3 flex-wrap">
        <UserDashboardCard />
        <UserDashboardCard />
        <UserDashboardCard />
