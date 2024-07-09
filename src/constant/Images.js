@@ -13,13 +13,20 @@ import setting from "../assets/images/setting.svg";
 import cardImage from "../assets/images/cardImage.svg";
 import InstantLiveBtn from "../assets/images/InstantLiveBtn.svg";
 import user from "../assets/images/user.svg";
+import user2 from "../assets/images/User2.svg";
 import arrowLeft from "../assets/images/arrowLeft.svg";
 import add from "../assets/images/add.svg";
 import star from "../assets/images/Star.svg";
 import cardImageCurve from "../assets/images/cardImageCurve.svg";
+import homeIcon from "../assets/images/homeIcon.svg";
+import map from "../assets/images/map.svg";
 export default {
-  auth_img,star,
+  auth_img,
+  star,
   add,
+  homeIcon,
+  map,
+  user2,
   cardImageCurve,
   setting,
   arrowLeft,

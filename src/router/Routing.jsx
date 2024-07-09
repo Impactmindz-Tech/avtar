@@ -8,6 +8,7 @@ import Home from '../page/user/Home'
 import { createBrowserRouter, useNavigate } from 'react-router-dom'
 import Filters from '@/page/user/Filters';
 import Report from '@/page/user/Report';
+import Book_Experience from '@/page/user/Book_Experience';
 
 const Root = () => {
     const navigate = useNavigate();
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: "report",
                 element: <Report />,
+            },
+            {
+                path: "book-experience",
+                element: <Book_Experience />,
             },
         ],
     }
