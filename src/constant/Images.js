@@ -23,8 +23,16 @@ import homeIcon from "../assets/images/homeIcon.svg";
 import map from "../assets/images/map.svg";
 import arrowRight from "../assets/images/arrowRight.svg";
 import report from "../assets/images/report.svg";
+import correct from "../assets/images/correct.svg";
+import Cleanliness from "../assets/images/Cleanliness.svg";
+import searchGray from "../assets/images/searchGray.svg";
+import translate from "../assets/images/translate.svg";
 export default {
   auth_img,
+  translate,
+  searchGray,
+  Cleanliness,
+  correct,
   arrowRight,
   report,
   star2,

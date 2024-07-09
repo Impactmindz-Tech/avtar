@@ -101,6 +101,14 @@
   border: 1px solid #ccc;
   border-radius: 60px;
 }
+.inputRounded2 {
+  width: 100%;
+  outline: none;
+  padding: 12px;
+  padding-left: 50px;
+  border: 1px solid #ccc;
+  border-radius: 60px;
+}
 
 h1 {
   font-size: var(--h1-font-size);
@@ -177,9 +185,14 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+.BorderRight{
+  padding-right: 30px;
+  border-right: 1px solid #f1f1f1;
 
+}
 /* swiper */
 
 .reviewCardSwiper {
   padding: 0 2px;
 }
+

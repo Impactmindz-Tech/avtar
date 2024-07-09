@@ -9,6 +9,7 @@ import { createBrowserRouter, useNavigate } from 'react-router-dom'
 import Filters from '@/page/user/Filters';
 import Report from '@/page/user/Report';
 import Book_Experience from '@/page/user/Book_Experience';
+import See_All_Review from '@/page/user/See_All_Review';
 
 const Root = () => {
     const navigate = useNavigate();
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path: "book-experience",
                 element: <Book_Experience />,
+            },
+            {
+                path: "see-all-review",
+                element: <See_All_Review />,
             },
         ],
     }

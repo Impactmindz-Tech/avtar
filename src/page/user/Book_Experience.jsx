@@ -74,7 +74,9 @@ function Book_Experience() {
                 <img src={Images.star2} alt="star 2" />
               </div>
             </div>
-            <div className="font-bold text-grey-800 cursor-pointer underline">Show All</div>
+            <div className="font-bold text-grey-800 cursor-pointer underline">
+              <Link to="/user/see-all-review">Show All</Link>
+            </div>
           </div>
 
           <div className="">
