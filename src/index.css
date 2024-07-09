@@ -128,25 +128,18 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   background: #ffffff !important;
 }
 
-
-
-
-
-
-
-.reportCheckBox{
+.reportCheckBox {
   font-weight: 400;
   cursor: pointer;
-  color: #ABABAB;
+  color: #ababab;
 }
 
-
-.borderTopBottom{
-  border-top: 1px solid #E2E2E2;
-  border-bottom: 1px solid #E2E2E2;
+.borderTopBottom {
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
 }
 
-.centerImageIcon{
+.centerImageIcon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -155,22 +148,38 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   color: white;
 }
 
-
 .shape {
   z-index: 999;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px 13px;
-  color: #ABABAB;
+  color: #ababab;
   font-family: Arial, sans-serif;
 }
 
 .triangleDown {
-	width: 0;
-	height: 0;
-  margin-left: 43%;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-top: 23px solid white;
+  width: 0;
+  height: 0;
+  margin-left: 47%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid white;
+}
+
+.cardBorder {
+  border: 1px solid #f1f1f1;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.BoxShadow {
+  border: 1px solid #f1f1f1;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* swiper */
+
+.reviewCardSwiper {
+  padding: 0 2px;
 }

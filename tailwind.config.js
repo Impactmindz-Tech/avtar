@@ -36,7 +36,8 @@ module.exports = {
         borderFill: {
           900: "#F2F2F2",
           800: "#E2E2E2",
-          700:"#ABABAB"
+          700:"#ABABAB",
+          600:"F1F1F1"
         },
         backgroundFill: {
           900: "#2D2D2D",

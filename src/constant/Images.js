@@ -17,11 +17,17 @@ import user2 from "../assets/images/User2.svg";
 import arrowLeft from "../assets/images/arrowLeft.svg";
 import add from "../assets/images/add.svg";
 import star from "../assets/images/Star.svg";
+import star2 from "../assets/images/star2.svg";
 import cardImageCurve from "../assets/images/cardImageCurve.svg";
 import homeIcon from "../assets/images/homeIcon.svg";
 import map from "../assets/images/map.svg";
+import arrowRight from "../assets/images/arrowRight.svg";
+import report from "../assets/images/report.svg";
 export default {
   auth_img,
+  arrowRight,
+  report,
+  star2,
   star,
   add,
   homeIcon,

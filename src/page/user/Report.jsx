@@ -6,7 +6,7 @@ import BottomBlackBtn from "@/components/ui/BottomBlackBtn";
 function Report() {
   return (
     <div className="px-3">
-      <HeaderBack link="/" text={"Report"} />
+      <HeaderBack link="/user/book-experience" text={"Report"} />
       <div className="text-center">
         <p className="text-grey-800">Do you think this package shouldn&apos; t be on Avatar Walk? Let us know your thoughts.</p>
 
