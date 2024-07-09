@@ -6,6 +6,7 @@ import SignUp from '@/page/auth/SignUp';
 import  { useEffect } from 'react'
 import Home from '../page/user/Home'
 import { createBrowserRouter, useNavigate } from 'react-router-dom'
+import Filters from '@/page/user/Filters';
 
 const Root = () => {
     const navigate = useNavigate();
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: "home",
                 element: <Home />,
+            },
+            {
+                path: "filters",
+                element: <Filters />,
             },
             
         ],

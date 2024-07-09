@@ -2,7 +2,7 @@ import Images from "@/constant/Images";
 import { useState, useRef, useEffect } from "react";
 const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Miami"]; // Add more cities as needed
 
-function UserLocationChange() {
+const UserLocationChange = () => {
   const dropdownRef = useRef(null);
   const [city, setCity] = useState("California");
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +50,6 @@ function UserLocationChange() {
       )}
     </div>
   );
-}
+};
 
 export default UserLocationChange;

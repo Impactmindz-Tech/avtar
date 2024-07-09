@@ -67,9 +67,9 @@
   }
 }
 
-body {
+/* body {
   font-family: "Dylan", sans-serif;
-}
+} */
 
 :root {
   /* h1 style  */
@@ -97,6 +97,7 @@ body {
   width: 100%;
   outline: none;
   padding: 12px;
+  padding-left: 20px;
   border: 1px solid #ccc;
   border-radius: 60px;
 }
