@@ -109,7 +109,15 @@
   border: 1px solid #ccc;
   border-radius: 60px;
 }
-
+.inputCal {
+  width: 100%;
+  outline: none;
+  padding: 12px;
+  font-weight: 500;
+  color: rgb(43, 43, 43) !important;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 h1 {
   font-size: var(--h1-font-size);
   font-weight: var(--h1-font-weight);

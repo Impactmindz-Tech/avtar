@@ -10,6 +10,7 @@ import Filters from '@/page/user/Filters';
 import Report from '@/page/user/Report';
 import Book_Experience from '@/page/user/Book_Experience';
 import See_All_Review from '@/page/user/See_All_Review';
+import Booking from '@/page/user/Booking';
 
 const Root = () => {
     const navigate = useNavigate();
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
             {
                 path: "see-all-review",
                 element: <See_All_Review />,
+            },
+            {
+                path: "booking",
+                element: <Booking />,
             },
         ],
     }

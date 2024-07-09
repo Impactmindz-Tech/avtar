@@ -27,8 +27,12 @@ import correct from "../assets/images/correct.svg";
 import Cleanliness from "../assets/images/Cleanliness.svg";
 import searchGray from "../assets/images/searchGray.svg";
 import translate from "../assets/images/translate.svg";
+import arrowLeftSm from "../assets/images/arrowLeftSm.svg";
+import clock from "../assets/images/clock.svg";
 export default {
   auth_img,
+  arrowLeftSm,
+  clock,
   translate,
   searchGray,
   Cleanliness,

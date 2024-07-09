@@ -39,7 +39,8 @@ module.exports = {
           800: "#E2E2E2",
           700:"#ABABAB",
           600:"F1F1F1",
-          500:"#D9D9D9"
+          500:"#D9D9D9",
+          400:"#FF7070"
         },
         backgroundFill: {
           900: "#2D2D2D",
