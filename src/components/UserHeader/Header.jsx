@@ -1,18 +1,10 @@
 import Images from "@/constant/Images";
-
+import UserLocationChange from "../ui/UserLocationChange";
 
 function Header() {
   return (
     <header className="flex justify-between items-center p-3">
-      <div className="city flex items-center gap-2">
-        <div className="icon">
-          <img src={Images.location} alt="location icon" />
-        </div>
-        <div className="font-medium">California</div>
-        <div className="icon">
-          <img src={Images.arrowDown} alt="arrowDown icon" />
-        </div>
-      </div>
+      <UserLocationChange />
 
       <div className="brand ">
         <img src={Images.AvatarWalk} alt="AvatarWalk" />
