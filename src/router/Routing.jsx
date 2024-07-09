@@ -7,6 +7,7 @@ import  { useEffect } from 'react'
 import Home from '../page/user/Home'
 import { createBrowserRouter, useNavigate } from 'react-router-dom'
 import Filters from '@/page/user/Filters';
+import Report from '@/page/user/Report';
 
 const Root = () => {
     const navigate = useNavigate();
@@ -56,7 +57,14 @@ const router = createBrowserRouter([
                 path: "filters",
                 element: <Filters />,
             },
-            
+            {
+                path: "filters",
+                element: <Filters />,
+            },
+            {
+                path: "report",
+                element: <Report />,
+            },
         ],
     }
 ])

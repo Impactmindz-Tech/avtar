@@ -10,7 +10,7 @@ function UserTopSearch() {
         <input type="search" name="search bar" id="search bar" className="inputRounded rounded-full" placeholder="Search..." />
       </div>
       <div className="border  border-borderFill-900 w-[50px] h-[50px] p-2 rounded-full flex items-center justify-center">
-       <Link to="/user/filter">
+       <Link to="/user/filters">
         <img src={Images.setting} alt="setting icon" className="cursor-pointer" />
        </Link>
       </div>

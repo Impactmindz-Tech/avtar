@@ -127,12 +127,15 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
 .swiper-pagination-bullet-active {
   background: #ffffff !important;
 }
-@layer base {
-  * {
-    @apply border-border;
-  }
 
-  body {
-    @apply bg-background text-foreground;
-  }
+
+
+
+
+
+
+.reportCheckBox{
+  font-weight: 400;
+  cursor: pointer;
+  color: #ABABAB;
 }
