@@ -2,7 +2,7 @@ import { useState } from "react";
 import dayjs from "dayjs";
 import Images from "@/constant/Images";
 
-const BookingCalendar = () => {
+const EditDateCalendar = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
 
@@ -30,7 +30,7 @@ const BookingCalendar = () => {
   };
 
   return (
-    <div className="mx-auto bg-white BoxShadow p-4">
+    <div className="mx-auto bg-white p-4">
       <div className="flex justify-between items-center mb-4">
         <button onClick={previousMonth} className="px-3 py-2 border rounded-full">
           <img src={Images.arrowLeftSm} alt="arrowLeftSm" />
@@ -69,4 +69,4 @@ const BookingCalendar = () => {
   );
 };
 
-export default BookingCalendar;
+export default EditDateCalendar;

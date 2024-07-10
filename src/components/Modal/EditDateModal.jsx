@@ -1,6 +1,7 @@
-import  { useState, useEffect, useRef } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import { useState, useEffect, useRef } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import EditDateCalendar from "../Calendar/EditDateCalendar";
 // import './DatePickerModal.css'; // Optional: if you want to add any custom styles
 
 const DatePickerModal = ({ show, onClose }) => {
@@ -15,12 +16,12 @@ const DatePickerModal = ({ show, onClose }) => {
 
   useEffect(() => {
     if (show) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [show]);
 
@@ -28,41 +29,30 @@ const DatePickerModal = ({ show, onClose }) => {
 
   return (
     <div className="fixed  flex items-end justify-center inset-0 bg-black bg-opacity-50 z-50">
-      <div ref={modalRef} className="bg-white rounded-t-2xl shadow-lg w-full max-w-lg p-4">
-        <h2 className="text-lg font-medium mb-4 text-center">Select Date</h2>
+      <div ref={modalRef} className="bg-white rounded-t-2xl shadow-lg w-full max-w-lg lg:max-w-full p-3">
         <div className="flex justify-between items-center mb-4">
           <button className="focus:outline-none">
             <i className="fas fa-chevron-left"></i>
           </button>
-          <span className="text-xl font-semibold">March 2024</span>
+          <span className="text-xl font-bold">Select Date</span>
           <button className="focus:outline-none">
             <i className="fas fa-chevron-right"></i>
           </button>
         </div>
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          inline
-        />
+
+        <EditDateCalendar />
+
+       
+
         <div className="mt-4">
-          <input
-            type="text"
-            value={selectedDate.toLocaleDateString()}
-            readOnly
-            className="w-full border rounded p-2"
-          />
+          <label htmlFor="Date">Selected Date</label>
+          <input type="text" id="Date" value={selectedDate.toLocaleDateString()} readOnly className="mt-2 w-full border rounded p-2" />
         </div>
         <div className="flex mt-4">
-          <button
-            onClick={onClose}
-            className="bg-gray-200 text-black  py-2 rounded mr-2 w-[50%]"
-          >
+          <button onClick={onClose} className="border border-primaryColor-900 text-black font-semibold py-2 rounded mr-2 w-[50%]">
             Cancel
           </button>
-          <button
-            onClick={onClose}
-            className="bg-black text-white py-2 rounded  w-[50%]"
-          >
+          <button onClick={onClose} className="bg-black text-white py-2 rounded  w-[50%]">
             Save
           </button>
         </div>
