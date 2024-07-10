@@ -15,7 +15,7 @@ function Payment_Status() {
               <div className="flex justify-center items-center pt-[20vh]">
                 <img src={Images.paymentSuccess} alt="paymentSuccess" className="w-[150px] " />
               </div>
-              <h1 className="text-center text-[#2AA174] pt-5">Payment Successful</h1>
+              <h1 className="text-center text-success pt-5">Payment Successful</h1>
               <p className="text-grey-800 text-center py-3">Your payment has been successfully done!</p>
             </div>
           </div>
@@ -26,7 +26,7 @@ function Payment_Status() {
               <div className="flex justify-center items-center pt-[20vh]">
                 <img src={Images.paymentFailed} alt="paymentFailed" className="w-[150px] " />
               </div>
-              <h1 className="text-center text-[#FF3544] pt-5">Oops, Failed</h1>
+              <h1 className="text-center text-danger pt-5">Oops, Failed</h1>
               <p className="text-grey-800 text-center py-3">Your payment has been failed.</p>
             </div>
           </div>
