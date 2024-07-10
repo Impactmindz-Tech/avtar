@@ -1,12 +1,16 @@
-import BlackBottomButton from "@/components/Button/BlackBottomButton";
 import ConfirmPayCard from "@/components/Cards/Confirm_Pay_Card/ConfirmPayCard";
 import HeaderBack from "@/components/HeaderBack";
+import EditDateModal from "@/components/Modal/EditDateModal";
 import ConfirmPaymentForm from "@/components/Payment Card/Confirm_Page_Payment";
 import Images from "@/constant/Images";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Confirm_Pay() {
+    const [showEditDateModal, setShowEditDateModal] = useState(false);
+
   return (
+    <>
     <div className="container">
       <HeaderBack link="/user/book-experience" text={"Confirm and Pay"} />
 
@@ -31,7 +35,7 @@ function Confirm_Pay() {
               <h4 className="font-medium my-1">Mon, Mar 21, 2024</h4>
               {/* edit btn */}
               <div className="absolute top-3 right-0">
-                <img src={Images.edit} alt="edit" className="cursor-pointer" />
+                <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditDateModal(true)} />
               </div>
             </div>
 
@@ -68,29 +72,28 @@ function Confirm_Pay() {
 
             {/* total */}
             <div className="total borderTop mt-2 py-2">
-            <div className="text flex justify-between py-1">
-              <div className="title">Total</div>
-              <div className="font-medium">$15.20</div>
-            </div>
+              <div className="text flex justify-between py-1">
+                <div className="title">Total</div>
+                <div className="font-medium">$15.20</div>
+              </div>
             </div>
           </div>{" "}
         </div>
 
+        <ConfirmPaymentForm />
 
-        <ConfirmPaymentForm/>
-      
         <div className="m-auto w-[460px] my-5">
-        <Link to={'/'}>
-      <div className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
-        <button className="py-2 font-bold ">Pay</button>
+          <Link to={"/"}>
+            <div className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
+              <button className="py-2 font-bold ">Pay</button>
+            </div>
+          </Link>
+        </div>
       </div>
-    </Link>
-      </div>
-
-
-      </div>
-
     </div>
+
+    <EditDateModal show={showEditDateModal} onClose={() => setShowEditDateModal(false)}/>
+    </>
   );
 }
 
