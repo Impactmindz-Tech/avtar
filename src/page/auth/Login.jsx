@@ -24,7 +24,7 @@ const Login = () => {
     // IdP data available using getAdditionalUserInfo(result)
     // ...
     console.log(user);
-    navigate('/user');
+    navigate('/user/home');
    
   }).catch((error) => {
     // Handle Errors here.

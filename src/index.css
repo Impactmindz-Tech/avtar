@@ -198,6 +198,12 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   border-right: 1px solid #f1f1f1;
 
 }
+
+.BoxShadowLessRounded{
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 /* swiper */
 
 .reviewCardSwiper {

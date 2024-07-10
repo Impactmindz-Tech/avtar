@@ -29,8 +29,16 @@ import searchGray from "../assets/images/searchGray.svg";
 import translate from "../assets/images/translate.svg";
 import arrowLeftSm from "../assets/images/arrowLeftSm.svg";
 import clock from "../assets/images/clock.svg";
+import cardImageRounded from "../assets/images/cardImageRounded.svg";
+import location2 from "../assets/images/location2.svg";
+import edit from "../assets/images/edit.svg";
+import calendarIcon from "../assets/images/calendarIcon.svg";
 export default {
   auth_img,
+  edit,
+  calendarIcon,
+  location2,
+  cardImageRounded,
   arrowLeftSm,
   clock,
   translate,
