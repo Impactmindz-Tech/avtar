@@ -5,7 +5,7 @@ import UserTopSearch from "@/components/UserTopSearch/UserTopSearch";
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className="container 3xl:max-w-full">
       <Header />
       <UserTopSearch />
       <UserMenuBar />
