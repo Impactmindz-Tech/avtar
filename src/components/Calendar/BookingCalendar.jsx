@@ -1,8 +1,10 @@
 import { useState } from "react";
 import dayjs from "dayjs";
 import Images from "@/constant/Images";
+import DateReservedModal from "../Modal/DateReservedModal";
 
 const BookingCalendar = () => {
+  const [showReservedModal,setShowReservedModal]=useState(true)
   const [currentDate, setCurrentDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
 
@@ -26,6 +28,7 @@ const BookingCalendar = () => {
   };
 
   const handleDateClick = (day) => {
+    setShowReservedModal(true)
     setSelectedDate(currentDate.date(day));
   };
 
@@ -65,6 +68,9 @@ const BookingCalendar = () => {
           </div>
         ))}
       </div>
+
+
+      <DateReservedModal show={showReservedModal} onClose={() => setShowReservedModal(false)}/>
     </div>
   );
 };

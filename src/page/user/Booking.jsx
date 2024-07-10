@@ -1,7 +1,9 @@
 import BlackBottomButton from "@/components/Button/BlackBottomButton";
 import BookingCalendar from "@/components/Calendar/BookingCalendar";
 import HeaderBack from "@/components/HeaderBack";
+import DateReservedModal from "@/components/Modal/DateReservedModal";
 import Images from "@/constant/Images";
+import { useState } from "react";
 
 function Booking() {
   return (
@@ -56,6 +58,8 @@ function Booking() {
 
         <BlackBottomButton link="/" text="Proceed"/>
       </div>
+
+      {/* <DateReservedModal /> */}
     </div>
   );
 }

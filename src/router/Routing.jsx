@@ -12,6 +12,7 @@ import Book_Experience from '@/page/user/Book_Experience';
 import See_All_Review from '@/page/user/See_All_Review';
 import Booking from '@/page/user/Booking';
 import Confirm_Pay from '@/page/user/Confirm_Pay';
+import Payment_Status from '@/page/user/Payment_Status';
 
 const Root = () => {
     const navigate = useNavigate();
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
             {
                 path: "confirm-and-pay",
                 element: <Confirm_Pay />,
+            },
+            {
+                path: "payment-status",
+                element: <Payment_Status />,
             },
         ],
     }

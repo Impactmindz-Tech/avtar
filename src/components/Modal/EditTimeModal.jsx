@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import EditDateCalendar from "../Calendar/EditDateCalendar";
+import TimePicker from "./TimePicker";
 
-const DatePickerModal = ({ show, onClose }) => {
+const EditTimeModal = ({ show, onClose }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const modalRef = useRef();
 
@@ -25,24 +25,20 @@ const DatePickerModal = ({ show, onClose }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed  flex items-end justify-center inset-0 bg-black bg-opacity-50 z-50">
+    <div className="fixed flex items-end justify-center inset-0 bg-black bg-opacity-50 z-50">
       <div ref={modalRef} className="bg-white rounded-t-2xl shadow-lg w-full max-w-lg lg:max-w-full p-3">
         <div className="flex justify-between items-center mb-4">
           <button className="focus:outline-none">
             <i className="fas fa-chevron-left"></i>
           </button>
-          <span className="text-xl font-bold">Select Date</span>
+          <span className="text-xl font-bold">Select Time</span>
           <button className="focus:outline-none">
             <i className="fas fa-chevron-right"></i>
           </button>
         </div>
 
-        <EditDateCalendar />
+        <TimePicker />
 
-        <div className="mt-4">
-          <label htmlFor="Date">Selected Date</label>
-          <input type="text" id="Date" value={selectedDate.toLocaleDateString()} readOnly className="mt-2 w-full border rounded p-2" />
-        </div>
         <div className="flex mt-4">
           <button onClick={onClose} className="border border-primaryColor-900 text-black font-semibold py-2 rounded mr-2 w-[50%]">
             Cancel
@@ -56,4 +52,4 @@ const DatePickerModal = ({ show, onClose }) => {
   );
 };
 
-export default DatePickerModal;
+export default EditTimeModal;

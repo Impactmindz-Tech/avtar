@@ -38,8 +38,14 @@ import applePay from "../assets/images/applePay.svg";
 import camera from "../assets/images/camera.svg";
 import cardsGateway from "../assets/images/cardsGateway.svg";
 import cvv from "../assets/images/cvv.svg";
+import calendarTick from "../assets/images/calendar-tick.svg";
+import paymentSuccess from "../assets/images/paymentSuccess.png";
+import paymentFailed from "../assets/images/paymentFailed.png";
 export default {
   auth_img,
+  paymentSuccess,
+  paymentFailed,
+  calendarTick,
   camera,
   cvv,
   edit,

@@ -1,6 +1,7 @@
 import ConfirmPayCard from "@/components/Cards/Confirm_Pay_Card/ConfirmPayCard";
 import HeaderBack from "@/components/HeaderBack";
 import EditDateModal from "@/components/Modal/EditDateModal";
+import EditTimeModal from "@/components/Modal/EditTimeModal";
 import ConfirmPaymentForm from "@/components/Payment Card/Confirm_Page_Payment";
 import Images from "@/constant/Images";
 import { useState } from "react";
@@ -8,6 +9,7 @@ import { Link } from "react-router-dom";
 
 function Confirm_Pay() {
     const [showEditDateModal, setShowEditDateModal] = useState(false);
+    const [showEditTimeModal, setShowEditTimeModal] = useState(false);
 
   return (
     <>
@@ -50,7 +52,7 @@ function Confirm_Pay() {
               <h4 className="font-medium my-1">08:00 PM - 08:30 PM</h4>
               {/* edit btn */}
               <div className="absolute top-5 right-0">
-                <img src={Images.edit} alt="edit" className="cursor-pointer" />
+                <img src={Images.edit} alt="edit" className="cursor-pointer"  onClick={() => setShowEditTimeModal(true)}/>
               </div>
             </div>
           </div>{" "}
@@ -91,7 +93,7 @@ function Confirm_Pay() {
         </div>
       </div>
     </div>
-
+<EditTimeModal show={showEditTimeModal} onClose={() => setShowEditTimeModal(false)}/>
     <EditDateModal show={showEditDateModal} onClose={() => setShowEditDateModal(false)}/>
     </>
   );
