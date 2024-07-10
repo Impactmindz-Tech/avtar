@@ -1,6 +1,9 @@
+import BlackBottomButton from "@/components/Button/BlackBottomButton";
 import ConfirmPayCard from "@/components/Cards/Confirm_Pay_Card/ConfirmPayCard";
 import HeaderBack from "@/components/HeaderBack";
+import ConfirmPaymentForm from "@/components/Payment Card/Confirm_Page_Payment";
 import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 
 function Confirm_Pay() {
   return (
@@ -15,7 +18,7 @@ function Confirm_Pay() {
         {/* your events edit card */}
         <div className="flex BoxShadowLessRounded m-auto w-[460px] my-5">
           <div className="py-2 px-4 w-full">
-            <div className="my-2 font-bold">Your Events</div>
+            <h1 className="my-2 font-bold">Your Events</h1>
 
             <div className="relative  w-full">
               {/* date */}
@@ -30,11 +33,9 @@ function Confirm_Pay() {
               <div className="absolute top-3 right-0">
                 <img src={Images.edit} alt="edit" className="cursor-pointer" />
               </div>
-
             </div>
 
-
-              {/* time */}
+            {/* time */}
             <div className="relative  w-full">
               <div className="flex gap-1 items-center my-2">
                 <div className="icon">
@@ -47,14 +48,48 @@ function Confirm_Pay() {
               <div className="absolute top-5 right-0">
                 <img src={Images.edit} alt="edit" className="cursor-pointer" />
               </div>
-              </div>
-
-
-
-
+            </div>
           </div>{" "}
         </div>
+
+        {/* price details card */}
+        <div className="flex BoxShadowLessRounded m-auto w-[460px] my-5 bg-boxFill-900">
+          <div className="py-2 px-4 w-full">
+            <h1 className="my-2 font-bold">Price Details</h1>
+
+            <div className="text flex justify-between py-1">
+              <div className="title">Price: $1 x 15 minutes</div>
+              <div className="font-medium">$15.00</div>
+            </div>
+            <div className="text flex justify-between py-1">
+              <div className="title">Avatar Walk Fee</div>
+              <div className="font-medium">$0.20</div>
+            </div>
+
+            {/* total */}
+            <div className="total borderTop mt-2 py-2">
+            <div className="text flex justify-between py-1">
+              <div className="title">Total</div>
+              <div className="font-medium">$15.20</div>
+            </div>
+            </div>
+          </div>{" "}
+        </div>
+
+
+        <ConfirmPaymentForm/>
+      
+        <div className="m-auto w-[460px] my-5">
+        <Link to={'/'}>
+      <div className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
+        <button className="py-2 font-bold ">Pay</button>
       </div>
+    </Link>
+      </div>
+
+
+      </div>
+
     </div>
   );
 }

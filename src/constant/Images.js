@@ -33,9 +33,19 @@ import cardImageRounded from "../assets/images/cardImageRounded.svg";
 import location2 from "../assets/images/location2.svg";
 import edit from "../assets/images/edit.svg";
 import calendarIcon from "../assets/images/calendarIcon.svg";
+import paypal from "../assets/images/paypal.svg";
+import applePay from "../assets/images/applePay.svg";
+import camera from "../assets/images/camera.svg";
+import cardsGateway from "../assets/images/cardsGateway.svg";
+import cvv from "../assets/images/cvv.svg";
 export default {
   auth_img,
+  camera,
+  cvv,
   edit,
+  cardsGateway,
+  paypal,
+  applePay,
   calendarIcon,
   location2,
   cardImageRounded,

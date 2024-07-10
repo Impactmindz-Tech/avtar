@@ -1,12 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
-  ],
+  content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}", "./app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
@@ -32,15 +27,18 @@ module.exports = {
           900: "#2D2D2D",
           800: "#ABABAB",
           300: "#F2F2F2",
-          700:"#757575"
+          700: "#757575",
         },
         borderFill: {
           900: "#F2F2F2",
           800: "#E2E2E2",
-          700:"#ABABAB",
-          600:"F1F1F1",
-          500:"#D9D9D9",
-          400:"#FF7070"
+          700: "#ABABAB",
+          600: "F1F1F1",
+          500: "#D9D9D9",
+          400: "#FF7070",
+        },
+        boxFill: {
+          900: "#f2f2f2",
         },
         backgroundFill: {
           900: "#2D2D2D",
