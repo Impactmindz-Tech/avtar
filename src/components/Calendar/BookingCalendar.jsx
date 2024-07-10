@@ -4,7 +4,7 @@ import Images from "@/constant/Images";
 import DateReservedModal from "../Modal/DateReservedModal";
 
 const BookingCalendar = () => {
-  const [showReservedModal,setShowReservedModal]=useState(true)
+  const [showReservedModal,setShowReservedModal]=useState(false)
   const [currentDate, setCurrentDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
 

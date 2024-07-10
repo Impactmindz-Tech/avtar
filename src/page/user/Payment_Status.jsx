@@ -1,6 +1,7 @@
 import OnlyBrandNameHeader from "@/components/UserHeader/OnlyBrandNameHeader";
 import Images from "@/constant/Images";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Payment_Status() {
   const [paymentSuccess, setPaymentStatus] = useState(true);
@@ -34,7 +35,7 @@ function Payment_Status() {
 
         <div className="max-w-2xl m-auto my-6  fixed bottom-0 w-full ">
           <div className="w-[50%] m-auto  lg:w-full ">
-            <button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[80%] rounded w-full">Back to Home</button>
+           <Link to="/user/home"> <button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[80%] rounded w-full">Back to Home</button></Link>
             {paymentSuccess ? (
               <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[80%]">Instant Live</button>
             ) : (

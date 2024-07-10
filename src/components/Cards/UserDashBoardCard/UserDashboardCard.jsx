@@ -1,9 +1,10 @@
 import UserDashboardCardSwiper from "@/components/Swiper/UserDashboardCardSwiper/UserDashboardCardSwiper";
 import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 
 function UserDashboardCard() {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <Link to="/user/book-experience"><div className="max-w-sm rounded overflow-hidden shadow-lg">
       <UserDashboardCardSwiper />
       <div className="px-5 py-4 ">
         <div className="font-bold text-xl mb-2 relative">
@@ -18,7 +19,7 @@ function UserDashboardCard() {
           <img src={Images.InstantLiveBtn} alt="InstantLiveBtn" className="w-30 cursor-pointer" />
         </div>
       </div>
-    </div>
+    </div></Link>
   );
 }
 

@@ -56,7 +56,7 @@ function Booking() {
           </div>
         </div>
 
-        <BlackBottomButton link="/" text="Proceed"/>
+        <BlackBottomButton link="/user/confirm-and-pay" text="Proceed"/>
       </div>
 
       {/* <DateReservedModal /> */}

@@ -116,9 +116,11 @@ function Book_Experience() {
           </div>
         </Link>
         {/* book btn */}
+         <Link to="/user/booking">
         <div className="rounded-md my-6 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
           <button className="py-2 font-bold">Book</button>
         </div>
+         </Link>
       </div>
     </div>
   );
