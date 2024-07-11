@@ -1,5 +1,6 @@
 import ProfilePageCard from "@/components/Cards/ProfileCard/ProfilePageCard";
 import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 // import { FaRegCircleUser } from "react-icons/fa6";
 function Profile() {
   return (
@@ -20,7 +21,10 @@ function Profile() {
               <p className="text-primaryColor-300">@richrdo1205</p>
             </div>
             <div className="editBtn">
+            <Link to="/user/edit-profile">
+
               <img src={Images.editBtnWhite} alt="editBtnWhite" className="cursor-pointer" />
+            </Link>
             </div>
           </div>
         </div>

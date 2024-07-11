@@ -61,9 +61,13 @@ import payment from "../assets/images/profileIcon/payment.svg";
 import info from "../assets/images/profileIcon/info.svg";
 import rightArrowWhite from "../assets/images/profileIcon/rightArrowWhite.svg";
 import rightArrowGray from "../assets/images/profileIcon/rightArrowGray.svg";
+import whiteCamera from "../assets/images/profileIcon/whiteCamera.svg";
+import profileUser from "../assets/images/profileIcon/user.svg";
 
 export default {
   auth_img,
+  profileUser,
+  whiteCamera,
   rightArrowWhite,
   profile,
   editBtnWhite,

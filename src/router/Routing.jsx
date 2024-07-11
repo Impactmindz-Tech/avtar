@@ -20,6 +20,7 @@ import RateTour from "@/page/user/RateTour";
 import Tip from "@/page/user/Tip";
 import Chat from "@/page/user/Chat";
 import Profile from "@/page/user/Profile";
+import EditProfile from "@/page/user/Edit_Profile";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -139,6 +140,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "edit-profile",
+        element: <EditProfile />,
       },
     ],
   },
