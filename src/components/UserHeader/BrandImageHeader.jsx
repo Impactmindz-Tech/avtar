@@ -1,7 +1,7 @@
 import Images from "@/constant/Images";
 import { Link } from "react-router-dom";
 
-const BrandImageHeader = ({link}) => {
+const BrandImageHeader = ({ link }) => {
   return (
     <header className="flex  my-3">
       <div className="">

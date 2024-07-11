@@ -1,8 +1,8 @@
-import Images from "@/constant/Images"
+import Images from "@/constant/Images";
 
 const ChatUserCard = () => {
   return (
-    <div className="flex gap-2 items-center w-full mb-5">
+    <div className="flex gap-2 items-center w-full mb-5 cursor-pointer">
       <div className="image">
         <img src={Images.user3} alt="user3" />
       </div>
@@ -12,7 +12,7 @@ const ChatUserCard = () => {
       </div>
       <div className="flex items-center text-grey-800">02:11</div>
     </div>
-  )
-}
+  );
+};
 
-export default ChatUserCard
+export default ChatUserCard;

@@ -36,7 +36,7 @@ module.exports = {
           600: "F1F1F1",
           500: "#D9D9D9",
           400: "#FF7070",
-          300:"#eeeeef"
+          300: "#eeeeef",
         },
         boxFill: {
           900: "#f2f2f2",
@@ -115,7 +115,6 @@ module.exports = {
       padding: "2rem",
       screens: {
         // "2xl": "1400px",
-       
       },
     },
   },
