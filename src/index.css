@@ -93,9 +93,9 @@
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-.inputGrayColor{
+.inputGrayColor {
   width: 100%;
-  color: #ABABAB;
+  color: #ababab;
   outline: none;
   padding: 12px;
   border: 1px solid #ccc;
@@ -126,6 +126,19 @@
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+.inputCenter {
+  width: 100%;
+  outline: none;
+  padding:8px;
+  font-weight: 500;
+  text-align: center;
+  color: rgb(43, 43, 43) !important;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+
+
 h1 {
   font-size: var(--h1-font-size);
   font-weight: var(--h1-font-weight);
@@ -162,7 +175,7 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   border-top: 1px solid #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
 }
-.borderTop{
+.borderTop {
   border-top: 1px solid #e2e2e2;
 }
 .centerImageIcon {
@@ -203,12 +216,12 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.BorderRight{
+.BorderRight {
   padding-right: 30px;
   border-right: 1px solid #f1f1f1;
 }
 
-.BoxShadowLessRounded{
+.BoxShadowLessRounded {
   border: 1px solid #f1f1f1;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -219,11 +232,11 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   padding: 0 2px;
 }
 
-.borderRadiusLeftChatRight{
+.borderRadiusLeftChatRight {
   border-radius: 10px 10px 0px 10px;
 }
 
-.borderRadiusLeftChatLeft{
+.borderRadiusLeftChatLeft {
   border-radius: 10px 10px 10px 0px;
 }
 
@@ -283,9 +296,6 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   transform: rotate(45deg);
 }
 
-
-
-
 /* time edit modal */
 .time-picker {
   display: flex;
@@ -302,4 +312,19 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+}
+
+/* rate tour */
+.rateTourBtn {
+  color: black;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  border: 1px solid #e2e2e2;
+}
+
+.rateTourBtn:hover {
+  border: 1px solid #2d2d2d;
 }
