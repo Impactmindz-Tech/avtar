@@ -28,34 +28,40 @@ function Confirm_Pay() {
 
               <div className="relative  w-full">
                 {/* date */}
-                <div className="flex gap-1 items-center">
-                  <div className="icon">
-                    <img src={Images.calendarIcon} alt="calendarIcon" />
+                <div className="flex justify-between items-center">
+                  <div className="div">
+                    <div className="flex gap-1 items-center">
+                      <div className="icon">
+                        <img src={Images.calendarIcon} alt="calendarIcon" />
+                      </div>
+                      <h6 className="font-semibold">Dates</h6>
+                    </div>
+                    <h4 className="font-medium my-1">Mon, Mar 21, 2024</h4>
                   </div>
-                  <h6 className="font-semibold">Dates</h6>
+                  {/* edit btn */}
+                  <div className="">
+                    <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditDateModal(true)} />
+                  </div>
                 </div>
-                <h4 className="font-medium my-1">Mon, Mar 21, 2024</h4>
-                {/* edit btn */}
-                <div className="absolute top-3 right-0">
-                  <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditDateModal(true)} />
-                </div>
-              </div>
 
-              {/* time */}
-              <div className="relative  w-full">
-                <div className="flex gap-1 items-center my-2">
-                  <div className="icon">
-                    <img src={Images.clock} alt="clock" />
+                {/* time */}
+                <div className="flex justify-between items-center my-3">
+                  <div className="div">
+                    <div className="flex gap-1 items-center">
+                      <div className="icon">
+                        <img src={Images.clock} alt="clock" />
+                      </div>
+                      <h6 className="font-semibold">Time</h6>
+                    </div>
+                    <h4 className="font-medium my-1">08:00 PM - 08:30 PM</h4>
                   </div>
-                  <h6 className="font-semibold">Time</h6>
-                </div>
-                <h4 className="font-medium my-1">08:00 PM - 08:30 PM</h4>
-                {/* edit btn */}
-                <div className="absolute top-5 right-0">
-                  <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditTimeModal(true)} />
+                  {/* edit btn */}
+                  <div className="">
+                    <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditTimeModal(true)} />
+                  </div>
                 </div>
               </div>
-            </div>{" "}
+            </div>
           </div>
 
           {/* price details card */}

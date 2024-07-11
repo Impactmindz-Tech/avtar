@@ -45,8 +45,10 @@ import record from "../assets/images/record.svg";
 import timer from "../assets/images/timer.svg";
 import microphone from "../assets/images/microphone.svg";
 import sendIcon from "../assets/images/send.svg";
+import user3 from "../assets/images/user3.svg";
 export default {
   auth_img,
+  user3,
   microphone,
   sendIcon,
   record,
