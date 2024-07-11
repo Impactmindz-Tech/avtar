@@ -12,8 +12,8 @@ function Payment_Status() {
         {paymentSuccess ? (
           <div>
             {/* success */}
-            <div className="main">
-              <div className="flex justify-center items-center pt-[20vh]">
+            <div className="main h-[90vh] flex flex-col justify-center">
+              <div className="flex justify-center items-center ">
                 <img src={Images.paymentSuccess} alt="paymentSuccess" className="w-[150px] " />
               </div>
               <h1 className="text-center text-success pt-5">Payment Successful</h1>

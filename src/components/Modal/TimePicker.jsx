@@ -1,50 +1,48 @@
-// TimePicker.js
-
-import React, { useState } from 'react';
+import  { useState, useEffect } from "react";
+// import './TimePicker.css'; // Create and import a CSS file for styles
 
 const TimePicker = () => {
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [isAM, setIsAM] = useState(true); // Initial value is AM
+  const [hours, setHours] = useState(9);
+  const [minutes, setMinutes] = useState(41);
+  const [period, setPeriod] = useState("AM");
 
-  const handleScroll = (e, type) => {
-    const delta = e.deltaY;
-    if (type === 'hours') {
-      setHours((prevHours) => prevHours + (delta > 0 ? 1 : -1));
+  const handleScroll = (event) => {
+    event.preventDefault();
+    if (event.deltaY < 0) {
+      // Scroll up
+      if (event.target.dataset.type === "hours") {
+        setHours((prev) => (prev === 12 ? 1 : prev + 1));
+      } else if (event.target.dataset.type === "minutes") {
+        setMinutes((prev) => (prev === 59 ? 0 : prev + 1));
+      } else if (event.target.dataset.type === "period") {
+        setPeriod((prev) => (prev === "AM" ? "PM" : "AM"));
+      }
     } else {
-      setMinutes((prevMinutes) => prevMinutes + (delta > 0 ? 1 : -1));
+      // Scroll down
+      if (event.target.dataset.type === "hours") {
+        setHours((prev) => (prev === 1 ? 12 : prev - 1));
+      } else if (event.target.dataset.type === "minutes") {
+        setMinutes((prev) => (prev === 0 ? 59 : prev - 1));
+      } else if (event.target.dataset.type === "period") {
+        setPeriod((prev) => (prev === "AM" ? "PM" : "AM"));
+      }
     }
   };
-
-  const toggleAMPM = () => {
-    setIsAM((prevIsAM) => !prevIsAM);
-  };
-
-  // Format hours and minutes to display leading zeros
-  const formattedHours = hours.toString().padStart(2, '0');
-  const formattedMinutes = minutes.toString().padStart(2, '0');
-
+  useEffect(() => {
+     document.body.style.overflow = 'hidden';
+     return ()=> document.body.style.overflow = 'unset';
+  }, []);
   return (
-    <div className="flex items-center">
-      <div
-        className="scrollable pr-4"
-        onWheel={(e) => handleScroll(e, 'hours')}
-      >
-        {formattedHours}
+    <div className="time-picker bg-borderFill-300 m-auto w-[50%] rounded-full">
+      <div className="time-column" data-type="hours" onWheel={handleScroll}>
+        {hours}
       </div>
-      <span className="pr-4">:</span>
-      <div
-        className="scrollable pr-4"
-        onWheel={(e) => handleScroll(e, 'minutes')}
-      >
-        {formattedMinutes}
+      <div className="time-column" data-type="minutes" onWheel={handleScroll}>
+        {minutes < 10 ? `0${minutes}` : minutes}
       </div>
-      <button
-        className="text-blue-500 hover:underline"
-        onClick={toggleAMPM}
-      >
-        {isAM ? 'AM' : 'PM'}
-      </button>
+      <div className="time-column" data-type="period" onWheel={handleScroll}>
+        {period}
+      </div>
     </div>
   );
 };

@@ -280,3 +280,21 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
 
 
 
+
+/* time edit modal */
+.time-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  user-select: none;
+}
+
+.time-column {
+  margin: 0 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
