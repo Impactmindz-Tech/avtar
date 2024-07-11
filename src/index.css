@@ -219,7 +219,13 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   padding: 0 2px;
 }
 
+.borderRadiusLeftChatRight{
+  border-radius: 10px 10px 0px 10px;
+}
 
+.borderRadiusLeftChatLeft{
+  border-radius: 10px 10px 10px 0px;
+}
 
 /* radio checkbox */
 

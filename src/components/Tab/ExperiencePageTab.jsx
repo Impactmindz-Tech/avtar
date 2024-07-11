@@ -4,7 +4,7 @@ import RequestedCard from "../Cards/ExperiencePageCard/RequestedCard";
 import CompletedCard from "../Cards/ExperiencePageCard/CompletedCard";
 import CancelledCard from "../Cards/ExperiencePageCard/CancelledCard";
 const ExperiencePageTab = () => {
-  const [activeTab, setActiveTab] = useState("Requested");
+  const [activeTab, setActiveTab] = useState("Booked");
   const tabs = ["Requested", "Booked", "Completed", "Cancelled"];
   return (
     <div className="container mx-auto p-4">

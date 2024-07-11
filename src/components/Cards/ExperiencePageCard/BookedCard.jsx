@@ -38,7 +38,7 @@ const BookedCard=()=> {
 
         {/* two button */}
         <div className="my-3 w-[94%]  m-auto">
-          <button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[80%] rounded w-full">Chat with Avatar</button>
+         <Link to="/user/chat-with-avatar"><button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[80%] rounded w-full">Chat with Avatar</button></Link> 
 
           {/* clock timer btn */}
           <button className="bg-backgroundFill-900 text-white flex justify-center items-center py-3 gap-2 rounded w-full mt-3 lg:w-[80%]">

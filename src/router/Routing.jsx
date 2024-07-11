@@ -15,6 +15,7 @@ import Confirm_Pay from "@/page/user/Confirm_Pay";
 import Payment_Status from "@/page/user/Payment_Status";
 import Experience from "@/page/user/Experience";
 import Update_Experience from "@/page/user/Update_Experience";
+import ChatWithAvatar from "@/page/user/ChatWithAvatar";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: "update-experience",
         element: <Update_Experience />,
+      },
+      {
+        path: "chat-with-avatar",
+        element: <ChatWithAvatar />,
       },
     ],
   },

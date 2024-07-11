@@ -43,8 +43,12 @@ import paymentSuccess from "../assets/images/paymentSuccess.png";
 import paymentFailed from "../assets/images/paymentFailed.png";
 import record from "../assets/images/record.svg";
 import timer from "../assets/images/timer.svg";
+import microphone from "../assets/images/microphone.svg";
+import sendIcon from "../assets/images/send.svg";
 export default {
   auth_img,
+  microphone,
+  sendIcon,
   record,
   paymentSuccess,
   paymentFailed,
