@@ -41,13 +41,17 @@ import cvv from "../assets/images/cvv.svg";
 import calendarTick from "../assets/images/calendar-tick.svg";
 import paymentSuccess from "../assets/images/paymentSuccess.png";
 import paymentFailed from "../assets/images/paymentFailed.png";
+import record from "../assets/images/record.svg";
+import timer from "../assets/images/timer.svg";
 export default {
   auth_img,
+  record,
   paymentSuccess,
   paymentFailed,
   calendarTick,
   camera,
   cvv,
+  timer,
   edit,
   cardsGateway,
   paypal,
