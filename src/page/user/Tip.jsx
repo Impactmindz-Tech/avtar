@@ -9,8 +9,8 @@ function Tip() {
       <div className="max-w-2xl m-auto ">
         <ConfirmPaymentForm />
         <div className="m-auto w-[460px]">
-        <BlackBottomButton link={"/user/tip"} text={"Pay"}/>
-      </div>
+          <BlackBottomButton link={"/user/tip"} text={"Pay"} />
+        </div>
       </div>
     </div>
   );
