@@ -8,10 +8,9 @@ function ChatWithAvatar() {
       <div className="max-w-2xl m-auto h-[90vh] relative">
         {/* chat container */}
         <div className="w-full h-[80vh] py-2 flex flex-col justify-end">
-        <div className="child">
-
-          <div className="rounded-lg bg-boxFill-900 text-grey-800 flex justify-center p-2 w-[15%] m-auto">Today</div>
-        </div>
+          <div className="child">
+            <div className="rounded-lg bg-boxFill-900 text-grey-800 flex justify-center p-2 w-[15%] m-auto">Today</div>
+          </div>
           {/* right  */}
           <div className="w-full clear-both">
             <div className="float-right mt-3">

@@ -1,4 +1,5 @@
 import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 
 function CompletedCard() {
   return (
@@ -34,7 +35,9 @@ function CompletedCard() {
         <div className="my-3 w-[94%]  m-auto">
 
           {/* clock timer btn */}
+          <Link to="/user/rate-tour">
           <button className="bg-backgroundFill-900 text-white flex justify-center items-center py-3 gap-2 rounded w-full mt-3 lg:w-[80%]">Rate Tour</button>
+          </Link>
         </div>
       </div>
     </div>
