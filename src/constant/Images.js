@@ -46,11 +46,41 @@ import timer from "../assets/images/timer.svg";
 import microphone from "../assets/images/microphone.svg";
 import sendIcon from "../assets/images/send.svg";
 import user3 from "../assets/images/user3.svg";
+import profile from "../assets/images/profile.svg";
+import AvatarWalkWhite from "../assets/images/AvatarWalkWhite.svg";
+import editBtnWhite from "../assets/images/editBtnWhite.svg";
+
+import userIcon from "../assets/images/profileIcon/userIcon.svg";
+import logout from "../assets/images/profileIcon/logout.svg";
+import term from "../assets/images/profileIcon/term.svg";
+import message from "../assets/images/profileIcon/message.svg";
+import share from "../assets/images/profileIcon/share.svg";
+import notification from "../assets/images/profileIcon/notification.svg";
+import currency from "../assets/images/profileIcon/currency.svg";
+import payment from "../assets/images/profileIcon/payment.svg";
+import info from "../assets/images/profileIcon/info.svg";
+import rightArrowWhite from "../assets/images/profileIcon/rightArrowWhite.svg";
+import rightArrowGray from "../assets/images/profileIcon/rightArrowGray.svg";
+
 export default {
   auth_img,
+  rightArrowWhite,
+  profile,
+  editBtnWhite,
+  rightArrowGray,
+  AvatarWalkWhite,
   user3,
   microphone,
   sendIcon,
+  userIcon,
+  logout,
+  term,
+  message,
+  share,
+  notification,
+  currency,
+  payment,
+  info,
   record,
   paymentSuccess,
   paymentFailed,

@@ -19,6 +19,7 @@ module.exports = {
         primaryColor: {
           900: "#2D2D2D",
           500: "#222222",
+          300:"#9e9e9e"
         },
         mouseHoverColor: {
           900: "#2D2D2D",

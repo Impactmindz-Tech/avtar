@@ -19,6 +19,7 @@ import ChatWithAvatar from "@/page/user/ChatWithAvatar";
 import RateTour from "@/page/user/RateTour";
 import Tip from "@/page/user/Tip";
 import Chat from "@/page/user/Chat";
+import Profile from "@/page/user/Profile";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -134,6 +135,10 @@ const router = createBrowserRouter([
       {
         path: "chat",
         element: <Chat />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },
