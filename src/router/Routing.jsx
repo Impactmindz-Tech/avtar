@@ -14,6 +14,7 @@ import Booking from "@/page/user/Booking";
 import Confirm_Pay from "@/page/user/Confirm_Pay";
 import Payment_Status from "@/page/user/Payment_Status";
 import Experience from "@/page/user/Experience";
+import Update_Experience from "@/page/user/Update_Experience";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
       {
         path: "experience",
         element: <Experience />,
+      },
+      {
+        path: "update-experience",
+        element: <Update_Experience />,
       },
     ],
   },

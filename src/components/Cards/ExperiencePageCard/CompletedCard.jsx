@@ -11,9 +11,7 @@ function CompletedCard() {
           <div className=" w-[70%]">
             <div className="flex justify-between">
               <div className="text-[#2AA174] bg-[#eaf6f2] p-1 px-6 rounded-full text-sm font-medium">Completed</div>
-              <div className="edit cursor-pointer">
-                <img src={Images.edit} alt="edit" />
-              </div>
+             
             </div>
             <h2 className="text-lg font-bold pt-3">Shikara Hotel, India</h2>
             <div className="description flex gap-2 items-center">

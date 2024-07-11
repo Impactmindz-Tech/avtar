@@ -3,8 +3,8 @@ import BookedCard from "../Cards/ExperiencePageCard/BookedCard";
 import RequestedCard from "../Cards/ExperiencePageCard/RequestedCard";
 import CompletedCard from "../Cards/ExperiencePageCard/CompletedCard";
 import CancelledCard from "../Cards/ExperiencePageCard/CancelledCard";
-function ExperiencePageTab() {
-  const [activeTab, setActiveTab] = useState("Booked");
+const ExperiencePageTab = () => {
+  const [activeTab, setActiveTab] = useState("Requested");
   const tabs = ["Requested", "Booked", "Completed", "Cancelled"];
   return (
     <div className="container mx-auto p-4">
@@ -24,30 +24,30 @@ function ExperiencePageTab() {
 
       {activeTab === "Booked" && (
         <>
-        <BookedCard/>
-        <BookedCard/>
+          <BookedCard />
+          <BookedCard />
         </>
       )}
       {activeTab === "Requested" && (
         <>
-        <RequestedCard/>
-        <RequestedCard/>
+          <RequestedCard />
+          <RequestedCard />
         </>
       )}
       {activeTab === "Completed" && (
         <>
-        <CompletedCard/>
-        <CompletedCard/>
+          <CompletedCard />
+          <CompletedCard />
         </>
       )}
       {activeTab === "Cancelled" && (
         <>
-        <CancelledCard/>
-        <CancelledCard/>
+          <CancelledCard />
+          <CancelledCard />
         </>
       )}
     </div>
   );
-}
+};
 
 export default ExperiencePageTab;

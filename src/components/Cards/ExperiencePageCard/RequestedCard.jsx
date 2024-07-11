@@ -1,6 +1,6 @@
 import Images from "@/constant/Images";
 
-function RequestedCard() {
+const RequestedCard=()=> {
   return (
     <div className="p-4">
       <div className=" BoxShadowLessRounded pb-2">
@@ -11,9 +11,7 @@ function RequestedCard() {
           <div className=" w-[70%]">
             <div className="flex justify-between">
               <div className="text-[#F5C20B] bg-[#fef9e7] p-1 px-6 rounded-full text-sm font-medium">Requested</div>
-              <div className="edit cursor-pointer">
-                <img src={Images.edit} alt="edit" />
-              </div>
+              
             </div>
             <h2 className="text-lg font-bold pt-3">Shikara Hotel, India</h2>
             <div className="description flex gap-2 items-center">

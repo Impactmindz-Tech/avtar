@@ -1,6 +1,7 @@
 import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 
-function BookedCard() {
+const BookedCard=()=> {
   return (
     <div className="p-4">
       <div className=" BoxShadowLessRounded pb-2">
@@ -12,7 +13,10 @@ function BookedCard() {
             <div className="flex justify-between">
               <div className="text-[#2AA174] bg-[#eaf6f2] p-1 px-6 rounded-full text-sm font-medium">Booked</div>
               <div className="edit cursor-pointer">
+               <Link to="/user/update-experience">
+
                 <img src={Images.edit} alt="edit" />
+               </Link>
               </div>
             </div>
             <h2 className="text-lg font-bold pt-3">Shikara Hotel, India</h2>
