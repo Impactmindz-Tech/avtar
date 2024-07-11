@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import TimePicker from "./TimePicker";
 
 const EditTimeModal = ({ show, onClose }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const modalRef = useRef();
 
   const handleClickOutside = (event) => {
@@ -22,8 +21,6 @@ const EditTimeModal = ({ show, onClose }) => {
     };
   }, [show]);
 
-
-
   if (!show) return null;
 
   return (
@@ -39,10 +36,9 @@ const EditTimeModal = ({ show, onClose }) => {
           </button>
         </div>
 
-<div className="h-[30vh] flex justify-center">
-        <TimePicker />
-
-</div>
+        <div className="h-[30vh] flex justify-center">
+          <TimePicker />
+        </div>
 
         <div className="flex mt-4">
           <button onClick={onClose} className="border border-primaryColor-900 text-black font-semibold py-2 rounded mr-2 w-[50%]">

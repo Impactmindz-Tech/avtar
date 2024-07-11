@@ -6,7 +6,7 @@ import UserSearch from "@/components/UserTopSearch/UserSearch";
 function Filters() {
   return (
     <div className="container">
-      <HeaderBack link="/user/home" text="Filter"/>
+      <HeaderBack link="/user/home" text="Filter" />
       <UserSearch />
       <div className="w-full sm:w-auto overflow-x-auto p-2">
         <FilterMenu />

@@ -1,6 +1,4 @@
-import  { useState, useEffect } from "react";
-// import './TimePicker.css'; // Create and import a CSS file for styles
-
+import { useState, useEffect } from "react";
 const TimePicker = () => {
   const [hours, setHours] = useState(9);
   const [minutes, setMinutes] = useState(41);
@@ -29,8 +27,8 @@ const TimePicker = () => {
     }
   };
   useEffect(() => {
-     document.body.style.overflow = 'hidden';
-     return ()=> document.body.style.overflow = 'unset';
+    document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = "unset");
   }, []);
   return (
     <div className="time-picker bg-borderFill-300 m-auto w-[50%] rounded-full">
