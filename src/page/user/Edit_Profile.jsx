@@ -4,7 +4,7 @@ import Images from "@/constant/Images";
 import { useState } from "react";
 
 const EditProfile = () => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(Images.profileUser);
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -18,10 +18,12 @@ const EditProfile = () => {
       <div className="max-w-2xl m-auto my-2">
         <div className="flex flex-col items-center mb-4">
           <div className="relative">
-            <img src={Images.profileUser} alt="Profile" className="w-32 h-32 rounded-full object-cover border-4 border-dotted border-white" />
-            <input type="file" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={handleImageChange} />
+            <img src={image} alt="Profile" className="w-32 h-32 rounded-full object-cover border-4 border-dotted border-white" />
+            <input type="file" id="Profile" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={handleImageChange} />
             <div className="absolute bottom-0 right-0 rounded-full p-2 cameraBoxShadow bg-backgroundFill-900">
-              <img src={Images.whiteCamera} alt="whiteCamera" className="cursor-pointer" />
+              <label htmlFor="Profile">
+                <img src={Images.whiteCamera} alt="whiteCamera" className="cursor-pointer" />
+              </label>
             </div>
           </div>
         </div>
