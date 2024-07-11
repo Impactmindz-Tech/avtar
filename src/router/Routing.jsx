@@ -17,6 +17,7 @@ import Experience from "@/page/user/Experience";
 import Update_Experience from "@/page/user/Update_Experience";
 import ChatWithAvatar from "@/page/user/ChatWithAvatar";
 import RateTour from "@/page/user/RateTour";
+import Tip from "@/page/user/Tip";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: "rate-tour",
         element: <RateTour />,
+      },
+      {
+        path: "tip",
+        element: <Tip />,
       },
     ],
   },
