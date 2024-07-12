@@ -6,25 +6,24 @@ function Profile() {
   return (
     <div className="container">
       {/* topSection */}
-      <div className="max-w-2xl m-auto ">
+      <div className="m-auto ">
         <div className="bg-black w-100 rounded-b-3xl">
           <div className="p-4">
             <img src={Images.AvatarWalkWhite} alt="AvatarWalkWhite" />
           </div>
-          <div className="flex justify-between items-center gap-2 p-8">
+          <div className="flex justify-between items-center gap-2 p-8 sm:p-3">
             <div className="imageProfile">
-              <img src={Images.profile} alt="profile" className="rounded-full object-cover border-[2px] border-dashed border-white" />
+              <img src={Images.profile} alt="profile" className="rounded-full   object-cover border-[2px] border-dashed border-white" />
             </div>
-            <div className="flex-1 px-5">
-              <h3 className="text-white">Richardo Black</h3>
-              <p className="text-primaryColor-300">richardoblack02@gmail.com</p>
-              <p className="text-primaryColor-300">@richrdo1205</p>
+            <div className="flex-1 sm:flex-auto px-5 sm:px-2">
+              <h3 className="text-white sm:text-sm">Richardo Black</h3>
+              <p className="text-primaryColor-300 sm:text-sm">richardoblack02@gmail.com</p>
+              <p className="text-primaryColor-300 sm:text-sm">@richrdo1205</p>
             </div>
             <div className="editBtn">
-            <Link to="/user/edit-profile">
-
-              <img src={Images.editBtnWhite} alt="editBtnWhite" className="cursor-pointer" />
-            </Link>
+              <Link to="/user/edit-profile">
+                <img src={Images.editBtnWhite} alt="editBtnWhite" className="cursor-pointer" />
+              </Link>
             </div>
           </div>
         </div>

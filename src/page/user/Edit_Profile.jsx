@@ -15,7 +15,7 @@ const EditProfile = () => {
   return (
     <div className="container">
       <HeaderBack link={"/user/profile"} text={"Edit Profile"} />
-      <div className="max-w-2xl m-auto my-2">
+      <div className=" m-auto my-2">
         <div className="flex flex-col items-center mb-4">
           <div className="relative">
             <img src={image} alt="Profile" className="w-32 h-32 rounded-full object-cover border-4 border-dotted border-white" />
