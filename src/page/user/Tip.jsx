@@ -6,9 +6,9 @@ function Tip() {
   return (
     <div className="container">
       <HeaderBack link="/user/rate-tour" text={"Tip"} />
-      <div className="max-w-2xl m-auto ">
+      <div className=" m-auto ">
         <ConfirmPaymentForm />
-        <div className="m-auto w-[460px]">
+        <div className="m-auto">
           <BlackBottomButton link={"/user/tip"} text={"Pay"} />
         </div>
       </div>
