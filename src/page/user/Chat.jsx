@@ -7,7 +7,7 @@ function Chat() {
     <div className="container">
       <BrandImageHeader link={"/user/home"} />
 
-      <div className="max-w-2xl m-auto ">
+      <div className=" m-auto ">
         <UserSearch />
 
         <div className="userContainer my-10">
