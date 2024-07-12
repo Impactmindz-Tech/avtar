@@ -34,7 +34,7 @@ const SeeAllReview = () => {
       </div>
       {/* <!-- Cleanliness --> */}
       <div className="flex lg:w-full 4xl:justify-center  flex-1 items-center">
-        <div className="lg:w-[50%] w-[50%] flex lg:items-center border-r  lg:px-4  border-gray-200 px-8  flex-col ">
+        <div className="lg:w-[50%] w-[50%] flex lg:items-center items-center border-r  lg:px-4  border-gray-200 px-8  flex-col ">
           <div className="w-16 h-16 lg:w-10 lg:h-10 bg-gray-100 flex items-center justify-center rounded-lg mb-2">
             <img src={Images.Cleanliness} alt="Cleanliness" />
           </div>
@@ -42,7 +42,7 @@ const SeeAllReview = () => {
           <p className="text-xl font-semibold text-grey-700 lg:text-sm">4.5</p>
         </div>
         {/* Accuracy */}
-        <div className="lg:w-[50%] w-[50%]  px-10 flex lg:px-9  flex-col ">
+        <div className="lg:w-[50%] w-[50%] flex lg:items-center items-center  lg:px-4  border-gray-200 px-8  flex-col">
           <div className="w-16 h-16 lg:w-10 lg:h-10 bg-gray-100 flex items-center justify-center rounded-lg mb-2">
             <img src={Images.correct} alt="correct icon" />
           </div>
