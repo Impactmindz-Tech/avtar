@@ -9,15 +9,6 @@ const Home = () => {
       <Header />
       <UserTopSearch />
       <UserMenuBar />
-
-      {/* <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-        <UserDashboardCard />
-        <UserDashboardCard />
-        <UserDashboardCard />
-        <UserDashboardCard />
-        <UserDashboardCard />
-        <UserDashboardCard />
-      </div> */}
     </div>
   );
 };
