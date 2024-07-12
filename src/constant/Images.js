@@ -63,10 +63,12 @@ import rightArrowWhite from "../assets/images/profileIcon/rightArrowWhite.svg";
 import rightArrowGray from "../assets/images/profileIcon/rightArrowGray.svg";
 import whiteCamera from "../assets/images/profileIcon/whiteCamera.svg";
 import profileUser from "../assets/images/profileIcon/user.svg";
+import cardRoundedEqual from "../assets/images/cardRoundedEqual.svg";
 
 export default {
   auth_img,
   profileUser,
+  cardRoundedEqual,
   whiteCamera,
   rightArrowWhite,
   profile,

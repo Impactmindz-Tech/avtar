@@ -19,7 +19,7 @@ module.exports = {
         primaryColor: {
           900: "#2D2D2D",
           500: "#222222",
-          300:"#9e9e9e"
+          300: "#9e9e9e",
         },
         mouseHoverColor: {
           900: "#2D2D2D",
@@ -101,6 +101,18 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      container: {
+        center: true,
+        padding: '1rem',
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
+        },
+      },
+  
     },
     screens: {
       "4xl": { max: "2047px" },
@@ -111,13 +123,7 @@ module.exports = {
       md: { max: "767px" },
       sm: { max: "639px" },
     },
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        // "2xl": "1400px",
-      },
-    },
+  
   },
   plugins: [require("tailwindcss-animate")],
 };

@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 const ReviewCardSwiper = () => {
   return (
     <div className="cardBorder my-5">
-      <div className="flex justify-between py-5 border-b-2 border-borderFill-600 px-2">
+      <div className="flex justify-between py-5 border-b-2 border-borderFill-600 px-2 lg:py-2 lg:flex-wrap">
         <div className="star">
           <Stack spacing={1}>
             <Rating name="half-rating" defaultValue={3} precision={0.5} />

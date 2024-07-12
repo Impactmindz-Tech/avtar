@@ -9,7 +9,7 @@ const HeaderBack = ({ link, text }) => {
           <img src={Images.arrowLeft} alt="arrowLeft icon" className="cursor-pointer" />
         </Link>
       </div>
-      <div className="flex-1 flex justify-center text-lg font-bold">{text}</div>
+      <div className="flex-1 flex justify-center 2xl:text-lg  font-bold 4xl:text-xl">{text}</div>
     </header>
   );
 };
