@@ -2,9 +2,9 @@ import Images from "@/constant/Images";
 
 const ConfirmPayCard = () => {
   return (
-    <div className="flex gap-1 w-[460px] BoxShadowLessRounded p-2 lg:flex-wrap lg:my-5">
-      <div className="lg:w-full">
-        <img src={Images.cardImageRounded} alt="card image" className="h-[100px] lg:h-auto lg:w-full"/>
+    <div className="flex gap-1 w-full BoxShadowLessRounded p-2 lg:flex-wrap lg:my-5">
+      <div className="sm:h-[200px] md:h-[130px] lg:h-[150px] sm:w-[100%]">
+        <img src={Images.cardImageRounded} alt="card image" className="w-[100%] h-[100%] object-cover"/>
       </div>
       <div className="textRight px-2">
         <h1 className="font-bold text-grey-900">Shikara Hotel, India</h1>

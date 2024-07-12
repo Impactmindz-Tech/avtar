@@ -26,7 +26,7 @@ const DatePickerModal = ({ show, onClose }) => {
 
   return (
     <div className="fixed  flex items-end justify-center inset-0 bg-black bg-opacity-50 z-50">
-      <div ref={modalRef} className="bg-white rounded-t-2xl shadow-lg w-full max-w-lg lg:max-w-full p-3">
+      <div ref={modalRef} className="bg-white rounded-t-2xl px-7 shadow-lg w-full max-w-4xl xl:max-w-2xl lg:max-w-full p-3">
         <div className="flex justify-between items-center mb-4">
           <button className="focus:outline-none">
             <i className="fas fa-chevron-left"></i>

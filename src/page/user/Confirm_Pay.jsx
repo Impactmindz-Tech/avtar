@@ -16,81 +16,82 @@ function Confirm_Pay() {
       <div className="container">
         <HeaderBack link="/user/booking" text={"Confirm and Pay"} />
 
-        <div className="max-w-2xl m-auto ">
-          <div className="flex justify-center">
+        <div className="m-auto ">
+          <div className="flex justify-center w-full ">
             <ConfirmPayCard />
           </div>
 
-          {/* your events edit card */}
-          <div className="flex BoxShadowLessRounded m-auto w-[460px] my-5">
-            <div className="py-2 px-4 w-full">
-              <h1 className="my-2 font-bold">Your Events</h1>
+          <div className="flex gap-4 md:block">
+            {/* your events edit card */}
+            <div className="flex BoxShadowLessRounded m-auto w-[50%] md:w-full my-5">
+              <div className="py-2 px-4 w-full">
+                <h1 className="my-2 font-bold">Your Events</h1>
 
-              <div className="relative  w-full">
-                {/* date */}
-                <div className="flex justify-between items-center">
-                  <div className="div">
-                    <div className="flex gap-1 items-center">
-                      <div className="icon">
-                        <img src={Images.calendarIcon} alt="calendarIcon" />
+                <div className="relative  w-full">
+                  {/* date */}
+                  <div className="flex justify-between items-center">
+                    <div className="div">
+                      <div className="flex gap-1 items-center">
+                        <div className="icon">
+                          <img src={Images.calendarIcon} alt="calendarIcon" />
+                        </div>
+                        <h6 className="font-semibold">Dates</h6>
                       </div>
-                      <h6 className="font-semibold">Dates</h6>
+                      <h4 className="font-medium my-1">Mon, Mar 21, 2024</h4>
                     </div>
-                    <h4 className="font-medium my-1">Mon, Mar 21, 2024</h4>
+                    {/* edit btn */}
+                    <div className="">
+                      <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditDateModal(true)} />
+                    </div>
                   </div>
-                  {/* edit btn */}
-                  <div className="">
-                    <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditDateModal(true)} />
-                  </div>
-                </div>
 
-                {/* time */}
-                <div className="flex justify-between items-center my-3">
-                  <div className="div">
-                    <div className="flex gap-1 items-center">
-                      <div className="icon">
-                        <img src={Images.clock} alt="clock" />
+                  {/* time */}
+                  <div className="flex justify-between items-center my-3">
+                    <div className="div">
+                      <div className="flex gap-1 items-center">
+                        <div className="icon">
+                          <img src={Images.clock} alt="clock" />
+                        </div>
+                        <h6 className="font-semibold">Time</h6>
                       </div>
-                      <h6 className="font-semibold">Time</h6>
+                      <h4 className="font-medium my-1">08:00 PM - 08:30 PM</h4>
                     </div>
-                    <h4 className="font-medium my-1">08:00 PM - 08:30 PM</h4>
-                  </div>
-                  {/* edit btn */}
-                  <div className="">
-                    <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditTimeModal(true)} />
+                    {/* edit btn */}
+                    <div className="">
+                      <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditTimeModal(true)} />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* price details card */}
-          <div className="flex BoxShadowLessRounded m-auto w-[460px] my-5 bg-boxFill-900">
-            <div className="py-2 px-4 w-full">
-              <h1 className="my-2 font-bold">Price Details</h1>
+            {/* price details card */}
+            <div className="flex BoxShadowLessRounded m-auto w-[50%] md:w-full my-5 bg-boxFill-900">
+              <div className="py-2 px-4 w-full">
+                <h1 className="my-2 font-bold">Price Details</h1>
 
-              <div className="text flex justify-between py-1">
-                <div className="title">Price: $1 x 15 minutes</div>
-                <div className="font-medium">$15.00</div>
-              </div>
-              <div className="text flex justify-between py-1">
-                <div className="title">Avatar Walk Fee</div>
-                <div className="font-medium">$0.20</div>
-              </div>
-
-              {/* total */}
-              <div className="total borderTop mt-2 py-2">
                 <div className="text flex justify-between py-1">
-                  <div className="title">Total</div>
-                  <div className="font-medium">$15.20</div>
+                  <div className="title">Price: $1 x 15 minutes</div>
+                  <div className="font-medium">$15.00</div>
                 </div>
-              </div>
-            </div>{" "}
-          </div>
+                <div className="text flex justify-between py-1">
+                  <div className="title">Avatar Walk Fee</div>
+                  <div className="font-medium">$0.20</div>
+                </div>
 
+                {/* total */}
+                <div className="total borderTop mt-2 py-2">
+                  <div className="text flex justify-between py-1">
+                    <div className="title">Total</div>
+                    <div className="font-medium">$15.20</div>
+                  </div>
+                </div>
+              </div>{" "}
+            </div>
+          </div>
           <ConfirmPaymentForm />
 
-          <div className="m-auto w-[460px] my-5">
+          <div className="m-auto  my-5">
             <Link to={"/user/payment-status"}>
               <div className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
                 <button className="py-2 font-bold ">Pay</button>

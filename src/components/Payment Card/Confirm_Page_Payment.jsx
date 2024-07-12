@@ -5,7 +5,7 @@ const Confirm_Page_Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState("applePay");
 
   return (
-    <form className="w-[460px] BoxShadowLessRounded m-auto p-5">
+    <form className="BoxShadowLessRounded m-auto p-5">
       <h2 className="text-lg font-medium my-3">Pay with</h2>
 
       <div className="space-y-4">
@@ -47,11 +47,11 @@ const Confirm_Page_Payment = () => {
       <div className="flex gap-1">
         {/* month */}
 
-        <div className="cardNumber ">
+        <div className="cardNumber w-[50%]">
           <input type="text" placeholder="MM / YY" className="inputGrayColor" />
         </div>
         {/* cvv */}
-        <div className="cardNumber relative ">
+        <div className="cardNumber relative w-[50%]">
           <div className="absolute top-4 right-3">
             <img src={Images.cvv} alt="cvv" />
           </div>
@@ -59,7 +59,7 @@ const Confirm_Page_Payment = () => {
         </div>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 ">  
         <label className="block text-sm font-medium mb-2">Billing Address</label>
         <select className="inputGrayColor">
           <option>United States</option>
