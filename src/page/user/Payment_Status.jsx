@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Payment_Status() {
-  const [paymentSuccess, setPaymentStatus] = useState(true);
+  const [paymentSuccess, setPaymentStatus] = useState(false);
   return (
     <div className="container">
       <OnlyBrandNameHeader text={"Payment Status"} />
@@ -35,11 +35,11 @@ function Payment_Status() {
 
         <div className="max-w-2xl m-auto my-6  fixed bottom-0 w-full ">
           <div className="w-[50%] m-auto  lg:w-full ">
-           <Link to="/user/home"> <button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[80%] rounded w-full">Back to Home</button></Link>
+           <Link to="/user/home"> <button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[90%] rounded w-full">Back to Home</button></Link>
             {paymentSuccess ? (
-              <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[80%]">Instant Live</button>
+              <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[90%]">Instant Live</button>
             ) : (
-              <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[80%]">Try Again</button>
+              <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[90%]">Try Again</button>
             )}
           </div>{" "}
         </div>

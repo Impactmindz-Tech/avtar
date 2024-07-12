@@ -1,4 +1,4 @@
-import {  useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import Images from "@/constant/Images";
 
@@ -30,14 +30,11 @@ const DateReservedModal = ({ show, onClose }) => {
         {/*  */}
         <div className="flex justify-center mt-7">
           <div className="rounded-full p-5 bg-borderFill-900 md:p-4">
-            <img src={Images.calendarTick} alt="calendarTick"  className="md:w-10 md:h-10"/>
+            <img src={Images.calendarTick} alt="calendarTick" className="md:w-10 md:h-10" />
           </div>
         </div>
         <div className="flex justify-center py-5">
-        <p className="w-[90%] text-grey-800 md:text-sm">
-        The Avatar is already booked for this specific date and time slot. Please try the next time slot available on this date
-
-        </p>
+          <p className="w-[90%] text-grey-800 md:text-sm">The Avatar is already booked for this specific date and time slot. Please try the next time slot available on this date</p>
         </div>
 
         <div className="my-2">
