@@ -5,7 +5,7 @@ function Experience() {
   return (
     <div className="container">
       <ExperiencePageHeader />
-      <div className="max-w-2xl m-auto ">
+      <div className="my-3">
         <ExperiencePageTab />
       </div>
     </div>

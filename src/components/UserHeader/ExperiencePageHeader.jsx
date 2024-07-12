@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const ExperiencePageHeader = () => {
   return (
-    <header className="flex justify-between items-center my-3">
+    <header className="flex justify-between items-center my-3 ">
       <div className="">
         <Link to="">
-          <img src={Images.AvatarWalk} alt="AvatarWalk icon" className="cursor-pointer" />
+          <img src={Images.AvatarWalk} alt="AvatarWalk icon" className="sm:w-20  cursor-pointer" />
         </Link>
       </div>
       <div className="flex justify-center items-center gap-2 font-bold text-sm">
