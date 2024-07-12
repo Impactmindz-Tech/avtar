@@ -3,14 +3,14 @@ import RateTourRating from "@/components/Rating/RateTourRating";
 import HeaderWithSkipBtn from "@/components/UserHeader/HeaderWithSkipBtn";
 import { useState } from "react";
 function RateTour() {
-  const [tipMoney, setTipMoney] = useState(0);
+  const [tipMoney, setTipMoney] = useState('');
   const tipCalculate = (price) => {
     setTipMoney(price);
   };
   return (
     <div className="container">
       <HeaderWithSkipBtn link="/user/experience" text={"Tour Rating"} skipLink={"/"} />
-      <div className="max-w-2xl m-auto  relative ">
+      <div className=" m-auto  relative ">
         <h1 className="text-primaryColor-900">Review the Experience</h1>
 
         <div className="starRate">
