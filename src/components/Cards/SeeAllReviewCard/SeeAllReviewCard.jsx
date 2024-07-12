@@ -27,9 +27,9 @@ const SeeAllReviewCard = () => {
         <div className="flex items-center gap-3 my-5">
           <div className="flex gap-1 items-center">
             <img src={Images.translate} alt="translate" className="w-5 h-5"/>
-          <div className="text-grey-800">Translate from Spanish</div>
+          <div className="text-grey-800 lg:text-sm">Translate from Spanish</div>
           </div>
-          <div className="underline underline-offset-4 cursor-pointer">Show Original</div>
+          <div className="underline underline-offset-4 lg:text-sm cursor-pointer">Show Original</div>
         </div>
       </div>
     </div>

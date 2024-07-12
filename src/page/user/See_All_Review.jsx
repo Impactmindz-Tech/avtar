@@ -8,7 +8,7 @@ function See_All_Review() {
     <div className="container">
       <HeaderBack link="/user/book-experience" text={"Review(4.6)"} />
 
-      <div className="max-w-2xl m-auto ">
+      <div className="my-4">
         {/* state */}
         <SeeAllReview />
 
@@ -16,7 +16,7 @@ function See_All_Review() {
         <div className="flex justify-between my-5 items-center">
           <div className="font-bold text-grey-900">15 reviews</div>
           <div className="border rounded-md px-3 py-1">
-            <select name="" id="" className="text-grey-800 outline-none">
+            <select name="" id="" className="text-grey-800 outline-none lg:text-md">
               <option value="Most recent">Most recent</option>
               <option value="oldest">oldest</option>
             </select>
