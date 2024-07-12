@@ -4,7 +4,7 @@ import Images from "@/constant/Images";
 import DateReservedModal from "../Modal/DateReservedModal";
 
 const BookingCalendar = () => {
-  const [showReservedModal,setShowReservedModal]=useState(false)
+  const [showReservedModal, setShowReservedModal] = useState(false);
   const [currentDate, setCurrentDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
 
@@ -28,14 +28,14 @@ const BookingCalendar = () => {
   };
 
   const handleDateClick = (day) => {
-    setShowReservedModal(true)
+    setShowReservedModal(true);
     setSelectedDate(currentDate.date(day));
   };
 
   return (
-    <div className="mx-auto bg-white BoxShadow p-4">
+    <div className="mx-auto bg-white BoxShadow  lg:h-auto p-4 xl:p-4 4xl:p-10 ">
       <div className="flex justify-between items-center mb-4">
-        <button onClick={previousMonth} className="px-3 py-2 border rounded-full">
+        <button onClick={previousMonth} className="px-3 py-2 lg:py-3 lg:px-4 border rounded-full">
           <img src={Images.arrowLeftSm} alt="arrowLeftSm" />
         </button>
         <div className="text-center">
@@ -55,12 +55,8 @@ const BookingCalendar = () => {
         {days.map((day, index) => (
           <div
             key={index}
-            className={`p-2 rounded-full cursor-pointer ${
-              day
-                ? selectedDate.date() === day && selectedDate.month() === currentDate.month()
-                  ? "bg-black text-white rounded-full"
-                  : "text-black"
-                : "bg-transparent"
+            className={`p-2 xl:p-2 4xl:p-4 lg:h-auto h-[60px] 4xl:h-[50px] rounded-full cursor-pointer ${
+              day ? (selectedDate.date() === day && selectedDate.month() === currentDate.month() ? "bg-black text-white rounded-full" : "text-black") : "bg-transparent"
             }`}
             onClick={() => day && handleDateClick(day)}
           >
@@ -69,8 +65,7 @@ const BookingCalendar = () => {
         ))}
       </div>
 
-
-      <DateReservedModal show={showReservedModal} onClose={() => setShowReservedModal(false)}/>
+      <DateReservedModal show={showReservedModal} onClose={() => setShowReservedModal(false)} />
     </div>
   );
 };

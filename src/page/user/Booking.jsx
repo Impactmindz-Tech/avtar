@@ -8,7 +8,7 @@ function Booking() {
     <div className="container">
       <HeaderBack link="/user/book-experience" text={"Set Date"} />
 
-      <div className="max-w-2xl m-auto ">
+      <div className="my-4">
         <BookingCalendar />
         {/* eastern  */}
         <div className=" bg-white  rounded-lg my-5">
@@ -32,32 +32,31 @@ function Booking() {
             </div>
           </div>
         </div>
-        <button className="border hover:bg-[#FF7070] hover:text-white font-bold border-borderFill-400 text-borderFill-400 w-full p-3 text-lg rounded-lg">Instant Live</button>
+        <button className="border hover:bg-[#FF7070] hover:text-white font-bold border-borderFill-400 text-borderFill-400 w-full p-2 text-lg rounded-lg">Instant Live</button>
 
         {/* duration */}
         <div className="my-2">
           <div className="mb-2">
             <h3 className="text-lg font-semibold mb-2">Duration</h3>
             <div className="flex space-x-2">
-              <button className="p-3 bg-gray-200 rounded-md">15 min</button>
-              <button className="p-3 bg-black text-white rounded-md">30 min</button>
-              <button className="p-3 bg-gray-200 rounded-md">45 min</button>
-              <button className="p-3 bg-gray-200 rounded-md">1 hour</button>
+              <button className="p-3 bg-gray-200 rounded-md md:p-1 md:px-2">15 min</button>
+              <button className="p-3 bg-black text-white rounded-md md:p-1 md:px-2">30 min</button>
+              <button className="p-3 bg-gray-200 rounded-md md:p-1 md:px-2">45 min</button>
+              <button className="p-3 bg-gray-200 rounded-md md:p-1 md:px-2">1 hour</button>
             </div>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-2">Tour Type</h3>
             <div className="flex space-x-2">
-              <button className="p-3 bg-gray-200 rounded-md">Public</button>
-              <button className="p-3 bg-gray-200 rounded-md">Private</button>
+              <button className="p-3 bg-gray-200 rounded-md md:p-1 md:px-2">Public</button>
+              <button className="p-3 bg-gray-200 rounded-md md:p-1 md:px-2">Private</button>
             </div>
           </div>
         </div>
 
-        <BlackBottomButton link="/user/confirm-and-pay" text="Proceed"/>
+        <BlackBottomButton link="/user/confirm-and-pay" text="Proceed" />
       </div>
 
-      {/* <DateReservedModal /> */}
     </div>
   );
 }
