@@ -5,11 +5,11 @@ function ChatWithAvatar() {
   return (
     <div className="container">
       <HeaderBack link="/user/experience" text={"Melia Jhon"} />
-      <div className="max-w-2xl m-auto h-[90vh] relative">
+      <div className=" m-auto h-[90vh] relative">
         {/* chat container */}
-        <div className="w-full h-[80vh] py-2 flex flex-col justify-end">
+        <div className="w-full h-[80vh]  py-2 flex flex-col justify-end">
           <div className="child">
-            <div className="rounded-lg bg-boxFill-900 text-grey-800 flex justify-center p-2 w-[15%] m-auto">Today</div>
+            <div className="rounded-lg bg-boxFill-900 text-grey-800 flex justify-center p-2 sm:px-10 w-[15%] m-auto">Today</div>
           </div>
           {/* right  */}
           <div className="w-full clear-both">
@@ -36,7 +36,7 @@ function ChatWithAvatar() {
             <input type="text" placeholder="Send message..." className="p-3 px-5 w-full bg-boxFill-900 rounded-md outline-none" />
           </div>
 
-          <div className="bg-backgroundFill-900 rounded-md cursor-pointer p-3 w-[8%] flex justify-center items-center">
+          <div className="bg-backgroundFill-900 rounded-md cursor-pointer p-3 sm:w-[15%] w-[8%] flex justify-center items-center">
             <img src={Images.sendIcon} alt="send icon" />
           </div>
         </div>
