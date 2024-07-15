@@ -32,7 +32,6 @@ const Login = () => {
         setLocalStorage("token", response?.token);
         navigate("/user/dashboard");
       }
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
