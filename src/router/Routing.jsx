@@ -21,14 +21,20 @@ import Tip from "@/page/user/Tip";
 import Chat from "@/page/user/Chat";
 import Profile from "@/page/user/Profile";
 import EditProfile from "@/page/user/Edit_Profile";
+import { getLocalStorage } from "@/utills/LocalStorageUtills";
+import AuthProteced from "@/authentication/AuthProteced";
+import DashboardProtected from "@/authentication/DashboardProteced";
 
 const Root = () => {
   const navigate = useNavigate();
+  const isAuthenticated = getLocalStorage("token");
   useEffect(() => {
-    navigate("/auth/login");
-  }, [navigate]);
-
-  return null; // Root component doesn't render any content
+    if (isAuthenticated) {
+      navigate("/user/dashboard");
+    } else {
+      navigate("/auth/login");
+    }
+  }, [isAuthenticated, navigate]);
 };
 
 const router = createBrowserRouter([
@@ -38,6 +44,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
+    element: <AuthProteced />,
     children: [
       {
         path: "login",
@@ -75,10 +82,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    // element: <Root />,
+    element: <DashboardProtected />,
     children: [
       {
-        path: "home",
+        path: "dashboard",
         element: <Home />,
       },
       {

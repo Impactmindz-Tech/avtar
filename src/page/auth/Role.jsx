@@ -1,8 +1,12 @@
-import  { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
 import Images from "@/constant/Images";
 import { Link } from "react-router-dom";
+import { userRoleApi } from "@/utills/service/authService";
+import { getLocalStorage } from "@/utills/LocalStorageUtills";
 
 const Role = () => {
+  const navigate = useNavigate();
   const [role, setRole] = useState({
     user: true,
     avatar: false,
@@ -13,6 +17,22 @@ const Role = () => {
       setRole({ avatar: false, user: true });
     } else {
       setRole({ avatar: true, user: false });
+    }
+  };
+
+  const setRoles = async () => {
+    const id = getLocalStorage("user_id");
+    const data = {
+      role: role.user ? "user" : "avatar",
+    };
+    try {
+      const response = await userRoleApi(id ,data);
+      console.log(response);
+      if (response?.isSuccess) {
+        navigate("/auth/address")
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -45,9 +65,9 @@ const Role = () => {
               </div>
             )}
           </div>
-          <Link to={"/auth/address"} className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
+          <div onClick={setRoles} className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
             <button>Next</button>
-          </Link>
+          </div>
         </div>
       </div>
     </>
