@@ -1,7 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import Images from "@/constant/Images";
-import { Link } from "react-router-dom";
 import { loginApi, userRoleApi } from "@/utills/service/authService";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import toast from "react-hot-toast";
@@ -11,7 +10,6 @@ const Role = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const action = getLocalStorage("userDetails")?.action;
-  const activeProfile = getLocalStorage("userDetails")?.Activeprofile;
   const [role, setRole] = useState({
     user: true,
     avatar: false,
@@ -51,10 +49,9 @@ const Role = () => {
     try {
       const response = await loginApi(data);
       if (response?.isSuccess) {
-        setLocalStorage("activeProfile", response?.data?.Activeprofile);
         setLocalStorage("user", response?.data);
         setLocalStorage("token", response?.token);
-        activeProfile == "user" ? navigate("/user/dashboard") : navigate("/avtar/dashboard");
+        navigate("/user/dashboard");
         removeLocalStorage("userDetails");
       }
     } catch (error) {

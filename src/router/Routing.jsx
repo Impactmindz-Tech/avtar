@@ -29,19 +29,13 @@ import AvtarHome from "@/page/avtar/AvtarHome";
 const Root = () => {
   const navigate = useNavigate();
   const isAuthenticated = getLocalStorage("token");
-  const activateProfile = getLocalStorage("user");
-  console.log(activateProfile, "activateProfile");
   useEffect(() => {
     if (isAuthenticated) {
-      if (activateProfile?.Activeprofile == "avatar") {
-        navigate("/avtar/dashboard");
-      } else {
-        navigate("/user/dashboard");
-      }
+      navigate("/user/dashboard");
     } else {
       navigate("/auth/login");
     }
-  }, [isAuthenticated, navigate , activateProfile]);
+  }, [isAuthenticated, navigate]);
 };
 
 const router = createBrowserRouter([
@@ -166,9 +160,9 @@ const router = createBrowserRouter([
     element: <DashboardProtected />,
     children: [
       {
-        path: "dashboard",
-        element: <AvtarHome />,
-      },
+        path:"dashboard",
+        element:<AvtarHome/>
+      }
     ],
   },
 ]);
