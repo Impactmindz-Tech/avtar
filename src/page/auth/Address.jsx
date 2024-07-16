@@ -1,10 +1,12 @@
 import { addAddressApi } from "@/utills/service/authService";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { CitySelect, CountrySelect, StateSelect, LanguageSelect } from "react-country-state-city";
-import { getLocalStorage } from "@/utills/LocalStorageUtills";
+import toast from 'react-hot-toast';
+import { removeLocalStorage } from "@/utills/LocalStorageUtills";
 
 const Address = () => {
+  const params = useParams()
   const [countryid, setCountryid] = useState(0);
   const [stateid, setstateid] = useState(0);
   const [cityId, setCityId] = useState(0);
@@ -12,7 +14,7 @@ const Address = () => {
   const navigate = useNavigate();
 
   const addAddress = async () => {
-    const id = getLocalStorage("user_id");
+    const id = params?.id
     const data = {
       country: countryid.name,
       State: stateid.name,
@@ -23,6 +25,8 @@ const Address = () => {
     try {
       const response = await addAddressApi(id, data);
       if (response?.isSuccess) {
+        removeLocalStorage("user_Signup")
+        toast.success(response?.message);
         navigate("/user/dashboard");
         console.log(response);
       }

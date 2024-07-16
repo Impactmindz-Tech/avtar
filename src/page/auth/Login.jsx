@@ -8,7 +8,7 @@ import { signupgoogle } from "@/constant/optimizedFunction/loginFunction/LoginFu
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "@/utills/formvalidation/FormValidation";
-import { setLocalStorage } from "@/utills/LocalStorageUtills";
+import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import { loginApi } from "@/utills/service/authService";
 
 const Login = () => {
@@ -24,10 +24,13 @@ const Login = () => {
   };
 
   const onSubmit = async (formData) => {
-    console.log(formData);
     try {
       const response = await loginApi(formData);
-      if (response?.isSuccess) {
+      console.log(response);
+      if (response?.isSuccess && response?.data?.length > 1) {
+        setLocalStorage("userDetails", response);
+        navigate("/auth/role/" + response?.data[0].userId, { state: { formData } });
+      } else {
         setLocalStorage("user", response?.data);
         setLocalStorage("token", response?.token);
         navigate("/user/dashboard");

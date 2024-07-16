@@ -8,7 +8,7 @@ const CartSlice = createSlice({
   name: "ecom",
   initialState,
   reducers: {
-    setProducts: (state, action) => {
+    setProductss: (state, action) => {
       state.products = action.payload;
     },
   },

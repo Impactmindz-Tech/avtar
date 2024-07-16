@@ -24,17 +24,24 @@ import EditProfile from "@/page/user/Edit_Profile";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import AuthProteced from "@/authentication/AuthProteced";
 import DashboardProtected from "@/authentication/DashboardProteced";
+import AvtarHome from "@/page/avtar/AvtarHome";
 
 const Root = () => {
   const navigate = useNavigate();
   const isAuthenticated = getLocalStorage("token");
+  const activateProfile = getLocalStorage("user");
+  console.log(activateProfile, "activateProfile");
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/user/dashboard");
+      if (activateProfile?.Activeprofile == "avatar") {
+        navigate("/avtar/dashboard");
+      } else {
+        navigate("/user/dashboard");
+      }
     } else {
       navigate("/auth/login");
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate , activateProfile]);
 };
 
 const router = createBrowserRouter([
@@ -63,7 +70,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "role",
+        path: "role/:user",
         element: (
           <AuthLayout>
             <Role />
@@ -71,7 +78,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "address",
+        path: "address/:id",
         element: (
           <AuthLayout>
             <Address />
@@ -151,6 +158,16 @@ const router = createBrowserRouter([
       {
         path: "edit-profile",
         element: <EditProfile />,
+      },
+    ],
+  },
+  {
+    path: "/avtar",
+    element: <DashboardProtected />,
+    children: [
+      {
+        path: "dashboard",
+        element: <AvtarHome />,
       },
     ],
   },

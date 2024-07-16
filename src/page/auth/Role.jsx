@@ -1,12 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import Images from "@/constant/Images";
 import { Link } from "react-router-dom";
-import { userRoleApi } from "@/utills/service/authService";
-import { getLocalStorage } from "@/utills/LocalStorageUtills";
+import { loginApi, userRoleApi } from "@/utills/service/authService";
+import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
+import toast from "react-hot-toast";
 
 const Role = () => {
+  const params = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
+  const action = getLocalStorage("userDetails")?.action;
+  const activeProfile = getLocalStorage("userDetails")?.Activeprofile;
   const [role, setRole] = useState({
     user: true,
     avatar: false,
@@ -21,15 +26,36 @@ const Role = () => {
   };
 
   const setRoles = async () => {
-    const id = getLocalStorage("user_id");
+    const id = params?.user;
     const data = {
       role: role.user ? "user" : "avatar",
     };
     try {
-      const response = await userRoleApi(id ,data);
+      const response = await userRoleApi(id, data);
       console.log(response);
       if (response?.isSuccess) {
-        navigate("/auth/address")
+        toast.success(response?.message);
+        navigate("/auth/address/" + response?.data?.userId);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const roleLogin = async () => {
+    const data = {
+      role: role.user ? "user" : "avatar",
+      userName: location?.state?.formData?.userName,
+      password: location?.state?.formData?.password,
+    };
+    try {
+      const response = await loginApi(data);
+      if (response?.isSuccess) {
+        setLocalStorage("activeProfile", response?.data?.Activeprofile);
+        setLocalStorage("user", response?.data);
+        setLocalStorage("token", response?.token);
+        activeProfile == "user" ? navigate("/user/dashboard") : navigate("/avtar/dashboard");
+        removeLocalStorage("userDetails");
       }
     } catch (error) {
       console.log(error);
@@ -65,7 +91,7 @@ const Role = () => {
               </div>
             )}
           </div>
-          <div onClick={setRoles} className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
+          <div onClick={action === "login" ? roleLogin : setRoles} className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
             <button>Next</button>
           </div>
         </div>

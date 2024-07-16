@@ -3,29 +3,16 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Images from "@/constant/Images";
-function UserDashboardCardSwiper() {
+function UserDashboardCardSwiper({ item }) {
   return (
     <Swiper pagination={true} modules={[Pagination]} className="mySwiper z-10">
-      <SwiperSlide>
-        {" "}
-        <img className="w-full" src={Images.cardImage} alt="Shikara Hotel" />
-      </SwiperSlide>
-      <SwiperSlide>
-        {" "}
-        <img className="w-full" src={Images.cardImage} alt="Shikara Hotel" />
-      </SwiperSlide>
-      <SwiperSlide>
-        {" "}
-        <img className="w-full" src={Images.cardImage} alt="Shikara Hotel" />
-      </SwiperSlide>
-      <SwiperSlide>
-        {" "}
-        <img className="w-full" src={Images.cardImage} alt="Shikara Hotel" />
-      </SwiperSlide>
-      <SwiperSlide>
-        {" "}
-        <img className="w-full" src={Images.cardImage} alt="Shikara Hotel" />
-      </SwiperSlide>
+      {item?.map((src, index) => {
+        return (
+          <SwiperSlide key={index}>
+            <img className="w-full" src={src} alt="slider_img" />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 }

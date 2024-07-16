@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registrationValidation } from "@/utills/formvalidation/FormValidation";
 import { registrationApi } from "@/utills/service/authService";
 import { setLocalStorage } from "@/utills/LocalStorageUtills";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -20,10 +21,11 @@ const SignUp = () => {
   const onSubmit = async (formData) => {
     try {
       const response = await registrationApi(formData);
+      console.log(response);
       if (response?.isSucces) {
-        console.log(response);
-        setLocalStorage("user_id", response?.data?._id);
-        navigate("/auth/role");
+        toast.success(response?.message);
+        setLocalStorage("user_Signup", response?.data);
+        navigate("/auth/role/" + response?.data?._id);
       }
     } catch (error) {
       console.log(error);

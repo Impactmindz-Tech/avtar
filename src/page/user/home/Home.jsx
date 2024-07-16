@@ -2,11 +2,35 @@ import UserDashboardCard from "@/components/Cards/UserDashBoardCard/UserDashboar
 import Header from "@/components/UserHeader/Header";
 import UserMenuBar from "@/components/UserMenuBar/UserMenuBar";
 import UserTopSearch from "@/components/UserTopSearch/UserTopSearch";
+import Featured from "@/constant/usertab/Featured";
+import MostBooked from "@/constant/usertab/MostBooked";
+import MostFavorite from "@/constant/usertab/MostFavorite";
+import Popular from "@/constant/usertab/Popular";
+import RecentExperience from "@/constant/usertab/RecentExperience";
+import RecommendExperience from "@/constant/usertab/RecommendExperience";
 import { useState } from "react";
+import { userExperienceApi } from "@/utills/service/userService/UserHomeService";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "@/store/slice/ExperinceProduct";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("Popular");
+  const dispatch = useDispatch();
+  const userExperinceData = useSelector((state) => state.ExperinceProduct.products);
   const tabs = ["Popular", "Featured", "Most Booked", "Most Favorite", "Recent Experience", "Recommend Experience"];
+  const userExperience = async () => {
+    try {
+      const response = await userExperienceApi();
+      if (response?.isSuccess) {
+        dispatch(setProducts(response));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useState(() => {
+    userExperience();
+  }, [userExperience]);
   return (
     <div className="container ">
       <Header />
@@ -24,67 +48,39 @@ const Home = () => {
 
       {activeTab === "Popular" && (
         <div className="my-10 grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 xl:lg:grid-cols-2 gap-4">
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
+          {userExperinceData?.data?.map((product) => (
+            <Popular key={product._id} product={product} />
+          ))}
         </div>
       )}
 
       {activeTab === "Featured" && (
         <div className="my-10 grid grid-cols-4  gap-4">
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
+          <Featured />
         </div>
       )}
 
       {activeTab === "Most Booked" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
+          <MostBooked />
         </div>
       )}
 
       {activeTab === "Most Favorite" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
+          <MostFavorite />
         </div>
       )}
 
       {activeTab === "Recent Experience" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
+          <RecentExperience />
         </div>
       )}
 
       {activeTab === "Recommend Experience" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
-          <UserDashboardCard />
+          <RecommendExperience />
         </div>
       )}
     </div>

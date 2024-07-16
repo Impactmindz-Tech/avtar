@@ -17,7 +17,7 @@ export const setLocalStorage = (key, value) => {
 };
 
 
-export const clearLocalStorage = (key) => {
+export const removeLocalStorage = (key) => {
     try {
         const value = localStorage.removeItem(key)
     } catch (error) {
