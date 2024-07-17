@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
+  productsList: [],
 };
 
-const ExperinceProduct = createSlice({
+const ExperinceSlice = createSlice({
   name: "ExperinceProduct",
   initialState,
   reducers: {
@@ -12,11 +13,11 @@ const ExperinceProduct = createSlice({
       state.products = action.payload;
     },
     setProductList: (state, action) => {
-      state.products = action.payload;
+      state.productsList = action.payload;
     },
   },
 });
 
-export const { setProducts, setProductList } = ExperinceProduct.actions;
+export const { setProducts, setProductList } = ExperinceSlice.actions;
 
-export default ExperinceProduct;
+export default ExperinceSlice;

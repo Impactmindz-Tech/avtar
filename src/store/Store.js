@@ -1,12 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import CartSlice from './slice/userSlice';
-import ExperinceProduct from './slice/ExperinceProduct';
+import ExperinceSlice from './slice/experinceS/ExperinceSlice';
 
 const store = configureStore({
     reducer: {
-        [ExperinceProduct.reducerPath]: ExperinceProduct.reducer,
-        [CartSlice.reducerPath]: CartSlice.reducer,
-        // Add other reducers here
+        [ExperinceSlice.reducerPath]: ExperinceSlice.reducer,
     },
 
 });

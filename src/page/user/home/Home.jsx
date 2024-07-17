@@ -11,7 +11,7 @@ import RecommendExperience from "@/constant/usertab/RecommendExperience";
 import { useState } from "react";
 import { userExperienceApi } from "@/utills/service/userService/UserHomeService";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "@/store/slice/ExperinceProduct";
+import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("Popular");

@@ -2,7 +2,7 @@ import ReviewCard from "@/components/Cards/ReviewCard/ReviewCard";
 import HeaderBack from "@/components/HeaderBack";
 import SwiperSlider from "@/components/Swiper/UserDashboardCardSwiper/SwiperSlider";
 import Images from "@/constant/Images";
-import { setProductList } from "@/store/slice/ExperinceProduct";
+import { setProductList } from "@/store/slice/experinceS/ExperinceSlice";
 import { userExperienceListApi } from "@/utills/service/userService/UserHomeService";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
