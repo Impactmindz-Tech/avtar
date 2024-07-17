@@ -5,6 +5,15 @@ export const userExperienceApi = async () => {
     const res = await axiosInstance.get("/user/getExperience");
     return res.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
+  }
+};
+
+export const userExperienceListApi = async (id) => {
+  try {
+    const res = await axiosInstance.get("/user/getdetailExp/" + id);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
 };

@@ -1,11 +1,12 @@
-import AuthLayout from "@/Layout/AuthLayout";
-import Address from "@/page/auth/Address";
-import Login from "@/page/auth/Login";
-import Role from "@/page/auth/Role";
-import SignUp from "@/page/auth/SignUp";
-import { useEffect } from "react";
-import Home from "../page/user/home/Home";
 import { createBrowserRouter, useNavigate } from "react-router-dom";
+import AuthLayout from "@/Layout/AuthLayout";
+import UserProtected from "@/authentication/UserProtected";
+import AvatarProtected from "@/authentication/AvatarProtected";
+import Login from "@/page/auth/Login";
+import SignUp from "@/page/auth/SignUp";
+import Role from "@/page/auth/Role";
+import Address from "@/page/auth/Address";
+import Home from "@/page/user/home/Home";
 import Filters from "@/page/user/Filters";
 import Report from "@/page/user/Report";
 import Book_Experience from "@/page/user/home/Book_Experience";
@@ -21,21 +22,34 @@ import Tip from "@/page/user/Tip";
 import Chat from "@/page/user/Chat";
 import Profile from "@/page/user/Profile";
 import EditProfile from "@/page/user/Edit_Profile";
-import { getLocalStorage } from "@/utills/LocalStorageUtills";
-import AuthProteced from "@/authentication/AuthProteced";
-import DashboardProtected from "@/authentication/DashboardProteced";
 import AvtarHome from "@/page/avtar/AvtarHome";
+import AuthProtected from "@/authentication/AuthProteced";
+import { getLocalStorage } from "@/utills/LocalStorageUtills";
+import { useEffect } from "react";
 
 const Root = () => {
   const navigate = useNavigate();
-  const isAuthenticated = getLocalStorage("token");
+  const token = getLocalStorage("token");
+  const currentState = getLocalStorage("user")?.Activeprofile; // 'auth', 'user', 'avatar'
+
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/user/dashboard");
+    if (!token) {
+      navigate("/auth/login", { replace: true });
     } else {
-      navigate("/auth/login");
+      switch (currentState) {
+        case "user":
+          navigate("/user/dashboard", { replace: true });
+          break;
+        case "avatar":
+          navigate("/avatar/dashboard", { replace: true });
+          break;
+        default:
+          navigate("/auth/login", { replace: true });
+      }
     }
-  }, [isAuthenticated, navigate]);
+  }, [token, currentState, navigate]);
+
+  return null;
 };
 
 const router = createBrowserRouter([
@@ -45,7 +59,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
-    element: <AuthProteced />,
+    element: <AuthProtected />,
     children: [
       {
         path: "login",
@@ -83,7 +97,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <DashboardProtected />,
+    element: <UserProtected />,
     children: [
       {
         path: "dashboard",
@@ -94,15 +108,11 @@ const router = createBrowserRouter([
         element: <Filters />,
       },
       {
-        path: "filters",
-        element: <Filters />,
-      },
-      {
         path: "report",
         element: <Report />,
       },
       {
-        path: "book-experience",
+        path: "book-experience/:id",
         element: <Book_Experience />,
       },
       {
@@ -156,13 +166,13 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/avtar",
-    element: <DashboardProtected />,
+    path: "/avatar",
+    element: <AvatarProtected />,
     children: [
       {
-        path:"dashboard",
-        element:<AvtarHome/>
-      }
+        path: "dashboard",
+        element: <AvtarHome />,
+      },
     ],
   },
 ]);

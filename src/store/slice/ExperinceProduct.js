@@ -11,9 +11,12 @@ const ExperinceProduct = createSlice({
     setProducts: (state, action) => {
       state.products = action.payload;
     },
+    setProductList: (state, action) => {
+      state.products = action.payload;
+    },
   },
 });
 
-export const { setProducts } = ExperinceProduct.actions;
+export const { setProducts, setProductList } = ExperinceProduct.actions;
 
 export default ExperinceProduct;

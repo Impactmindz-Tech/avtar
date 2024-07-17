@@ -1,9 +1,9 @@
-import UserDashboardCard from '@/components/Cards/UserDashBoardCard/UserDashboardCard'
 import React from 'react'
+import SwiperSlider from '@/components/Swiper/UserDashboardCardSwiper/SwiperSlider'
 
 const Featured = () => {
   return (
-    <UserDashboardCard />
+    <SwiperSlider />
   )
 }
 

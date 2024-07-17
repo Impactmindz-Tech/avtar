@@ -1,13 +1,13 @@
-import UserDashboardCardSwiper from "@/components/Swiper/UserDashboardCardSwiper/UserDashboardCardSwiper";
 import React from "react";
+import SwiperSlider from "@/components/Swiper/UserDashboardCardSwiper/SwiperSlider";
 import { Link } from "react-router-dom";
 import Images from "../Images";
 
 const Popular = ({ product }) => {
   return (
-    <Link to="/user/book-experience">
+    <Link to={`/user/book-experience/${product._id}`}>
       <div className="max-w-sm rounded overflow-hidden shadow-lg sm:max-w-full">
-        <UserDashboardCardSwiper item={product.images} />
+        <SwiperSlider item={product.images} />
         <div className="px-5 py-4 ">
           <div className="font-bold text-xl mb-2 relative xl:pt-7 lg:pt-7">
             {product.ExperienceName}

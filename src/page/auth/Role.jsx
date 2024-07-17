@@ -10,6 +10,7 @@ const Role = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const action = getLocalStorage("userDetails")?.action;
+  const userRole = getLocalStorage("user")?.Activeprofile;
   const [role, setRole] = useState({
     user: true,
     avatar: false,
@@ -51,7 +52,7 @@ const Role = () => {
       if (response?.isSuccess) {
         setLocalStorage("user", response?.data);
         setLocalStorage("token", response?.token);
-        navigate("/user/dashboard");
+        userRole == "user" ? navigate("/user/dashboard") : navigate("/avatar/dashboard");
         removeLocalStorage("userDetails");
       }
     } catch (error) {

@@ -1,4 +1,4 @@
-import UserDashboardCardSwiper from "@/components/Swiper/UserDashboardCardSwiper/UserDashboardCardSwiper";
+import SwiperSlider from "@/components/Swiper/UserDashboardCardSwiper/SwiperSlider";
 import Images from "@/constant/Images";
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,7 @@ function UserDashboardCard() {
   return (
     <Link to="/user/book-experience">
       <div className="max-w-sm rounded overflow-hidden shadow-lg sm:max-w-full">
-        <UserDashboardCardSwiper />
+        <SwiperSlider />
         <div className="px-5 py-4 ">
           <div className="font-bold text-xl mb-2 relative xl:pt-7 lg:pt-7">
             Shikara Hotel, India

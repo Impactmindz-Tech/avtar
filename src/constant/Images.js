@@ -64,6 +64,7 @@ import rightArrowGray from "../assets/images/profileIcon/rightArrowGray.svg";
 import whiteCamera from "../assets/images/profileIcon/whiteCamera.svg";
 import profileUser from "../assets/images/profileIcon/user.svg";
 import cardRoundedEqual from "../assets/images/cardRoundedEqual.svg";
+import hamburger_img from "../assets/images/hamburger.png";
 
 export default {
   auth_img,
@@ -131,4 +132,5 @@ export default {
   iphone_icon,
   user_icon,
   avtar_icon,
+  hamburger_img
 };

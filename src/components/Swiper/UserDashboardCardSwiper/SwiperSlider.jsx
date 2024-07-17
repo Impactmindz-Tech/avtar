@@ -3,7 +3,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Images from "@/constant/Images";
-function UserDashboardCardSwiper({ item }) {
+function SwiperSlider({ item }) {
   return (
     <Swiper pagination={true} modules={[Pagination]} className="mySwiper z-10">
       {item?.map((src, index) => {
@@ -17,4 +17,4 @@ function UserDashboardCardSwiper({ item }) {
   );
 }
 
-export default UserDashboardCardSwiper;
+export default SwiperSlider;
