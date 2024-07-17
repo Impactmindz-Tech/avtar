@@ -6,8 +6,6 @@ import "react-country-state-city/dist/react-country-state-city.css";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Toaster />
