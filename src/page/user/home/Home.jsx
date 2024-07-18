@@ -1,21 +1,15 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
-import UserDashboardCard from "@/components/Cards/UserDashBoardCard/UserDashboardCard";
 import Header from "@/components/UserHeader/Header";
 import UserTopSearch from "@/components/UserTopSearch/UserTopSearch";
-import Featured from "@/constant/usertab/Featured";
-import MostBooked from "@/constant/usertab/MostBooked";
-import MostFavorite from "@/constant/usertab/MostFavorite";
 import Popular from "@/constant/usertab/Popular";
-import RecentExperience from "@/constant/usertab/RecentExperience";
 import { userExperienceApi } from "@/utills/service/userSideService/userService/UserHomeService";
-import RecommendExperience from "@/constant/usertab/RecommendExperience";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("Popular");
   const dispatch = useDispatch();
-  const userExperinceData = useSelector((state) => state.ExperinceProduct.products);
+  const userExperienceData = useSelector((state) => state.ExperinceProduct.products);
   const tabs = ["Popular", "Recommeneded", "Mostbooked", "Recent"];
 
   const userExperience = async (tab) => {
@@ -37,7 +31,6 @@ const Home = () => {
     <div className="container">
       <Header />
       <UserTopSearch />
-      {/* <UserMenuBar /> */}
       <div className="lg:overflow-x-auto lg:overflow-y-hidden border-b">
         <div className="flex border-b">
           {tabs.map((tab) => (
@@ -48,49 +41,11 @@ const Home = () => {
         </div>
       </div>
 
-      {activeTab === "Popular" && (
-        <div className="my-10 grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 xl:lg:grid-cols-2 gap-4">
-          {userExperinceData?.data?.map((product) => (
-            <Popular key={product._id} product={product} />
-          ))}
-        </div>
-      )}
-
-      {activeTab === "Featured" && (
-        <div className="my-10 grid grid-cols-4 gap-4">
-          <Featured />
-        </div>
-      )}
-
-      {activeTab === "Mostbooked" && (
-        <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          {userExperinceData?.data?.map((product) => (
-            <MostBooked key={product._id} product={product} />
-          ))}
-        </div>
-      )}
-
-      {activeTab === "Mostbooked" && (
-        <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <MostFavorite />
-        </div>
-      )}
-
-      {activeTab === "Recent" && (
-        <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          {userExperinceData?.data?.map((product) => (
-            <RecentExperience key={product._id} product={product} />
-          ))}
-        </div>
-      )}
-
-      {activeTab === "Recommeneded" && (
-        <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          {userExperinceData?.data?.map((product) => (
-            <RecommendExperience key={product._id} product={product} />
-          ))}
-        </div>
-      )}
+      <div className="my-10 grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 xl:lg:grid-cols-2 gap-4">
+        {userExperienceData?.data?.map((product) => (
+          <Popular key={product._id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };
