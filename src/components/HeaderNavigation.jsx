@@ -1,6 +1,6 @@
 import React from "react";
 import Images from "@/constant/Images";
-import { Sheet, SheetContent,  SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Link, useNavigate } from "react-router-dom";
 
 const HeaderNavigation = () => {
@@ -15,9 +15,14 @@ const HeaderNavigation = () => {
         <img className="w-8 cursor-pointer" src={Images.hamburger_img} alt="" />
       </SheetTrigger>
       <SheetContent side={"left"}>
+        <SheetTitle as="h2" className="sr-only">
+          Navigation Menu
+        </SheetTitle>
         <div className="pt-14 pb-4 px-20">
           <div className="my-2">
-            <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Home</button>
+            <Link to={"/user/dashboard"}>
+              <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Home</button>
+            </Link>
           </div>
           <div className="my-2">
             <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Explore</button>
@@ -28,8 +33,8 @@ const HeaderNavigation = () => {
             </Link>
           </div>
           <div className="">
-            <Link to={'/user/profile'}>
-            <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Profile</button>
+            <Link to={"/user/profile"}>
+              <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Profile</button>
             </Link>
           </div>
           <div className="my-2">

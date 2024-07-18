@@ -1,8 +1,10 @@
 import ProfilePageCard from "@/components/Cards/ProfileCard/ProfilePageCard";
 import Images from "@/constant/Images";
+import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import { Link } from "react-router-dom";
-// import { FaRegCircleUser } from "react-icons/fa6";
+
 function Profile() {
+  const user = getLocalStorage("user") ? getLocalStorage("user") : null;
   return (
     <div className="container">
       {/* topSection */}
@@ -13,12 +15,13 @@ function Profile() {
           </div>
           <div className="flex justify-between items-center gap-2 p-8 sm:p-3">
             <div className="imageProfile">
-              <img src={Images.profile} alt="profile" className="rounded-full   object-cover border-[2px] border-dashed border-white" />
+              <img src={user?.profileimage} alt="profile" className="rounded-full w-[84px] h-[84px]  object-cover border-[2px] border-dashed border-white" />
+              {/* <img src={Images.profile} alt="profile" className="rounded-full   object-cover border-[2px] border-dashed border-white" /> */}
             </div>
             <div className="flex-1 sm:flex-auto px-5 sm:px-2">
-              <h3 className="text-white sm:text-sm">Richardo Black</h3>
-              <p className="text-primaryColor-300 sm:text-sm">richardoblack02@gmail.com</p>
-              <p className="text-primaryColor-300 sm:text-sm">@richrdo1205</p>
+              <h3 className="text-white sm:text-sm">{user?.firstName}</h3>
+              <p className="text-primaryColor-300 sm:text-sm">{user?.email}</p>
+              <p className="text-primaryColor-300 sm:text-sm">@{user?.userName}</p>
             </div>
             <div className="editBtn">
               <Link to="/user/edit-profile">
@@ -28,10 +31,7 @@ function Profile() {
           </div>
         </div>
 
-        {/* menu */}
         <div className="my-5">
-          {/* card */}
-
           <ProfilePageCard active={true} icon={Images.userIcon} text="Become a Avatar" />
           <ProfilePageCard active={false} icon={Images.info} text="Account Info" />
           <ProfilePageCard active={false} icon={Images.payment} text="Payment" />

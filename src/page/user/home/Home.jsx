@@ -1,26 +1,26 @@
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
 import UserDashboardCard from "@/components/Cards/UserDashBoardCard/UserDashboardCard";
 import Header from "@/components/UserHeader/Header";
-import UserMenuBar from "@/components/UserMenuBar/UserMenuBar";
 import UserTopSearch from "@/components/UserTopSearch/UserTopSearch";
 import Featured from "@/constant/usertab/Featured";
 import MostBooked from "@/constant/usertab/MostBooked";
 import MostFavorite from "@/constant/usertab/MostFavorite";
 import Popular from "@/constant/usertab/Popular";
 import RecentExperience from "@/constant/usertab/RecentExperience";
-import RecommendExperience from "@/constant/usertab/RecommendExperience";
-import { useState } from "react";
 import { userExperienceApi } from "@/utills/service/userSideService/userService/UserHomeService";
-import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
+import RecommendExperience from "@/constant/usertab/RecommendExperience";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("Popular");
   const dispatch = useDispatch();
   const userExperinceData = useSelector((state) => state.ExperinceProduct.products);
-  const tabs = ["Popular", "Featured", "Most Booked", "Most Favorite", "Recent Experience", "Recommend Experience"];
-  const userExperience = async () => {
+  const tabs = ["Popular", "Recommeneded", "Mostbooked", "Recent"];
+
+  const userExperience = async (tab) => {
     try {
-      const response = await userExperienceApi();
+      const response = await userExperienceApi(tab);
       if (response?.isSuccess) {
         dispatch(setProducts(response));
       }
@@ -28,15 +28,17 @@ const Home = () => {
       console.log(error);
     }
   };
-  useState(() => {
-    userExperience();
-  }, [userExperience]);
+
+  useEffect(() => {
+    userExperience(activeTab);
+  }, [activeTab]);
+
   return (
-    <div className="container ">
+    <div className="container">
       <Header />
       <UserTopSearch />
       {/* <UserMenuBar /> */}
-      <div className="lg:overflow-x-auto lg:overflow-y-hidden border-b  ">
+      <div className="lg:overflow-x-auto lg:overflow-y-hidden border-b">
         <div className="flex border-b">
           {tabs.map((tab) => (
             <button key={tab} className={`px-4 py-2 text-sm font-medium border-b-2 ${activeTab === tab ? "border-primaryColor-900 text-primaryColor-900 font-bold" : "border-transparent text-gray-500 hover:text-gray-700"}`} onClick={() => setActiveTab(tab)}>
@@ -55,32 +57,38 @@ const Home = () => {
       )}
 
       {activeTab === "Featured" && (
-        <div className="my-10 grid grid-cols-4  gap-4">
+        <div className="my-10 grid grid-cols-4 gap-4">
           <Featured />
         </div>
       )}
 
-      {activeTab === "Most Booked" && (
+      {activeTab === "Mostbooked" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <MostBooked />
+          {userExperinceData?.data?.map((product) => (
+            <MostBooked key={product._id} product={product} />
+          ))}
         </div>
       )}
 
-      {activeTab === "Most Favorite" && (
+      {activeTab === "Mostbooked" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
           <MostFavorite />
         </div>
       )}
 
-      {activeTab === "Recent Experience" && (
+      {activeTab === "Recent" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <RecentExperience />
+          {userExperinceData?.data?.map((product) => (
+            <RecentExperience key={product._id} product={product} />
+          ))}
         </div>
       )}
 
-      {activeTab === "Recommend Experience" && (
+      {activeTab === "Recommeneded" && (
         <div className="my-10 grid grid-cols-4 sm:grid-cols-1 gap-4">
-          <RecommendExperience />
+          {userExperinceData?.data?.map((product) => (
+            <RecommendExperience key={product._id} product={product} />
+          ))}
         </div>
       )}
     </div>

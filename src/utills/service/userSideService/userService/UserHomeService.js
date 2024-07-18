@@ -1,8 +1,8 @@
 import axiosInstance from "@/utills/AxiosInstance";
 
-export const userExperienceApi = async () => {
+export const userExperienceApi = async (tab) => {
   try {
-    const res = await axiosInstance.get("/user/getExperience");
+    const res = await axiosInstance.get(`/user/getExperience?filters=${tab}`);
     return res.data;
   } catch (error) {
     console.log(error);
