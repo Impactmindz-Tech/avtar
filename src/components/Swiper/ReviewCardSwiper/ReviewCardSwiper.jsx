@@ -36,10 +36,16 @@ const ReviewCardSwiper = ({ item }) => {
               <div className="flex justify-between py-5 border-b-2 border-borderFill-600 px-2 lg:py-2 lg:flex-wrap">
                 <div className="star">
                   <Stack spacing={1}>
-                    <Rating name="half-rating" defaultValue={review?.rating} />
+                    <Rating name="half-rating" value={review?.rating} />
                   </Stack>
                 </div>
-                <div className="text-grey-800">{review?.createdAt}</div>
+                <div className="text-grey-800">
+                  {new Date(review?.createdAt).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </div>
               </div>
               <div className="px-4 py-2">
                 <p className="text-grey-800">{review.comment}</p>

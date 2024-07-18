@@ -20,12 +20,12 @@ import ChatWithAvatar from "@/page/user/ChatWithAvatar";
 import RateTour from "@/page/user/RateTour";
 import Tip from "@/page/user/Tip";
 import Chat from "@/page/user/Chat";
-import Profile from "@/page/user/Profile";
-import EditProfile from "@/page/user/Edit_Profile";
 import AvtarHome from "@/page/avtar/AvtarHome";
 import AuthProtected from "@/authentication/AuthProteced";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import { useEffect } from "react";
+import Profile from "@/page/user/profile/Profile";
+import EditProfile from "@/page/user/profile/Edit_Profile";
 
 const Root = () => {
   const navigate = useNavigate();

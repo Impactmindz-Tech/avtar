@@ -27,7 +27,7 @@ const Address = () => {
       if (response?.isSuccess) {
         removeLocalStorage("user_Signup")
         toast.success(response?.message);
-        navigate("/user/dashboard");
+        navigate("/auth/login");
         console.log(response);
       }
     } catch (error) {

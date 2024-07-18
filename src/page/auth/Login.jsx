@@ -22,6 +22,8 @@ const Login = () => {
   const handleGoogleSignup = () => {
     signupgoogle(navigate);
   };
+  const userRole = getLocalStorage("user")?.user?.Activeprofile;
+  console.log(userRole);
 
   const onSubmit = async (formData) => {
     try {

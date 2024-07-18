@@ -23,7 +23,7 @@ export const userRoleApi = async (id , payload) => {
 
 export const addAddressApi = async (id , payload) => {
   try {
-    const res = await axiosInstance.post("/user/addAddress/" + id , payload)
+    const res = await axiosInstance.post("/user/addprofile/" + id , payload)
     return res.data;
   } catch (error) {}
 };

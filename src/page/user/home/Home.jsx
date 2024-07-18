@@ -9,7 +9,7 @@ import Popular from "@/constant/usertab/Popular";
 import RecentExperience from "@/constant/usertab/RecentExperience";
 import RecommendExperience from "@/constant/usertab/RecommendExperience";
 import { useState } from "react";
-import { userExperienceApi } from "@/utills/service/userService/UserHomeService";
+import { userExperienceApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
 
