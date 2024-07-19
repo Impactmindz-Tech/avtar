@@ -8,16 +8,17 @@ import ExperienceList from "./ExperienceList";
 import Loader from "@/components/Loader";
 
 const Home = () => {
-  const [activeTab, setActiveTab] = useState("Popular");
+  const [activeTab, setActiveTab] = useState("All");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const userExperienceData = useSelector((state) => state.ExperinceProduct.products);
-  const tabs = ["Popular", "Recommeneded", "Mostbooked", "Recent"];
+  const tabs = ["All", "Popular", "Recommeneded", "Mostbooked", "Recent"];
 
   const fetchUserExperience = async (tab) => {
+    const query = tab === "All" ? "" : tab;
     setLoading(true);
     try {
-      const response = await userExperienceApi(tab);
+      const response = await userExperienceApi(query);
       if (response?.isSuccess) {
         dispatch(setProducts(response));
       }
