@@ -9,7 +9,6 @@ import Address from "@/page/auth/Address";
 import Home from "@/page/user/home/Home";
 import Filters from "@/page/user/Filters";
 import Report from "@/page/user/Report";
-import Book_Experience from "@/page/user/home/Book_Experience";
 import See_All_Review from "@/page/user/See_All_Review";
 import Booking from "@/page/user/Booking";
 import Confirm_Pay from "@/page/user/Confirm_Pay";
@@ -26,6 +25,7 @@ import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import { useEffect } from "react";
 import Profile from "@/page/user/profile/Profile";
 import EditProfile from "@/page/user/profile/Edit_Profile";
+import Book_Experience_Details from "@/page/user/home/Book_Experience_Details";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -113,7 +113,7 @@ const router = createBrowserRouter([
       },
       {
         path: "book-experience/:id",
-        element: <Book_Experience />,
+        element: <Book_Experience_Details />,
       },
       {
         path: "see-all-review",

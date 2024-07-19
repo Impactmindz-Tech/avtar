@@ -6,9 +6,11 @@ import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/L
 import HeaderNavigation from "../HeaderNavigation";
 import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
 import toast from "react-hot-toast";
+import Loader from "../Loader";
 
 function Header() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
 
   useEffect(() => {
@@ -20,6 +22,7 @@ function Header() {
   }, [role, navigate]);
 
   const roleSwitch = async () => {
+    setLoading(true);
     const newRole = role === "user" ? "avatar" : "user";
     try {
       const response = await switchProfile(newRole);
@@ -27,29 +30,34 @@ function Header() {
         removeLocalStorage("user");
         setLocalStorage("user", response?.data);
         setRole(newRole);
-        toast.success(response?.message)
+        toast.success(response?.message);
         console.log(response);
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <header className="flex justify-between items-center p-3">
-      <UserLocationChange />
-      <div className="brand ">
-        <img src={Images.AvatarWalk} alt="AvatarWalk" />
-      </div>
+    <>
+      {loading && <Loader />}
+      <header className="flex justify-between items-center p-3">
+        <UserLocationChange />
+        <div className="brand ">
+          <img src={Images.AvatarWalk} alt="AvatarWalk" />
+        </div>
 
-      <div className="cursor-pointer flex gap-4 items-center">
-        <button className="bg-[#ff5454] py-[8px] text-white rounded-lg px-4" onClick={roleSwitch}>
-          {role == "user" ? "switch avatar " : "switch user"}
-        </button>
-        <img src={Images.liveBtn} alt="liveBtn" />
-        <HeaderNavigation />
-      </div>
-    </header>
+        <div className="cursor-pointer flex gap-4 items-center">
+          <button className="bg-[#ff5454] py-[8px] text-white rounded-lg px-4" onClick={roleSwitch}>
+            {role == "user" ? "switch avatar " : "switch user"}
+          </button>
+          <img src={Images.liveBtn} alt="liveBtn" />
+          <HeaderNavigation />
+        </div>
+      </header>
+    </>
   );
 }
 

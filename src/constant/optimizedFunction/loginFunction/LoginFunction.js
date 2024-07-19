@@ -11,9 +11,8 @@ export const signupgoogle = (navigate) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-
       console.log(user);
-      navigate("/user/home");
+      navigate("/user/dashboard");
     })
     .catch((error) => {
       const errorCode = error.code;

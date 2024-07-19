@@ -1,9 +1,9 @@
-import SwiperSlider from "@/components/Swiper/UserDashboardCardSwiper/SwiperSlider";
 import React from "react";
+import SwiperSlider from "@/components/Swiper/UserDashboardCardSwiper/SwiperSlider";
 import { Link } from "react-router-dom";
-import Images from "../Images";
+import Images from "@/constant/Images";
 
-const RecommendExperience = ({ product }) => {
+const ExperienceList = ({ product }) => {
   return (
     <Link to={`/user/book-experience/${product._id}`}>
       <div className="max-w-sm rounded overflow-hidden shadow-lg sm:max-w-full">
@@ -28,4 +28,4 @@ const RecommendExperience = ({ product }) => {
   );
 };
 
-export default RecommendExperience;
+export default ExperienceList;

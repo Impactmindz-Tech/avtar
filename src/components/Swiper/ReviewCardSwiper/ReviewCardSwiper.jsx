@@ -36,7 +36,7 @@ const ReviewCardSwiper = ({ item }) => {
               <div className="flex justify-between py-5 border-b-2 border-borderFill-600 px-2 lg:py-2 lg:flex-wrap">
                 <div className="star">
                   <Stack spacing={1}>
-                    <Rating name="half-rating" value={review?.rating} />
+                    <Rating value={review?.rating} name="read-only" readOnly />
                   </Stack>
                 </div>
                 <div className="text-grey-800">
@@ -52,7 +52,7 @@ const ReviewCardSwiper = ({ item }) => {
                 <div className="font-bold underline my-2 cursor-pointer">Show More</div>
                 <div className="flex gap-2 py-5 items-center ">
                   <div className="userImg">
-                    <img src={review?.userImage} alt="user" />
+                    <img className="w-[45px] h-[45px] rounded-full" src={review?.userImage} alt="user" />
                   </div>
                   <div className="flex flex-col">
                     <h3 className="font-medium text-[red]">{review?.avatarName}</h3>
