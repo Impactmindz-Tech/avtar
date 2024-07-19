@@ -1,29 +1,35 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
-import Header from "@/components/UserHeader/Header";
 import UserTopSearch from "@/components/UserTopSearch/UserTopSearch";
 import { userExperienceApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import ExperienceList from "./ExperienceList";
 import Loader from "@/components/Loader";
+import { getLocalStorage } from "@/utills/LocalStorageUtills";
 
 const Home = () => {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("Popular");
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState(""); // Default value for country
   const dispatch = useDispatch();
   const userExperienceData = useSelector((state) => state.ExperinceProduct.products);
-  const tabs = ["All", "Popular", "Recommeneded", "Mostbooked", "Recent"];
+  const tabs = ["Popular", "Recommended", "Mostbooked", "Recent"];
 
+  const country = getLocalStorage("selectedCountry");
   const fetchUserExperience = async (tab) => {
-    const query = tab === "All" ? "" : tab;
+    const payload = {
+      tab: tab,
+      country: country,
+      search: search,
+    };
     setLoading(true);
     try {
-      const response = await userExperienceApi(query);
+      const response = await userExperienceApi(payload);
       if (response?.isSuccess) {
         dispatch(setProducts(response));
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -31,14 +37,13 @@ const Home = () => {
 
   useEffect(() => {
     fetchUserExperience(activeTab);
-  }, [activeTab]);
+  }, [activeTab, search, country]); // Add country to the dependency array
 
   return (
     <>
       {loading && <Loader />}
       <div className="container">
-        <Header />
-        <UserTopSearch />
+        <UserTopSearch onSearch={setSearch} /> {/* Pass callback to update country */}
         <div className="lg:overflow-x-auto lg:overflow-y-hidden border-b">
           <div className="flex border-b">
             {tabs.map((tab) => (
@@ -48,8 +53,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-
-        <div className="my-10 grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 xl:lg:grid-cols-2 gap-4">
+        <div className="my-10 grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 xl:grid-cols-2 gap-4">
           {userExperienceData?.data?.map((product) => (
             <ExperienceList key={product._id} product={product} />
           ))}

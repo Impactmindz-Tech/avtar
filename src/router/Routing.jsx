@@ -26,6 +26,7 @@ import { useEffect } from "react";
 import Profile from "@/page/user/profile/Profile";
 import EditProfile from "@/page/user/profile/Edit_Profile";
 import Book_Experience_Details from "@/page/user/home/Book_Experience_Details";
+import DashboardLayout from "@/Layout/DashboardLayout";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -101,7 +102,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Home />,
+        element: (
+          <DashboardLayout>
+            <Home />
+          </DashboardLayout>
+        ),
       },
       {
         path: "filters",
