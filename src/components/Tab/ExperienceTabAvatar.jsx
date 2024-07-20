@@ -1,12 +1,13 @@
 import { useState } from "react";
-import BookedCard from "../Cards/ExperiencePageCard/BookedCard";
-import RequestedCard from "../Cards/ExperiencePageCard/RequestedCard";
-import CompletedCard from "../Cards/ExperiencePageCard/CompletedCard";
-import CancelledCard from "../Cards/ExperiencePageCard/CancelledCard";
+
 import OffersCard from "../Avatar/Card/OffersCard";
+import RequestedCard from "../Avatar/Card/ExperiencePageCards/RequestCard";
+import BookedCard from "../Avatar/Card/ExperiencePageCards/BookedCard";
+import CancelledCard from "../Avatar/Card/ExperiencePageCards/CancelledCard";
+import CompletedCard from "../Avatar/Card/ExperiencePageCards/CompletedCard";
 const ExperienceTabAvatar = () => {
   const [activeTab, setActiveTab] = useState("Offers");
-  const tabs = ["Offers","Requested", "Booked", "Completed", "Cancelled"];
+  const tabs = ["Offers", "Requested", "Booked", "Completed", "Cancelled"];
   return (
     <div className="">
       <div className="p-4 ">
@@ -27,26 +28,22 @@ const ExperienceTabAvatar = () => {
         </div>
         {activeTab === "Offers" && (
           <>
-            <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-             <OffersCard/>
-             <OffersCard/>
+            <div className="my-5 grid grid-cols-3   lg:grid-cols-1 xl:grid-cols-2 gap-4">
+              <OffersCard />
+              <OffersCard />
             </div>
           </>
         )}
         {activeTab === "Booked" && (
           <>
-            <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-              <BookedCard />
-              <BookedCard />
-              <BookedCard />
+            <div className="my-5 grid grid-cols-3   lg:grid-cols-1 xl:grid-cols-2 gap-4">
               <BookedCard />
             </div>
           </>
         )}
         {activeTab === "Requested" && (
           <>
-            <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-              <RequestedCard />
+            <div className="my-5 grid grid-cols-3  lg:grid-cols-1 xl:grid-cols-2 gap-4">
               <RequestedCard />
               <RequestedCard />
               <RequestedCard />
@@ -55,21 +52,15 @@ const ExperienceTabAvatar = () => {
         )}
         {activeTab === "Completed" && (
           <>
-            <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-              <CompletedCard />
-              <CompletedCard />
-              <CompletedCard />
-              <CompletedCard />
+            <div className="my-5 grid grid-cols-3   lg:grid-cols-1 xl:grid-cols-2 gap-4">
+          <CompletedCard/>
             </div>
           </>
         )}
         {activeTab === "Cancelled" && (
           <>
-            <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-              <CancelledCard />
-              <CancelledCard />
-              <CancelledCard />
-              <CancelledCard />
+            <div className="my-5 grid grid-cols-3   lg:grid-cols-1 xl:grid-cols-2 gap-4">
+             <CancelledCard/>
             </div>
           </>
         )}

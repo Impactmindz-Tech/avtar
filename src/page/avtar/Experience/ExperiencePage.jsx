@@ -1,11 +1,11 @@
-import ExperienceTabAvatar from "@/components/Tab/ExperienceTabAvatar"
+import ExperienceTabAvatar from "@/components/Tab/ExperienceTabAvatar";
 
 function ExperiencePage() {
   return (
     <div>
-      <ExperienceTabAvatar/>
+      <ExperienceTabAvatar />
     </div>
-  )
+  );
 }
 
-export default ExperiencePage
+export default ExperiencePage;
