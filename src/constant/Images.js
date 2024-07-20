@@ -67,10 +67,11 @@ import hamburger_img from "../assets/images/hamburger.png";
 import arrow_right from "../assets/images/arrow-right.svg";
 import pattern from "../assets/images/pattern.svg";
 import calendar30 from "../assets/images/calendar30.svg";
+import multiUser from "../assets/images/multiUser.svg";
 
 export default {
   auth_img,arrow_right,
-  info,
+  info,multiUser,
   profileUser,calendar30,
   pattern,
   cardRoundedEqual,

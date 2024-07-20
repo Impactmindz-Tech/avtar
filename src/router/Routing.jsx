@@ -28,6 +28,7 @@ import EditProfile from "@/page/user/profile/Edit_Profile";
 import Book_Experience_Details from "@/page/user/home/Book_Experience_Details";
 import DashboardLayout from "@/Layout/DashboardLayout";
 import AvatarLayout from "@/Layout/AvatarLayout";
+import ExperiencePage from "@/page/avtar/Experience/ExperiencePage";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -180,6 +181,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <AvtarHome />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "experience",
+        element: (
+          <AvatarLayout>
+            <ExperiencePage />
           </AvatarLayout>
         ),
       },

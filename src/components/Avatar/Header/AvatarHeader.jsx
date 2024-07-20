@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Images from "@/constant/Images";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import HeaderNavigation from "../../HeaderNavigation";
 import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
@@ -10,6 +10,7 @@ import { getAllcountryApi } from "@/utills/service/userSideService/userService/U
 import HeaderNavigationAvatar from "@/components/HeaderNavigationAvatar";
 
 function AvatarHeader() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [countrys, setCountrys] = useState([]);
@@ -68,14 +69,15 @@ function AvatarHeader() {
     <>
       {/* {loading && <Loader />} */}
       <header className="flex justify-between items-center p-3">
-        <select >
+      {(location.pathname!=="/avatar/experience")&& <select >
         <option value="California">California</option>
           {/* {countrys?.map((item, index) => (
             <option key={index} value={item}>
               {item}
             </option>
           ))} */}
-        </select>
+        </select>}
+       
         <div className="brand">
           <img src={Images.AvatarWalk} alt="AvatarWalk" />
         </div>

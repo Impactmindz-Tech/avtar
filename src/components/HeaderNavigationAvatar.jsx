@@ -19,7 +19,7 @@ const HeaderNavigationAvatar = () => {
         </SheetTitle>
         <div className="pt-14 pb-4 px-20">
           <div className="my-2">
-            <Link to={"/user/dashboard"}>
+            <Link to={"/avatar/dashboard"}>
               <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Home</button>
             </Link>
           </div>
@@ -27,7 +27,7 @@ const HeaderNavigationAvatar = () => {
             <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Chat</button>
           </div>
           <div className="my-2">
-            <Link to={"/user/experience"}>
+            <Link to={"/avatar/experience"}>
               <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Experience</button>
             </Link>
           </div>
