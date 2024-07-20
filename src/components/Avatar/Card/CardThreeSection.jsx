@@ -1,11 +1,11 @@
-import Images from "@/constant/Images"
-import { Link } from "react-router-dom"
+import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 
-export default function CardThreeSection({icon,link,title,desc}) {
+export default function CardThreeSection({ icon, link, title, desc ,circle}) {
   return (
     <Link to={link}>
-     <div className="border flex items-center justify-between p-4 gap-4 rounded-2xl my-5 cursor-pointer">
-        <div className="icon bg-grey-300 rounded-full px-5 py-7">
+      <div className="border flex items-center justify-between p-4 gap-4 rounded-2xl my-5 cursor-pointer">
+      <div className={`icon bg-grey-300 rounded-full ${circle?'px-5 py-7':'p-3'}`}>
           <img src={icon} alt={icon} />
         </div>
         <div className="info flex-1">
@@ -15,6 +15,8 @@ export default function CardThreeSection({icon,link,title,desc}) {
         <div className="arrow">
           <img src={Images.rightArrowGray} alt="rightArrowGray" />
         </div>
-      </div> </Link>
-  )
+      </div>{" "}
+    </Link>
+  );
 }
+// 

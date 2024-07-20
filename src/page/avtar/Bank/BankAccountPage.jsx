@@ -6,7 +6,7 @@ function BankAccountPage() {
   return (
     <div className="container">
       <HeaderBack link="/avatar/profile" text={"Bank Account"} />
-      <CardThreeSection icon={Images.Stripe} link={"/avatar/stripe"} title={"Stripe Account"} desc={"Click on arrow to add/update your account information."} />
+      <CardThreeSection icon={Images.Stripe} link={"/avatar/stripe"} title={"Stripe Account"} desc={"Click on arrow to add/update your account information."} circle={true} />
     </div>
   );
 }

@@ -36,6 +36,7 @@ import ChatPageAvatar from "@/page/avtar/Chat/ChatPage";
 import ChatWithUser from "@/page/avtar/Chat/ChatWithUser";
 import BankAccountPage from "@/page/avtar/Bank/BankAccountPage";
 import StripeAccountPage from "@/page/avtar/Bank/StripeAccountPage";
+import AccountInfoPage from "@/page/avtar/AccountInfoPage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -251,6 +252,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <StripeAccountPage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "account-info",
+        element: (
+          <AvatarLayout>
+            <AccountInfoPage />
           </AvatarLayout>
         ),
       },

@@ -36,7 +36,7 @@ function ProfilePageAvatar() {
           <ProfilePageCard active={false} icon={Images.payment} text="Earnings" />
           <ProfilePageCard active={false} icon={Images.flag} text="Add Experience" />
           <ProfilePageCard active={false} icon={Images.bank} text="Bank Account" link={"/avatar/bank"}/>
-          <ProfilePageCard active={false} icon={Images.info} text="Account Info" />
+          <ProfilePageCard active={false} icon={Images.info} text="Account Info" link="/avatar/account-info" />
           <ProfilePageCard active={false} icon={Images.notification} text="Notifications" />
           <ProfilePageCard active={false} icon={Images.notification} text="Availability" />
           <ProfilePageCard active={false} icon={Images.share} text="Share Your Profile" />

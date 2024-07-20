@@ -71,13 +71,14 @@ import multiUser from "../assets/images/multiUser.svg";
 import flag from "../assets/images/flag.svg";
 import bank from "../assets/images/bank.svg";
 import Stripe from "../assets/images/Stripe.svg";
+import trash from "../assets/images/trash.svg";
 
 export default {
   auth_img,
   arrow_right,
   Stripe,
   info,
-  bank,
+  bank,trash,
   multiUser,
   profileUser,
   calendar30,
