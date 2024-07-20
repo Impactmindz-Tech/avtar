@@ -6,12 +6,16 @@ import InstantLiveCard from "@/components/Avatar/HomeScreen/InstantLiveCard";
 import EarningCard from "@/components/Avatar/HomeScreen/EarningCard";
 import Images from "@/constant/Images";
 import RequestedCard from "@/components/Avatar/Card/RequestCard";
+import { useState } from "react";
+import InstantLiveRequestModal from "@/components/Modal/InstantLiveRequestModal";
 const AvtarHome = () => {
+  const [instantLiveModalState, setInstantLiveModalState] = useState(false);
   return (
     <>
       <UserSearch />
-      <InstantLiveCard />
-
+      <div onClick={() => setInstantLiveModalState(true)}>
+        <InstantLiveCard />
+      </div>
       {/* add exp */}
       <AddExperienceCard />
 
@@ -37,6 +41,7 @@ const AvtarHome = () => {
         <RequestedCard />
         <RequestedCard />
       </div>
+      <InstantLiveRequestModal instantLiveModalState={instantLiveModalState} setInstantLiveModalState={setInstantLiveModalState} />
     </>
   );
 };
