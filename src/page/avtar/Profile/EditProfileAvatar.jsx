@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { editProfileApi } from "@/utills/service/userSideService/editProfileService/EditProfileService";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 
-const EditProfile = () => {
+const EditProfileAvatar = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const handleImageChange = (e) => {
@@ -55,7 +55,7 @@ const EditProfile = () => {
 
   return (
     <div className="container">
-      <HeaderBack link={"/avatar/profile"} text={"Edit Profile"} />
+      <HeaderBack link={"/user/profile"} text={"Edit Profile"} />
       <form onSubmit={handleSubmit(onSubmit)} noValidate className=" m-auto my-2">
         <div className="flex flex-col items-center mb-4">
           <div className="relative">
@@ -88,14 +88,7 @@ const EditProfile = () => {
               Mobile Number
             </label>
             <div className="flex">
-              <input
-                className="shadow appearance-none border rounded-r w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="mobileNumber"
-                name="mobileNumber"
-                type="text"
-                placeholder="98765 43210"
-                {...register("mobileNumber")}
-              />
+              <input className="shadow appearance-none border rounded-r w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mobileNumber" name="mobileNumber" type="text" placeholder="98765 43210" {...register("mobileNumber")} />
               {errors.mobileNumber && <p className="text-red-500 text-xs italic">{errors.mobileNumber.message}</p>}
             </div>
           </div>
@@ -131,4 +124,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default EditProfileAvatar;

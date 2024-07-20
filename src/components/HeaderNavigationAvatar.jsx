@@ -32,7 +32,7 @@ const HeaderNavigationAvatar = () => {
             </Link>
           </div>
           <div className="">
-            <Link to={"/user/profile"}>
+            <Link to={"/avatar/profile"}>
               <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Profile</button>
             </Link>
           </div>

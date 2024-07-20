@@ -30,7 +30,8 @@ import DashboardLayout from "@/Layout/DashboardLayout";
 import AvatarLayout from "@/Layout/AvatarLayout";
 import ExperiencePage from "@/page/avtar/Experience/ExperiencePage";
 import OffersPage from "@/page/avtar/Offers/OffersPage";
-
+import ProfilePageAvatar from "@/page/avtar/Profile/ProfilePage";
+import EditProfileAvatar from "@/page/avtar/Profile/EditProfileAvatar";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -198,6 +199,22 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <OffersPage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <AvatarLayout>
+            <ProfilePageAvatar />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "edit-profile",
+        element: (
+          <AvatarLayout>
+            <EditProfileAvatar />
           </AvatarLayout>
         ),
       },

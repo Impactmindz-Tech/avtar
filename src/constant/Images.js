@@ -68,12 +68,18 @@ import arrow_right from "../assets/images/arrow-right.svg";
 import pattern from "../assets/images/pattern.svg";
 import calendar30 from "../assets/images/calendar30.svg";
 import multiUser from "../assets/images/multiUser.svg";
+import flag from "../assets/images/flag.svg";
+import bank from "../assets/images/bank.svg";
 
 export default {
-  auth_img,arrow_right,
-  info,multiUser,
-  profileUser,calendar30,
+  auth_img,
+  arrow_right,
+  info,bank,
+  multiUser,
+  profileUser,
+  calendar30,
   pattern,
+  flag,
   cardRoundedEqual,
   whiteCamera,
   rightArrowWhite,
@@ -137,5 +143,5 @@ export default {
   iphone_icon,
   user_icon,
   avtar_icon,
-  hamburger_img
+  hamburger_img,
 };
