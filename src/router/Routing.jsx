@@ -34,6 +34,7 @@ import ProfilePageAvatar from "@/page/avtar/Profile/ProfilePage";
 import EditProfileAvatar from "@/page/avtar/Profile/EditProfileAvatar";
 import ChatPageAvatar from "@/page/avtar/Chat/ChatPage";
 import ChatWithUser from "@/page/avtar/Chat/ChatWithUser";
+import BankAccountPage from "@/page/avtar/Bank/BankAccountPage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -233,6 +234,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <ChatWithUser />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "bank",
+        element: (
+          <AvatarLayout>
+            <BankAccountPage />
           </AvatarLayout>
         ),
       },

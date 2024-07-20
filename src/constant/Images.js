@@ -70,11 +70,14 @@ import calendar30 from "../assets/images/calendar30.svg";
 import multiUser from "../assets/images/multiUser.svg";
 import flag from "../assets/images/flag.svg";
 import bank from "../assets/images/bank.svg";
+import Stripe from "../assets/images/Stripe.svg";
 
 export default {
   auth_img,
   arrow_right,
-  info,bank,
+  Stripe,
+  info,
+  bank,
   multiUser,
   profileUser,
   calendar30,
