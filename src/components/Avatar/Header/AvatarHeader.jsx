@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import Loader from "../../Loader";
 import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import HeaderNavigationAvatar from "@/components/HeaderNavigationAvatar";
+import HeaderBack from "@/components/HeaderBack";
 
 function AvatarHeader() {
   const location = useLocation();
@@ -68,24 +69,29 @@ function AvatarHeader() {
   return (
     <>
       {/* {loading && <Loader />} */}
-      <header className="flex justify-between items-center p-3">
-      {(location.pathname!=="/avatar/experience")&& <select >
-        <option value="California">California</option>
-          {/* {countrys?.map((item, index) => (
+      {location.pathname == "/avatar/offers" ? (
+        <HeaderBack link={"/avatar/experience"} text={"Offers"}/>
+      ) : (
+        <header className="flex justify-between items-center p-3">
+          {location.pathname !== "/avatar/experience" && (
+            <select>
+              <option value="California">California</option>
+              {/* {countrys?.map((item, index) => (
             <option key={index} value={item}>
               {item}
             </option>
           ))} */}
-        </select>}
-       
-        <div className="brand">
-          <img src={Images.AvatarWalk} alt="AvatarWalk" />
-        </div>
-        <div className="cursor-pointer flex gap-4 items-center">
-         
-          <HeaderNavigationAvatar />
-        </div>
-      </header>
+            </select>
+          )}
+
+          <div className="brand">
+            <img src={Images.AvatarWalk} alt="AvatarWalk" />
+          </div>
+          <div className="cursor-pointer flex gap-4 items-center">
+            <HeaderNavigationAvatar />
+          </div>
+        </header>
+      )}
     </>
   );
 }

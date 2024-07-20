@@ -29,6 +29,7 @@ import Book_Experience_Details from "@/page/user/home/Book_Experience_Details";
 import DashboardLayout from "@/Layout/DashboardLayout";
 import AvatarLayout from "@/Layout/AvatarLayout";
 import ExperiencePage from "@/page/avtar/Experience/ExperiencePage";
+import OffersPage from "@/page/avtar/Offers/OffersPage";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -189,6 +190,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <ExperiencePage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "offers",
+        element: (
+          <AvatarLayout>
+            <OffersPage />
           </AvatarLayout>
         ),
       },
