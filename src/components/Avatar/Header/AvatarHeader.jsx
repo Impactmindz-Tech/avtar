@@ -69,9 +69,9 @@ function AvatarHeader() {
   return (
     <>
       {/* {loading && <Loader />} */}
-      {location.pathname == "/avatar/offers" ? (
-        <HeaderBack link={"/avatar/experience"} text={"Offers"}/>
-      ) : (
+      {(location.pathname == "/avatar/offers"||location.pathname == "/avatar/chatwithuser") ? <>
+        {(location.pathname == "/avatar/offers")&&<HeaderBack link={"/avatar/experience"} text={"Offers"}/>}
+      </> : (
         <header className="flex justify-between items-center p-3">
           {location.pathname !== "/avatar/experience" && (
             <select>

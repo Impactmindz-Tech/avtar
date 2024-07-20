@@ -32,6 +32,8 @@ import ExperiencePage from "@/page/avtar/Experience/ExperiencePage";
 import OffersPage from "@/page/avtar/Offers/OffersPage";
 import ProfilePageAvatar from "@/page/avtar/Profile/ProfilePage";
 import EditProfileAvatar from "@/page/avtar/Profile/EditProfileAvatar";
+import ChatPageAvatar from "@/page/avtar/Chat/ChatPage";
+import ChatWithUser from "@/page/avtar/Chat/ChatWithUser";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -215,6 +217,22 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <EditProfileAvatar />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "chat",
+        element: (
+          <AvatarLayout>
+            <ChatPageAvatar />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "chatwithuser",
+        element: (
+          <AvatarLayout>
+            <ChatWithUser />
           </AvatarLayout>
         ),
       },
