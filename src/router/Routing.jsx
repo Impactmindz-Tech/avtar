@@ -27,6 +27,7 @@ import Profile from "@/page/user/profile/Profile";
 import EditProfile from "@/page/user/profile/Edit_Profile";
 import Book_Experience_Details from "@/page/user/home/Book_Experience_Details";
 import DashboardLayout from "@/Layout/DashboardLayout";
+import AvatarLayout from "@/Layout/AvatarLayout";
 
 const Root = () => {
   const navigate = useNavigate();
@@ -176,7 +177,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <AvtarHome />,
+        element: (
+          <AvatarLayout>
+            <AvtarHome />
+          </AvatarLayout>
+        ),
       },
     ],
   },

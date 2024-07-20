@@ -49,7 +49,6 @@ import user3 from "../assets/images/user3.svg";
 import profile from "../assets/images/profile.svg";
 import AvatarWalkWhite from "../assets/images/AvatarWalkWhite.svg";
 import editBtnWhite from "../assets/images/editBtnWhite.svg";
-
 import userIcon from "../assets/images/profileIcon/userIcon.svg";
 import logout from "../assets/images/profileIcon/logout.svg";
 import term from "../assets/images/profileIcon/term.svg";
@@ -65,10 +64,15 @@ import whiteCamera from "../assets/images/profileIcon/whiteCamera.svg";
 import profileUser from "../assets/images/profileIcon/user.svg";
 import cardRoundedEqual from "../assets/images/cardRoundedEqual.svg";
 import hamburger_img from "../assets/images/hamburger.png";
+import arrow_right from "../assets/images/arrow-right.svg";
+import pattern from "../assets/images/pattern.svg";
+import calendar30 from "../assets/images/calendar30.svg";
 
 export default {
-  auth_img,
-  profileUser,
+  auth_img,arrow_right,
+  info,
+  profileUser,calendar30,
+  pattern,
   cardRoundedEqual,
   whiteCamera,
   rightArrowWhite,
