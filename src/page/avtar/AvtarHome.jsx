@@ -31,11 +31,12 @@ const AvtarHome = () => {
         <EarningCard icon={Images.calendar30} price="500" title="This Month" />
       </div>
 
-
-<TitleHeading title={"Recent Requests"}/>
-<div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-             <RequestedCard />
-             </div>
+      <TitleHeading title={"Recent Requests"} />
+      <div className="my-5 grid grid-cols-4 2xl:grid-cols-3  lg:grid-cols-1 xl:grid-cols-2 gap-4">
+        <RequestedCard />
+        <RequestedCard />
+        <RequestedCard />
+      </div>
     </>
   );
 };
