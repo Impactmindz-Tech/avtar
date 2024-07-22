@@ -9,9 +9,8 @@ import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import MultipleAddressModal from "@/components/Modal/MultipleAddressModal";
 
 const Home = () => {
-
-  // select multiple address modal 
-  const [multipleAddressModalState,setMultipleAddressModalState]=useState(false)
+  // select multiple address modal
+  const [multipleAddressModalState, setMultipleAddressModalState] = useState(false);
   const [activeTab, setActiveTab] = useState("Popular");
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState(""); // Default value for country
@@ -64,8 +63,7 @@ const Home = () => {
         </div>
       </div>
 
-
-      <MultipleAddressModal multipleAddressModalState={multipleAddressModalState} setMultipleAddressModalState={setMultipleAddressModalState}/>
+      <MultipleAddressModal multipleAddressModalState={multipleAddressModalState} setMultipleAddressModalState={setMultipleAddressModalState} />
     </>
   );
 };

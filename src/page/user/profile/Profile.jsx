@@ -7,8 +7,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Profile() {
-  const[userLogoutModalState,setUserLogoutModalState]=useState(false)
-  const[shareProfileModalState,setShareProfileModalState]=useState(false)
+  const [userLogoutModalState, setUserLogoutModalState] = useState(false);
+  const [shareProfileModalState, setShareProfileModalState] = useState(false);
   const user = getLocalStorage("user") ? getLocalStorage("user") : null;
   return (
     <div className="container">
@@ -38,18 +38,17 @@ function Profile() {
 
         <div className="my-5">
           <ProfilePageCard active={true} icon={Images.userIcon} text="Become a Avatar" />
-          <ProfilePageCard active={false} icon={Images.info} text="Account Info" link={"/user/account-info"}/>
+          <ProfilePageCard active={false} icon={Images.info} text="Account Info" link={"/user/account-info"} />
           <ProfilePageCard active={false} icon={Images.payment} text="Payment" />
           <ProfilePageCard active={false} icon={Images.currency} text="Currency" />
-          <ProfilePageCard active={false} icon={Images.notification} text="Notifications" />
-          <div onClick={()=>setShareProfileModalState(true)}>
-
-          <ProfilePageCard active={false} icon={Images.share} text="Share Your Profile" />
+          <ProfilePageCard active={false} icon={Images.notification} text="Notifications" link={"/user/notification"} />
+          <div onClick={() => setShareProfileModalState(true)}>
+            <ProfilePageCard active={false} icon={Images.share} text="Share Your Profile" />
           </div>
-          <ProfilePageCard active={false} icon={Images.message} text="Chat with Support" link={"/user/chat-support"}/>
+          <ProfilePageCard active={false} icon={Images.message} text="Chat with Support" link={"/user/chat-support"} />
           <ProfilePageCard active={false} icon={Images.term} text="Terms and Privacy" />
 
-          <div className="profileShadow flex mb-2 gap-4 rounded-md  justify-between items-center border  p-4 cursor-pointer text-[#FF3544] bg-[#ffebed]" onClick={()=>setUserLogoutModalState(true)}>
+          <div className="profileShadow flex mb-2 gap-4 rounded-md  justify-between items-center border  p-4 cursor-pointer text-[#FF3544] bg-[#ffebed]" onClick={() => setUserLogoutModalState(true)}>
             <div className="">
               <img src={Images.logout} alt={"logout"} />
             </div>
@@ -59,7 +58,7 @@ function Profile() {
       </div>
 
       <UserLogoutModal userLogoutModalState={userLogoutModalState} setUserLogoutModalState={setUserLogoutModalState} />
-      <ShareYourProfileModal shareProfileModalState={shareProfileModalState} setShareProfileModalState={setShareProfileModalState}/>
+      <ShareYourProfileModal shareProfileModalState={shareProfileModalState} setShareProfileModalState={setShareProfileModalState} />
     </div>
   );
 }

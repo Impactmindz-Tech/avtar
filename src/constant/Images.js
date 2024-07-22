@@ -88,23 +88,27 @@ import video from "../assets/images/video.svg";
 import copy from "../assets/images/copy.svg";
 import slash from "../assets/images/slash.svg";
 
-
-
 import facebook from "../assets/images/facebook.svg";
 import tiktok from "../assets/images/tik-tok.svg";
 import insta from "../assets/images/instagram.svg";
 import whatsapp from "../assets/images/whatsapp.svg";
 
-
-
+import closeCircle from "../assets/images/closeCircle.svg";
+import locationNew from "../assets/images/locationNew.svg";
+import support from "../assets/images/support.svg";
+import multiMessages from "../assets/images/multiMessages.svg";
 
 export default {
   auth_img,
   arrow_right,
   starBlack,
   mapBlack,
+  multiMessages,
+  locationNew,
   maploc,
+  closeCircle,
   video,
+  support,
   globe,
   gps,
   facebook,
@@ -147,7 +151,6 @@ export default {
   notification,
   currency,
   payment,
-  info,
   record,
   paymentSuccess,
   paymentFailed,

@@ -405,3 +405,10 @@ border: 1px solid #e2e2e2;
 
   background: linear-gradient(45deg, #FDD91D 8.39%, #FDD91D 12.55%, #EC1C24 49.77%, #A43A94 87.45%, #A43A94 91.61%);
 }
+
+
+.data-\[state\=checked\]\:bg-primary[data-state=checked] {
+
+
+  background-color: #229564 !important;
+}

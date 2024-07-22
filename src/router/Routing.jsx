@@ -47,6 +47,7 @@ import PerformancePage from "@/page/avtar/performance/PerformancePage";
 import RecordedPage from "@/page/user/record/RecordedPage";
 import AccountInfo from "@/page/user/AccountInfo";
 import ChatAndSupport from "@/page/user/chatandsupport/ChatAndSupport";
+import Notification from "@/page/user/Notification";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -166,6 +167,10 @@ const router = createBrowserRouter([
       {
         path: "see-all-review",
         element: <See_All_Review />,
+      },
+      {
+        path: "notification",
+        element: <Notification />,
       },
       {
         path: "booking",
