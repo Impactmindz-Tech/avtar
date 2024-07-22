@@ -84,11 +84,12 @@ import globe from "../assets/images/globe.svg";
 import starBlack from "../assets/images/starBlack.svg";
 import mapBlack from "../assets/images/mapBlack.svg";
 import gps from "../assets/images/gps.svg";
+import video from "../assets/images/video.svg";
 
 export default {
   auth_img,
   arrow_right,starBlack,mapBlack,
-  maploc,
+  maploc,video,
   globe,
   gps,
   InstantLiveText,

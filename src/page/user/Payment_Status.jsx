@@ -1,10 +1,12 @@
+import RecordItModal from "@/components/Modal/RecordItModal";
 import OnlyBrandNameHeader from "@/components/UserHeader/OnlyBrandNameHeader";
 import Images from "@/constant/Images";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Payment_Status() {
-  const [paymentSuccess, setPaymentStatus] = useState(false);
+  const [InstantLiveModal,setInstantLiveModal]=useState(false);
+  const [paymentSuccess, setPaymentStatus] = useState(true);
   return (
     <div className="container">
       <OnlyBrandNameHeader text={"Payment Status"} />
@@ -37,13 +39,18 @@ function Payment_Status() {
           <div className="w-[50%] m-auto  lg:w-full ">
            <Link to="/user/home"> <button className="border border-primaryColor-900 text-black font-semibold py-2 lg:w-[90%] rounded w-full">Back to Home</button></Link>
             {paymentSuccess ? (
-              <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[90%]">Instant Live</button>
+              <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[90%]" onClick={()=>setInstantLiveModal(true)}>Instant Live</button>
             ) : (
               <button className="bg-black text-white py-3 rounded w-full mt-3 lg:w-[90%]">Try Again</button>
             )}
           </div>{" "}
         </div>
       </div>
+
+
+
+
+      <RecordItModal InstantLiveModal={InstantLiveModal} setInstantLiveModal={setInstantLiveModal} />
     </div>
   );
 }

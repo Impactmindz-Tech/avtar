@@ -393,3 +393,9 @@ button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiBut
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+.cardShadow{
+border-radius: 10px;
+border: 1px solid #e2e2e2;
+}

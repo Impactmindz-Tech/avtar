@@ -7,11 +7,12 @@ import ExperienceList from "./ExperienceList";
 import Loader from "@/components/Loader";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import MultipleAddressModal from "@/components/Modal/MultipleAddressModal";
+import ReportProfile from "@/components/Modal/ReportProfile";
 
 const Home = () => {
 
   // select multiple address modal 
-  const [multipleAddressModalState,setMultipleAddressModalState]=useState(false)
+  const [multipleAddressModalState,setMultipleAddressModalState]=useState(true)
   const [activeTab, setActiveTab] = useState("Popular");
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState(""); // Default value for country
@@ -65,7 +66,8 @@ const Home = () => {
       </div>
 
 
-      <MultipleAddressModal multipleAddressModalState={multipleAddressModalState} setMultipleAddressModalState={setMultipleAddressModalState}/>
+      <ReportProfile multipleAddressModalState={multipleAddressModalState} setMultipleAddressModalState={setMultipleAddressModalState}/>
+      {/* <MultipleAddressModal multipleAddressModalState={multipleAddressModalState} setMultipleAddressModalState={setMultipleAddressModalState}/> */}
     </>
   );
 };
