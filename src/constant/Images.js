@@ -72,11 +72,13 @@ import flag from "../assets/images/flag.svg";
 import bank from "../assets/images/bank.svg";
 import Stripe from "../assets/images/Stripe.svg";
 import trash from "../assets/images/trash.svg";
+import visa from "../assets/images/visa.svg";
 
 export default {
   auth_img,
   arrow_right,
   Stripe,
+  visa,
   info,
   bank,trash,
   multiUser,
