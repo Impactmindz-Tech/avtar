@@ -85,19 +85,38 @@ import starBlack from "../assets/images/starBlack.svg";
 import mapBlack from "../assets/images/mapBlack.svg";
 import gps from "../assets/images/gps.svg";
 import video from "../assets/images/video.svg";
+import copy from "../assets/images/copy.svg";
 import slash from "../assets/images/slash.svg";
+
+
+
+import facebook from "../assets/images/facebook.svg";
+import tiktok from "../assets/images/tik-tok.svg";
+import insta from "../assets/images/instagram.svg";
+import whatsapp from "../assets/images/whatsapp.svg";
+
+
+
 
 export default {
   auth_img,
-  arrow_right,starBlack,mapBlack,
-  maploc,video,
+  arrow_right,
+  starBlack,
+  mapBlack,
+  maploc,
+  video,
   globe,
   gps,
+  facebook,
+  tiktok,
+  insta,
   slash,
   InstantLiveText,
   redtrash,
+  copy,
   Stripe,
   closeWhite,
+  whatsapp,
   close,
   rotate,
   house,

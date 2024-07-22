@@ -1,4 +1,5 @@
 import ProfilePageCard from "@/components/Cards/ProfileCard/ProfilePageCard";
+import ShareYourProfileModal from "@/components/Modal/ShareYourProfileModal";
 import UserLogoutModal from "@/components/Modal/UserLogoutModal";
 import Images from "@/constant/Images";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function Profile() {
   const[userLogoutModalState,setUserLogoutModalState]=useState(false)
+  const[shareProfileModalState,setShareProfileModalState]=useState(false)
   const user = getLocalStorage("user") ? getLocalStorage("user") : null;
   return (
     <div className="container">
@@ -40,7 +42,10 @@ function Profile() {
           <ProfilePageCard active={false} icon={Images.payment} text="Payment" />
           <ProfilePageCard active={false} icon={Images.currency} text="Currency" />
           <ProfilePageCard active={false} icon={Images.notification} text="Notifications" />
+          <div onClick={()=>setShareProfileModalState(true)}>
+
           <ProfilePageCard active={false} icon={Images.share} text="Share Your Profile" />
+          </div>
           <ProfilePageCard active={false} icon={Images.message} text="Chat with Support" link={"/user/chat-support"}/>
           <ProfilePageCard active={false} icon={Images.term} text="Terms and Privacy" />
 
@@ -54,6 +59,7 @@ function Profile() {
       </div>
 
       <UserLogoutModal userLogoutModalState={userLogoutModalState} setUserLogoutModalState={setUserLogoutModalState} />
+      <ShareYourProfileModal shareProfileModalState={shareProfileModalState} setShareProfileModalState={setShareProfileModalState}/>
     </div>
   );
 }
