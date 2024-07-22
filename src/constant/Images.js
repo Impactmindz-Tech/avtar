@@ -83,12 +83,14 @@ import maploc from "../assets/images/maploc.svg";
 import globe from "../assets/images/globe.svg";
 import starBlack from "../assets/images/starBlack.svg";
 import mapBlack from "../assets/images/mapBlack.svg";
+import gps from "../assets/images/gps.svg";
 
 export default {
   auth_img,
   arrow_right,starBlack,mapBlack,
   maploc,
   globe,
+  gps,
   InstantLiveText,
   redtrash,
   Stripe,
