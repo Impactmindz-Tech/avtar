@@ -41,7 +41,7 @@ const UserLogoutModal = ({ userLogoutModalState, setUserLogoutModalState }) => {
           <button onClick={()=>setUserLogoutModalState(false)} className="bg-grey-900 text-white py-3 font-bold rounded md:text-sm w-[49%]">
             Cancel
           </button>
-          <button onClick={setUserLogoutModalState} className="border border-grey-900 text-grey-900 py-3 font-bold rounded md:text-sm w-[49%]">
+          <button className="border border-grey-900 text-grey-900 py-3 font-bold rounded md:text-sm w-[49%]">
             Logout
           </button>
         </div>

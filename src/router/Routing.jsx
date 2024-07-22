@@ -46,6 +46,7 @@ import EarningPage from "@/page/avtar/Earnings/EarningPage";
 import PerformancePage from "@/page/avtar/performance/PerformancePage";
 import RecordedPage from "@/page/user/record/RecordedPage";
 import AccountInfo from "@/page/user/AccountInfo";
+import ChatAndSupport from "@/page/user/chatandsupport/ChatAndSupport";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -139,6 +140,14 @@ const router = createBrowserRouter([
         element: (
           <DashboardLayout>
             <AccountInfo />
+          </DashboardLayout>
+        ),
+      },
+      {
+        path: "chat-support",
+        element: (
+          <DashboardLayout>
+            <ChatAndSupport />
           </DashboardLayout>
         ),
       },
