@@ -37,6 +37,7 @@ import ChatWithUser from "@/page/avtar/Chat/ChatWithUser";
 import BankAccountPage from "@/page/avtar/Bank/BankAccountPage";
 import StripeAccountPage from "@/page/avtar/Bank/StripeAccountPage";
 import AccountInfoPage from "@/page/avtar/AccountInfoPage";
+import InstantCashPage from "@/page/avtar/Bank/InstantCashPage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -260,6 +261,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <AccountInfoPage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "instant-cash",
+        element: (
+          <AvatarLayout>
+            <InstantCashPage />
           </AvatarLayout>
         ),
       },
