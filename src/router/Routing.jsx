@@ -44,6 +44,7 @@ import EditExperiencePage from "@/page/avtar/Experience/EditExperiencePage";
 import AddExperienceWithImagePage from "@/page/avtar/Experience/AddExperienceWithImage";
 import EarningPage from "@/page/avtar/Earnings/EarningPage";
 import PerformancePage from "@/page/avtar/performance/PerformancePage";
+import RecordedPage from "@/page/user/record/RecordedPage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -121,6 +122,14 @@ const router = createBrowserRouter([
         element: (
           <DashboardLayout>
             <Home />
+          </DashboardLayout>
+        ),
+      },
+      {
+        path: "recorded",
+        element: (
+          <DashboardLayout>
+            <RecordedPage />
           </DashboardLayout>
         ),
       },
