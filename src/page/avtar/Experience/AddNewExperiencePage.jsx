@@ -2,6 +2,7 @@ import MyExperienceCard from "@/components/Avatar/Card/ExperiencePageCards/MyExp
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
 import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
+import { Link } from "react-router-dom";
 
 function AddNewExperiencePage() {
   return (
@@ -10,11 +11,12 @@ function AddNewExperiencePage() {
 
       <div className="text-center p-8 border-dashed border-2 border-grey-800 my-5 rounded-md">
         <div className="flex justify-center ">
+        <Link to="/avatar/add-new-experience">
           <img
             src={Images.add}
             alt="add"
             className="w-10 h-10 cursor-pointer"
-          />
+          /></Link>
         </div>
         <p className="text-grey-800 py-2 pt-7">Add New</p>
         <h1 className="text-grey-900 text-xl">Experience</h1>
