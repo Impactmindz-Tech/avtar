@@ -38,6 +38,7 @@ import BankAccountPage from "@/page/avtar/Bank/BankAccountPage";
 import StripeAccountPage from "@/page/avtar/Bank/StripeAccountPage";
 import AccountInfoPage from "@/page/avtar/AccountInfoPage";
 import InstantCashPage from "@/page/avtar/Bank/InstantCashPage";
+import AddNewExperiencePage from "@/page/avtar/Experience/AddNewExperiencePage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -269,6 +270,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <InstantCashPage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "add-experience",
+        element: (
+          <AvatarLayout>
+            <AddNewExperiencePage />
           </AvatarLayout>
         ),
       },

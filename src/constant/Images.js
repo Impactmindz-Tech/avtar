@@ -73,14 +73,17 @@ import bank from "../assets/images/bank.svg";
 import Stripe from "../assets/images/Stripe.svg";
 import trash from "../assets/images/trash.svg";
 import visa from "../assets/images/visa.svg";
+import redtrash from "../assets/images/redtrash.svg";
 
 export default {
   auth_img,
   arrow_right,
+  redtrash,
   Stripe,
   visa,
   info,
-  bank,trash,
+  bank,
+  trash,
   multiUser,
   profileUser,
   calendar30,

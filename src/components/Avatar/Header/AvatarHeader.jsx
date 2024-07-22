@@ -69,7 +69,7 @@ function AvatarHeader() {
   return (
     <>
       {/* {loading && <Loader />} */}
-      {(location.pathname == "/avatar/offers"||location.pathname == "/avatar/instant-cash"||location.pathname == "/avatar/chatwithuser"||location.pathname == "/avatar/bank"||location.pathname == "/avatar/stripe"||location.pathname == "/avatar/account-info") ? <>
+      {(location.pathname == "/avatar/offers"||location.pathname == "/avatar/instant-cash"||location.pathname == "/avatar/add-experience"||location.pathname == "/avatar/chatwithuser"||location.pathname == "/avatar/bank"||location.pathname == "/avatar/stripe"||location.pathname == "/avatar/account-info") ? <>
         {(location.pathname == "/avatar/offers")&&<HeaderBack link={"/avatar/experience"} text={"Offers"}/>}
       </> : (
         <header className="flex justify-between items-center p-3">
