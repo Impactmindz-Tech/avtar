@@ -85,6 +85,7 @@ import starBlack from "../assets/images/starBlack.svg";
 import mapBlack from "../assets/images/mapBlack.svg";
 import gps from "../assets/images/gps.svg";
 import video from "../assets/images/video.svg";
+import slash from "../assets/images/slash.svg";
 
 export default {
   auth_img,
@@ -92,6 +93,7 @@ export default {
   maploc,video,
   globe,
   gps,
+  slash,
   InstantLiveText,
   redtrash,
   Stripe,
