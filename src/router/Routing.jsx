@@ -40,6 +40,7 @@ import AccountInfoPage from "@/page/avtar/AccountInfoPage";
 import InstantCashPage from "@/page/avtar/Bank/InstantCashPage";
 import AddNewExperiencePage from "@/page/avtar/Experience/AddNewExperiencePage";
 import AddNewExperienceNewPage from "@/page/avtar/Experience/AddNewExperienceNewPage";
+import EditExperiencePage from "@/page/avtar/Experience/EditExperiencePage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -287,6 +288,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <AddNewExperienceNewPage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "edit-experience",
+        element: (
+          <AvatarLayout>
+            <EditExperiencePage />
           </AvatarLayout>
         ),
       },

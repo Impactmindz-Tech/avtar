@@ -74,12 +74,22 @@ import Stripe from "../assets/images/Stripe.svg";
 import trash from "../assets/images/trash.svg";
 import visa from "../assets/images/visa.svg";
 import redtrash from "../assets/images/redtrash.svg";
+import close from "../assets/images/close.svg";
+import rotate from "../assets/images/rotate.svg";
+import house from "../assets/images/house.svg";
+import closeWhite from "../assets/images/closeWhite.png";
+import InstantLiveText from "../assets/images/InstantLiveText.svg";
 
 export default {
   auth_img,
   arrow_right,
+  InstantLiveText,
   redtrash,
   Stripe,
+  closeWhite,
+  close,
+  rotate,
+  house,
   visa,
   info,
   bank,

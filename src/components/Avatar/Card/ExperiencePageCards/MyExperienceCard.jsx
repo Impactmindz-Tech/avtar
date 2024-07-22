@@ -1,6 +1,7 @@
 import DeleteExperienceModal from "@/components/Modal/DeleteExperienceModal";
 import Images from "@/constant/Images";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function MyExperienceCard() {
   const [deleteModalState,setDeleteModalState]=useState(false)
@@ -9,13 +10,14 @@ function MyExperienceCard() {
     <div className="card">
       <div className="w-full relative">
         <div className="absolute top-2 right-2 flex gap-2">
-          <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
+         <Link to="/avatar/edit-experience"> <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
             <img
               src={Images.edit}
               alt="edit"
               className="cursor-pointer w-6 h-6"
             />
           </div>
+            </Link>
           <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
             <img
               src={Images.redtrash}

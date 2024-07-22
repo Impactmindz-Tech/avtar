@@ -14,26 +14,16 @@ function AddNewExperienceNewPage() {
         <div className="border rounded-lg p-10 w-[49%] bg-[#f2f2f2] border-[#e2e2e2]">
           <div className="flex justify-center">
             <Link to="/avatar/add-new-experience">
-              <img
-                src={Images.add}
-                alt="add"
-                className="w-10 h-10 cursor-pointer"
-              />
+              <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
             </Link>
           </div>
           <h1 className="text-center text-grey-900 py-2 font-semibold">Main Image</h1>
         </div>
 
-
-
         <div className="border rounded-lg p-10 w-[49%] bg-[#f2f2f2] border-[#e2e2e2]">
           <div className="flex justify-center">
             <Link to="/avatar/add-new-experience">
-              <img
-                src={Images.add}
-                alt="add"
-                className="w-10 h-10 cursor-pointer"
-              />
+              <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
             </Link>
           </div>
           <h1 className="text-center text-grey-800 py-2 font-semibold hover:text-grey-900">Other Image</h1>
