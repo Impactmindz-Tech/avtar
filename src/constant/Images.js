@@ -79,10 +79,16 @@ import rotate from "../assets/images/rotate.svg";
 import house from "../assets/images/house.svg";
 import closeWhite from "../assets/images/closeWhite.png";
 import InstantLiveText from "../assets/images/InstantLiveText.svg";
+import maploc from "../assets/images/maploc.svg";
+import globe from "../assets/images/globe.svg";
+import starBlack from "../assets/images/starBlack.svg";
+import mapBlack from "../assets/images/mapBlack.svg";
 
 export default {
   auth_img,
-  arrow_right,
+  arrow_right,starBlack,mapBlack,
+  maploc,
+  globe,
   InstantLiveText,
   redtrash,
   Stripe,

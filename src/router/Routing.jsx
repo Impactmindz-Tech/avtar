@@ -43,6 +43,7 @@ import AddNewExperienceNewPage from "@/page/avtar/Experience/AddNewExperienceNew
 import EditExperiencePage from "@/page/avtar/Experience/EditExperiencePage";
 import AddExperienceWithImagePage from "@/page/avtar/Experience/AddExperienceWithImage";
 import EarningPage from "@/page/avtar/Earnings/EarningPage";
+import PerformancePage from "@/page/avtar/performance/PerformancePage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -314,6 +315,14 @@ const router = createBrowserRouter([
         element: (
           <AvatarLayout>
             <EarningPage />
+          </AvatarLayout>
+        ),
+      },
+      {
+        path: "performance",
+        element: (
+          <AvatarLayout>
+            <PerformancePage />
           </AvatarLayout>
         ),
       },
