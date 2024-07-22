@@ -4,11 +4,11 @@ import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
 import { Link } from "react-router-dom";
 
-function EditExperiencePage() {
+function AddExperienceWithImagePage() {
   return (
     <div>
-      <HeaderBack link="/avatar/add-experience" text={"Edit Experience"} />
-      <TitleHeading title={"Experience Images"} />
+      <HeaderBack link="/avatar/add-new-experience" text={"Add Experience"} />
+      <TitleHeading title={"Add Experience Images"} />
 
       <div className="flex justify-between my-4">
         <div className="w-[49%] relative">
@@ -49,7 +49,7 @@ function EditExperiencePage() {
         <form action="">
           <div className="my-2">
             <label htmlFor="exp-name" className="font-semibold">
-              Experience Name
+              Add Experience Name
             </label>
             <input type="text" name="name" id="exp-name" value="Eiffel Tower" className="input my-2" />
           </div>
@@ -103,7 +103,7 @@ function EditExperiencePage() {
           </div>
 
           <div className="my-2">
-            <button className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-3 cursor-pointer bg-backgroundFill-900 text-white text-center">Save</button>
+            <button className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-3 cursor-pointer bg-backgroundFill-900 text-white text-center">Add</button>
           </div>
         </form>
       </div>
@@ -111,4 +111,4 @@ function EditExperiencePage() {
   );
 }
 
-export default EditExperiencePage;
+export default AddExperienceWithImagePage;

@@ -13,7 +13,7 @@ function AddNewExperienceNewPage() {
       <div className="flex justify-between my-4">
         <div className="border rounded-lg p-10 w-[49%] bg-[#f2f2f2] border-[#e2e2e2]">
           <div className="flex justify-center">
-            <Link to="/avatar/add-new-experience">
+            <Link to="/avatar/add-experience-image">
               <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
             </Link>
           </div>
@@ -22,7 +22,7 @@ function AddNewExperienceNewPage() {
 
         <div className="border rounded-lg p-10 w-[49%] bg-[#f2f2f2] border-[#e2e2e2]">
           <div className="flex justify-center">
-            <Link to="/avatar/add-new-experience">
+            <Link to="/avatar/add-experience-image">
               <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
             </Link>
           </div>
