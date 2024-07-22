@@ -1,13 +1,10 @@
 import Images from "@/constant/Images";
 import { useState } from "react";
-import Switch from "react-switch";
+import { Switch } from "@/components/ui/switch";
 
 export default function InstantLiveCard() {
-  const [checked, setChecked] = useState(true);
+  const [switchState, setSwitchState] = useState(true);
 
-  const handleChange = (nextChecked) => {
-    setChecked(nextChecked);
-  };
   return (
     <div className="flex justify-between items-center squareShadow p-4">
       <div className="flex gap-2 items-center">
@@ -17,18 +14,7 @@ export default function InstantLiveCard() {
         </div>
       </div>
       <div className="flex">
-        <Switch
-          onChange={handleChange}
-          checked={checked}
-          offColor="#888"
-          onColor="#2bad7a"
-          handleDiameter={20}
-          height={30}
-          uncheckedIcon={""}
-          checkedIcon={""}
-          width={60}
-          // Omit uncheckedIcon and checkedIcon to disable icons
-        />
+        <Switch id="airplane-mode" checked={switchState} onCheckedChange={() => setSwitchState(!switchState)} />
       </div>
     </div>
   );
