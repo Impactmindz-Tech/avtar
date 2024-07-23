@@ -1,4 +1,3 @@
-import React from "react";
 import Images from "@/constant/Images";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Link, useNavigate } from "react-router-dom";
@@ -38,7 +37,9 @@ const HeaderNavigation = () => {
             </Link>
           </div>
           <div className="my-2">
-            <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Offer</button>
+            <Link to={"/user/offers"}>
+              <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Offer</button>
+            </Link>
           </div>
           <div className="my-2">
             <Link to={"/user/chat"}>

@@ -50,6 +50,7 @@ import ChatAndSupport from "@/page/user/chatandsupport/ChatAndSupport";
 import Notification from "@/page/user/Notification";
 import AvatarProfile from "@/page/user/avatar/AvatarProfile";
 import PaymentPage from "@/page/user/Payment";
+import Offers from "@/page/user/offers/OffersPage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -135,6 +136,14 @@ const router = createBrowserRouter([
         element: (
           <DashboardLayout>
             <RecordedPage />
+          </DashboardLayout>
+        ),
+      },
+      {
+        path: "offers",
+        element: (
+          <DashboardLayout>
+            <Offers />
           </DashboardLayout>
         ),
       },
