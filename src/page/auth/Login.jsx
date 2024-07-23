@@ -61,6 +61,11 @@ const Login = () => {
             <br />
             <input className="input" type="password" placeholder="Eg. Ro12******" name="password" id="password" {...register("password")} />
           </div>
+          <div className="pt-4 text-right">
+          <Link to="/auth/forget-password">
+
+          Forget Password ? </Link>
+          </div>
           <div className="flex items-center space-x-2 pt-2">
             <Checkbox id="terms" />
             <Label htmlFor="terms">

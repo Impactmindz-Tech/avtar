@@ -52,6 +52,9 @@ import AvatarProfile from "@/page/user/avatar/AvatarProfile";
 import PaymentPage from "@/page/user/Payment";
 import Offers from "@/page/user/offers/OffersPage";
 import OfferSuccessPage from "@/page/user/offers/OfferSuccessPage";
+import ForgetPassword from "@/page/auth/ForgetPassword";
+import OtpVerify from "@/page/auth/OtpVerify";
+import NewPassword from "@/page/auth/NewPassword";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -99,6 +102,30 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout>
             <SignUp />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "forget-password",
+        element: (
+          <AuthLayout>
+            <ForgetPassword />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "otp-verify",
+        element: (
+          <AuthLayout>
+            <OtpVerify />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "new-password",
+        element: (
+          <AuthLayout>
+            <NewPassword />
           </AuthLayout>
         ),
       },

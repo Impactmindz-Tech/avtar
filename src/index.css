@@ -425,3 +425,14 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+
+.input-otp-slot {
+  width: 100px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  font-size: 20px; /* Optional: adjust font size */
+  text-align: center; /* Optional: center align text */
+  border: 1px solid #ccc; /* Optional: add border */
+  margin: 5px; /* Optional: add margin */
+}
