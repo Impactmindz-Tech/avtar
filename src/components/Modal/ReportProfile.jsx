@@ -33,7 +33,7 @@ const ReportProfile = ({ multipleAddressModalState, setMultipleAddressModalState
           <button className="focus:outline-none">
             <i className="fas fa-chevron-left"></i>
           </button>
-          <span className="text-xl font-bold">What’s happening?</span>
+          <span className="text-xl font-bold py-4">What’s happening?</span>
           <button className="focus:outline-none">
             <i className="fas fa-chevron-right"></i>
           </button>

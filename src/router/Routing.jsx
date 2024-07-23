@@ -48,6 +48,7 @@ import RecordedPage from "@/page/user/record/RecordedPage";
 import AccountInfo from "@/page/user/AccountInfo";
 import ChatAndSupport from "@/page/user/chatandsupport/ChatAndSupport";
 import Notification from "@/page/user/Notification";
+import AvatarProfile from "@/page/user/avatar/AvatarProfile";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -149,6 +150,14 @@ const router = createBrowserRouter([
         element: (
           <DashboardLayout>
             <ChatAndSupport />
+          </DashboardLayout>
+        ),
+      },
+      {
+        path: "avatar-profile",
+        element: (
+          <DashboardLayout>
+            <AvatarProfile />
           </DashboardLayout>
         ),
       },

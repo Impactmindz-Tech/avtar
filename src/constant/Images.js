@@ -97,10 +97,12 @@ import closeCircle from "../assets/images/closeCircle.svg";
 import locationNew from "../assets/images/locationNew.svg";
 import support from "../assets/images/support.svg";
 import multiMessages from "../assets/images/multiMessages.svg";
+import avatarProfile from "../assets/images/avatarProfile.svg";
 
 export default {
   auth_img,
   arrow_right,
+  avatarProfile,
   starBlack,
   mapBlack,
   multiMessages,
