@@ -98,11 +98,13 @@ import locationNew from "../assets/images/locationNew.svg";
 import support from "../assets/images/support.svg";
 import multiMessages from "../assets/images/multiMessages.svg";
 import avatarProfile from "../assets/images/avatarProfile.svg";
+import mastercard from "../assets/images/mastercard.svg";
 
 export default {
   auth_img,
   arrow_right,
   avatarProfile,
+  mastercard,
   starBlack,
   mapBlack,
   multiMessages,

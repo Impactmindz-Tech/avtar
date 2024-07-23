@@ -49,6 +49,7 @@ import AccountInfo from "@/page/user/AccountInfo";
 import ChatAndSupport from "@/page/user/chatandsupport/ChatAndSupport";
 import Notification from "@/page/user/Notification";
 import AvatarProfile from "@/page/user/avatar/AvatarProfile";
+import PaymentPage from "@/page/user/Payment";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -172,6 +173,10 @@ const router = createBrowserRouter([
       {
         path: "book-experience/:id",
         element: <Book_Experience_Details />,
+      },
+      {
+        path: "payment",
+        element: <PaymentPage />,
       },
       {
         path: "see-all-review",
