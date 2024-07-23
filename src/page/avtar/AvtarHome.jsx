@@ -22,7 +22,7 @@ const AvtarHome = () => {
       {/* Your Performances  */}
       <TitleHeading title={"Your Performances"} />
 
-      <div className="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 xl:grid-cols-2 gap-5 my-2">
+      <div className="grid grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 gap-5 my-2">
         <PerformanceCard />
         <PerformanceCard />
         <PerformanceCard />
