@@ -78,7 +78,7 @@ function Header() {
           <img src={Images.AvatarWalk} alt="AvatarWalk" />
         </div>
         <div className="cursor-pointer flex gap-4 items-center">
-          <button className="bg-[#ff5454] py-[8px] text-white rounded-lg px-4" onClick={roleSwitch}>
+          <button className="bg-[#ff5454] sm:py-[2px] flex-1  py-[8px] text-white rounded-lg px-4" onClick={roleSwitch}>
             {role === "user" ? "switch avatar" : "switch user"}
           </button>
           <img src={Images.liveBtn} alt="liveBtn" />

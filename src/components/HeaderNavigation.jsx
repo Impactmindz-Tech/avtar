@@ -17,7 +17,7 @@ const HeaderNavigation = () => {
         <SheetTitle as="h2" className="sr-only">
           Navigation Menu
         </SheetTitle>
-        <div className="pt-14 pb-4 px-20">
+        <div className="pt-14 pb-4 px-20 sm:px-2">
           <div className="my-2">
             <Link to={"/user/dashboard"}>
               <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Home</button>

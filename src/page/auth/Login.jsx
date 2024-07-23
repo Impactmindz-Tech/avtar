@@ -43,7 +43,7 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-[50%] mx-auto">
+    <div className="max-w-[50%] mx-auto lg:max-w-full  ">
       <h1>AvatarWalk</h1>
       <div className="pt-10">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>

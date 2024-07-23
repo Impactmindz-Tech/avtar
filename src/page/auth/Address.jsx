@@ -36,7 +36,7 @@ const Address = () => {
   };
 
   return (
-    <div className="w-[50%] mx-auto ">
+    <div className="w-[50%] mx-auto lg:max-w-full">
       <div className="py-1 ">{/* <img src={Images.Logo} alt={Images.Logo} className="max-w-[120px]" /> */}</div>
 
       <div className="flex flex-col gap-2 my-3 gap-y-4 relative ">
@@ -94,7 +94,7 @@ const Address = () => {
         </div>
 
         <p className="w-full cursor-pointer text-center mt-20 my-2 underline text-primaryColor-900">
-          <Link to="/user/home"> Skip</Link>
+          <Link to="/user/dashboard"> Skip</Link>
         </p>
         <div onClick={addAddress}>
           {" "}

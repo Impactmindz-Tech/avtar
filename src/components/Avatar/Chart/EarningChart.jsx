@@ -1,3 +1,4 @@
+import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const data = [
@@ -12,7 +13,7 @@ const data = [
 
 export function EarningChart() {
   return (
-    <div className="w-full lg:max-w-full  max-w-3xl mx-auto p-4 bg-white rounded-lg shadow-md">
+    <div className="w-full lg:max-w-full max-w-3xl mx-auto p-4 bg-white rounded-lg shadow-md">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">Earnings</h2>
         <select className="text-sm border rounded p-1">
@@ -20,17 +21,57 @@ export function EarningChart() {
           {/* Add more options here if needed */}
         </select>
       </div>
-      <ResponsiveContainer width="100%" height={400} className="h-[400px] sm:h-[50px] md:h-[300px] lg:h-[400px]">
-
-    
-        <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="earnings" fill="#000" />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className="responsive-container">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="earnings" fill="#000" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      <style jsx>{`
+        .responsive-container {
+          height: 400px;
+        }
+        @media (max-width: 2047px) {
+          .responsive-container {
+            height: 380px;
+          }
+        }
+        @media (max-width: 1791px) {
+          .responsive-container {
+            height: 300px;
+          }
+        }
+        @media (max-width: 1535px) {
+          .responsive-container {
+            height: 250px;
+          }
+        }
+        @media (max-width: 1279px) {
+          .responsive-container {
+            height: 400px;
+          }
+        }
+        @media (max-width: 1023px) {
+          .responsive-container {
+            height: 250px;
+          }
+        }
+        @media (max-width: 767px) {
+          .responsive-container {
+            height: 180px;
+          }
+        }
+        @media (max-width: 639px) {
+          .responsive-container {
+            height: 140px;
+          }
+        }
+      `}</style>
     </div>
   );
 }

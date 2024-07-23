@@ -42,7 +42,7 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="max-w-[50%] mx-auto">
+    <div className="max-w-[50%] mx-auto lg:max-w-full">
       <h1>AvatarWalk</h1>
       <div className="pt-10">
         <div className="my-5">

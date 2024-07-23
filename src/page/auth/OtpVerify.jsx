@@ -44,7 +44,7 @@ const OtpVerify = () => {
   };
 
   return (
-    <div className="max-w-[50%] mx-auto">
+    <div className="max-w-[50%] mx-auto lg:max-w-full">
       <h1>AvatarWalk</h1>
       <div className="pt-10">
         <div className="my-5">
@@ -52,7 +52,7 @@ const OtpVerify = () => {
           <p className="text-grey-800">Enter the verification code we just send on your email address.</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <div>
+          <div className="m-auto  flex justify-center">
             <InputOTP maxLength={6}>
               <InputOTPGroup>
                 <InputOTPSlot index={0} className="input-otp-slot" />

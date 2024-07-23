@@ -33,7 +33,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="max-w-[50%] mx-auto">
+    <div className="max-w-[50%] mx-auto lg:max-w-full">
       <h1>AvatarWalk</h1>
       <form className="pt-10" onSubmit={handleSubmit(onSubmit)}>
         <div>

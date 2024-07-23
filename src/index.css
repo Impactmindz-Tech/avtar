@@ -436,3 +436,37 @@ input[type=number] {
   border: 1px solid #ccc; /* Optional: add border */
   margin: 5px; /* Optional: add margin */
 }
+
+
+
+/* 4xl */
+@media (max-width: 2047px) {
+  /* Your CSS rules here */
+}
+
+/* 3xl */
+@media (max-width: 1791px) {
+  /* Your CSS rules here */
+}
+
+/* 2xl */
+@media (max-width: 1535px) {
+  /* Your CSS rules here */
+}
+
+/* xl */
+@media (max-width: 1279px) {
+  /* Your CSS rules here */
+}
+
+/* lg */
+@media (max-width: 1023px) {
+  /* Your CSS rules here */
+}
+
+/* md */
+@media (max-width: 767px) {
+
+}
+
+
