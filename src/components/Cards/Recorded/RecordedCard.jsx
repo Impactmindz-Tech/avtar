@@ -3,10 +3,10 @@ import React from "react";
 
 export default function RecordedCard() {
   return (
-    <div className="flex gap-3">
-      <div className="relative">
-        <div className="absolute  bottom-2 right-1 rounded-full font-bold px-4 text-sm py-2 bg-white">30 Min</div>
-        <img src={Images.cardImageRounded} alt="cardImageRounded" className="w-[200px] object-cover h-[140px] rounded-md" />
+    <div className="flex gap-3 lg:flex-wrap">
+      <div className="relative lg:w-[100%]">
+        <div className="absolute  bottom-1 right-1 rounded-full font-bold px-4 text-sm py-2 bg-white sm:text-sm">30 Min</div>
+        <img src={Images.cardImageRounded} alt="cardImageRounded" className="w-[200px] h-[100%] lg:h-[250px] lg:w-full object-cover  rounded-md" />
       </div>
       <div className="right">
         <h1>Shikara Hotel, India</h1>

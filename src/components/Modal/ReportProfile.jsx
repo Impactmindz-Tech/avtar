@@ -42,15 +42,15 @@ const ReportProfile = ({ multipleAddressModalState, setMultipleAddressModalState
         <div className="p-4">
           <div className="mb-4">
             <div className="flex items-start justify-between my-4 cardShadow p-3">
-              <label htmlFor="spam">I think they’re scamming or spamming me</label>
+              <label htmlFor="spam sm:text-sm" className="sm:w-[80%]">I think they’re scamming or spamming me</label>
               <input type="radio" name="reason" id="spam" className="form-radio h-5 w-5 mr-4" />
             </div>
             <div className="flex items-start justify-between my-4 cardShadow p-3">
-              <label htmlFor="offensive">They’re being offensive</label>
+              <label htmlFor="offensive" className="sm:w-[80%]">They’re being offensive</label>
               <input type="radio" name="reason" id="offensive" className="form-radio h-5 w-5 mr-4" />
             </div>
             <div className="flex items-start justify-between my-4 cardShadow p-3">
-              <label htmlFor="else">Something else</label>
+              <label htmlFor="else" className="sm:w-[80%]">Something else</label>
               <input type="radio" name="reason" id="else" className="form-radio h-5 w-5 mr-4" />
             </div>
           </div>

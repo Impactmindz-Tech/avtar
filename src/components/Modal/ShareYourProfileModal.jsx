@@ -41,17 +41,17 @@ const ShareYourProfileModal = ({ shareProfileModalState, setShareProfileModalSta
 
         <div className="p-4 flex gap-4 justify-center m-auto w-[80%]">
           <div className="bg-[#1877F2] rounded-full p-4 cursor-pointer">
-            <img src={Images.facebook} alt="facebook" className="bg-white rounded-full" />
+            <img src={Images.facebook} alt="facebook" className="bg-white rounded-full sm:min-w-[25px]" />
           </div>
 
           <div className="insta rounded-full p-4 cursor-pointer">
-            <img src={Images.insta} alt="insta" />
+            <img src={Images.insta} alt="insta" className="sm:min-w-[25px]" />
           </div>
           <div className="bg-[#48c857] rounded-full p-4 cursor-pointer">
-            <img src={Images.whatsapp} alt="whatsapp" />
+            <img src={Images.whatsapp} alt="whatsapp" className="sm:min-w-[25px]" />
           </div>
           <div className="bg-[#000000] rounded-full p-4 cursor-pointer">
-            <img src={Images.tiktok} alt="tiktok" />
+            <img src={Images.tiktok} alt="tiktok" className="sm:min-w-[25px]" />
           </div>
         </div>
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function CardThreeSection({ icon, link, title, desc ,circle}) {
   return (
     <Link to={link}>
-      <div className="border flex items-center justify-between p-4 sm:p-2 gap-4 rounded-2xl my-5 cursor-pointer">
+      <div className="border flex items-center justify-between p-4 sm:p-2 gap-4 sm:gap-2 rounded-2xl my-5 cursor-pointer">
       <div className={`icon bg-grey-300 rounded-full ${circle?'px-5 py-7 sm:px-2 sm:py-2':'p-3'}`}>
           <img src={icon} alt={icon} />
         </div>
