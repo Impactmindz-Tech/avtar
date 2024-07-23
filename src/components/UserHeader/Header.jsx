@@ -13,6 +13,8 @@ function Header() {
   const [loading, setLoading] = useState(false);
   const [countrys, setCountrys] = useState([]);
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
+
+  
   const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
   useEffect(() => {
@@ -21,10 +23,9 @@ function Header() {
     } else if (role === "avatar") {
       navigate("/avatar/dashboard");
     }
-  }, [role, navigate]);
+  }, [role]);
 
   const roleSwitch = async () => {
-    setLoading(true);
     const newRole = role === "user" ? "avatar" : "user";
     try {
       const response = await switchProfile(newRole);
@@ -78,11 +79,12 @@ function Header() {
           <img src={Images.AvatarWalk} alt="AvatarWalk" />
         </div>
         <div className="cursor-pointer flex gap-4 items-center">
-          <button className="bg-[#ff5454] sm:py-[2px] flex-1  py-[8px] text-white rounded-lg px-4" onClick={roleSwitch}>
+          <button className="bg-[#ff5454] flex-1  py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={roleSwitch}>
             {role === "user" ? "switch avatar" : "switch user"}
           </button>
-          <img src={Images.liveBtn} alt="liveBtn" />
-          <HeaderNavigation />
+          <img src={Images.liveBtn} alt="liveBtn" className="sm:hidden" />
+
+          <HeaderNavigation  />
         </div>
       </header>
     </>

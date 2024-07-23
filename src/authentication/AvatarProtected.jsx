@@ -2,12 +2,12 @@ import { getLocalStorage } from '@/utills/LocalStorageUtills';
 import { Outlet, Navigate } from 'react-router-dom';
 
 const AvatarProtected = () => {
-  const token = getLocalStorage('token');
-  const currentState = getLocalStorage('user')?.Activeprofile;
+  // const token = getLocalStorage('token');
+  // const currentState = getLocalStorage('avatar')?.Activeprofile;
   
-  if (!token || currentState !== 'avatar') {
-    return <Navigate to='/auth/login' replace />;
-  }
+  // if (!token || currentState !== 'avatar') {
+  //   return <Navigate to='/auth/login' replace />;
+  // }
 
   return <Outlet />;
 };

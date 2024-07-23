@@ -1,9 +1,10 @@
-import AvatarHeader from "@/components/Avatar/Header/AvatarHeader";
+
+import Header from "@/components/UserHeader/Header";
 
 const AvatarLayout = ({ children }) => {
   return (
     <div className="container">
-      <AvatarHeader />
+      <Header />
       {children}
     </div>
   );

@@ -209,71 +209,140 @@ const router = createBrowserRouter([
       },
       {
         path: "filters",
-        element: <Filters />,
+
+        element: (
+          <DashboardLayout>
+            <Filters />
+          </DashboardLayout>
+        ),
       },
       {
         path: "report",
-        element: <Report />,
+        element: (
+          <DashboardLayout>
+            <Report />
+          </DashboardLayout>
+        ),
       },
       {
         path: "book-experience/:id",
-        element: <Book_Experience_Details />,
+        element: (
+          <DashboardLayout>
+            <Book_Experience_Details />
+          </DashboardLayout>
+        ),
       },
       {
         path: "payment",
-        element: <PaymentPage />,
+        element: (
+          <DashboardLayout>
+            <PaymentPage />
+          </DashboardLayout>
+        ),
       },
       {
         path: "see-all-review",
-        element: <See_All_Review />,
+        element: (
+          <DashboardLayout>
+            <See_All_Review />
+          </DashboardLayout>
+        ),
       },
       {
         path: "notification",
-        element: <Notification />,
+        element: (
+          <DashboardLayout>
+            <Notification />
+          </DashboardLayout>
+        ),
       },
       {
         path: "booking",
-        element: <Booking />,
+        element: (
+          <DashboardLayout>
+            <Booking />
+          </DashboardLayout>
+        ),
       },
       {
         path: "confirm-and-pay",
-        element: <Confirm_Pay />,
+        element: (
+          <DashboardLayout>
+            <Confirm_Pay />
+          </DashboardLayout>
+        ),
       },
       {
         path: "payment-status",
-        element: <Payment_Status />,
+        element: (
+          <DashboardLayout>
+            <Payment_Status />
+          </DashboardLayout>
+        ),
       },
       {
         path: "experience",
-        element: <Experience />,
+        element: (
+          <DashboardLayout>
+            <Experience />
+          </DashboardLayout>
+        ),
       },
       {
         path: "update-experience",
-        element: <Update_Experience />,
+        element: (
+          <DashboardLayout>
+            <Update_Experience />
+          </DashboardLayout>
+        ),
       },
       {
         path: "chat-with-avatar",
-        element: <ChatWithAvatar />,
+        element: (
+          <DashboardLayout>
+            <ChatWithAvatar />
+          </DashboardLayout>
+        ),
       },
       {
         path: "rate-tour",
-        element: <RateTour />,
+        element: (
+          <DashboardLayout>
+            <RateTour />
+          </DashboardLayout>
+        ),
       },
       {
         path: "tip",
-        element: <Tip />,
+        element: (
+          <DashboardLayout>
+            <Tip />
+          </DashboardLayout>
+        ),
       },
       {
         path: "chat",
-        element: <Chat />,
+        element: (
+          <DashboardLayout>
+            <Chat />
+          </DashboardLayout>
+        ),
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <DashboardLayout>
+            <Profile />
+          </DashboardLayout>
+        ),
       },
       {
         path: "edit-profile",
-        element: <EditProfile />,
+        element: (
+          <DashboardLayout>
+            <EditProfile />
+          </DashboardLayout>
+        ),
       },
     ],
   },
