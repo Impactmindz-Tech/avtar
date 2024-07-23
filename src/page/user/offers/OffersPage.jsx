@@ -1,4 +1,5 @@
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading"
+import { Link } from "react-router-dom";
 
 function Offers() {
   return (
@@ -72,7 +73,10 @@ function Offers() {
       </div>
 
       <div className="my-2">
+    <Link to="/user/offer-success">
+
         <button className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-3 cursor-pointer bg-backgroundFill-900 text-white text-center">Submit</button>
+    </Link>
       </div>
     </form>
   </div>

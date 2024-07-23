@@ -51,6 +51,7 @@ import Notification from "@/page/user/Notification";
 import AvatarProfile from "@/page/user/avatar/AvatarProfile";
 import PaymentPage from "@/page/user/Payment";
 import Offers from "@/page/user/offers/OffersPage";
+import OfferSuccessPage from "@/page/user/offers/OfferSuccessPage";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage("token");
@@ -144,6 +145,14 @@ const router = createBrowserRouter([
         element: (
           <DashboardLayout>
             <Offers />
+          </DashboardLayout>
+        ),
+      },
+      {
+        path: "offer-success",
+        element: (
+          <DashboardLayout>
+            <OfferSuccessPage />
           </DashboardLayout>
         ),
       },
