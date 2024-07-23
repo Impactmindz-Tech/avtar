@@ -6,7 +6,7 @@ function PerformancePage() {
   return (
     <div>
       <HeaderBack link="/avatar/profile" text={"Your Performances"} />
-      <div className="my-5 flex gap-2 justify-between">
+      <div className="my-5 flex gap-2 justify-between flex-wrap">
         <PerformanceCard icon={Images.maploc} title={"14"} desc={"Total Tours"} />
         <PerformanceCard icon={Images.globe} title={"02"} desc={"Cancel Tours"} />
         <PerformanceCard icon={Images.mapBlack} title={"01"} desc={"Today’s Tour"} />

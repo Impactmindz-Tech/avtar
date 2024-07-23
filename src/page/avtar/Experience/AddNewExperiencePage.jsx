@@ -24,7 +24,9 @@ function AddNewExperiencePage() {
 
       <TitleHeading title={"My Experience"} />
 
-      <div className="grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4 my-2">
+      <div className="grid grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2  sm:grid-cols-1 xl:grid-cols-3 gap-4 my-2">
+        <MyExperienceCard />
+        <MyExperienceCard />
         <MyExperienceCard />
         <MyExperienceCard />
         <MyExperienceCard />

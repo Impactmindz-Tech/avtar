@@ -13,7 +13,7 @@ function EarningPage() {
           <h1 className="text-grey-900 text-2xl">$150.00</h1>
         </div>
         <div className="right">
-          <button className="bg-grey-900 rounded-md px-8 py-4 text-white font-bold">Withdraw</button>
+          <button className="bg-grey-900 rounded-md px-8 py-4 text-white font-bold sm:py-2 sm:px-6 lg:py-3 lg:px-7">Withdraw</button>
         </div>
       </div>
 
@@ -48,8 +48,6 @@ function EarningPage() {
         </div>
       </div>
 
-
-
       <div className="my-6">
         <h1>Revenue</h1>
         <div className="flex justify-between items-center my-2">
@@ -60,18 +58,18 @@ function EarningPage() {
           <p>Today’s Earning</p>
           <h1>$10.00</h1>
         </div>
-        </div>
+      </div>
 
-
-
-        <div className="my-9">
+      <div className="my-9">
         <h1>Recent Completed Tours</h1>
-        <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-        <RecentCompleteTourCard/>
-        <RecentCompleteTourCard/>
-        <RecentCompleteTourCard/>
-    </div>
-    </div>
+        <div className="my-5 grid grid-cols-4 2xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 xl:grid-cols-2 gap-4">
+          <RecentCompleteTourCard />
+          <RecentCompleteTourCard />
+          <RecentCompleteTourCard />
+          <RecentCompleteTourCard />
+          <RecentCompleteTourCard />
+        </div>
+      </div>
     </div>
   );
 }

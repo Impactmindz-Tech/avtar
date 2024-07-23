@@ -10,20 +10,20 @@ function EditExperiencePage() {
       <HeaderBack link="/avatar/add-experience" text={"Edit Experience"} />
       <TitleHeading title={"Experience Images"} />
 
-      <div className="flex justify-between my-4">
+      <div className="flex justify-between my-4 flex-wrap">
         <div className="w-[49%] relative">
           <div className="absolute top-2 right-2 flex gap-2">
             <Link to="/avatar/edit-experience">
               {" "}
-              <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
+              <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
                 <img src={Images.rotate} alt="edit" className="cursor-pointer w-6 h-6" />
               </div>
             </Link>
-            <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
+            <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
               <img src={Images.close} alt="redtrash" className="cursor-pointer w-6 h-6" />
             </div>
           </div>
-          <img src={Images.cardImageRounded} alt="banner" className="w-[100%] h-[300px] object-cover rounded-2xl" />
+          <img src={Images.cardImageRounded} alt="banner" className="w-[100%] h-[300px] object-cover rounded-2xl sm:h-[140px]" />
         </div>
 
         <div className="border rounded-lg  w-[49%] bg-[#f2f2f2] border-[#e2e2e2] flex justify-center items-center">
@@ -38,7 +38,7 @@ function EditExperiencePage() {
         </div>
       </div>
 
-      <div className="my-6 grid grid-cols-4 2xl:grid-cols-3  lg:grid-cols-1 xl:grid-cols-2 gap-4">
+      <div className="my-6 grid grid-cols-4 2xl:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         <EditExperienceCard />
         <EditExperienceCard />
         <EditExperienceCard />

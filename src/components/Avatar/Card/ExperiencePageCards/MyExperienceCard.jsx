@@ -10,15 +10,15 @@ function MyExperienceCard() {
     <div className="card">
       <div className="w-full relative">
         <div className="absolute top-2 right-2 flex gap-2">
-         <Link to="/avatar/edit-experience"> <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
+         <Link to="/avatar/edit-experience"> <div className="bg-white p-4 lg:p-2 rounded-md BoxShadowLessRounded">
             <img
               src={Images.edit}
               alt="edit"
-              className="cursor-pointer w-6 h-6"
+              className="cursor-pointer w-6 h-6 "
             />
           </div>
             </Link>
-          <div className="bg-white p-4 rounded-md BoxShadowLessRounded">
+          <div className="bg-white p-4 lg:p-2 rounded-md BoxShadowLessRounded">
             <img
               src={Images.redtrash}
               alt="redtrash"
@@ -30,7 +30,7 @@ function MyExperienceCard() {
         <img
           src={Images.cardImageRounded}
           alt="banner"
-          className="w-[100%] h-[300px] object-cover rounded-2xl"
+          className="w-[100%] h-[300px] object-cover rounded-2xl lg:h-[200px]"
         />
       </div>
       <h1 className="text-grey-900 my-2">Shikara Hotel, India</h1>

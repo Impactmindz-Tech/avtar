@@ -1,10 +1,12 @@
 import OffersCard from "@/components/Avatar/Card/OffersCard";
 import BlackBottomButton from "@/components/Button/BlackBottomButton";
+import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
 
 function OffersPage() {
   return (
     <div>
+    <HeaderBack link={"/avatar/experience"} text={"Offers"}/>
       <OffersCard state={true} />
 
       <div className="my-4">
@@ -26,7 +28,7 @@ function OffersPage() {
                 f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a50136
                 7f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1
                 720766253960!5m2!1sen!2sin"
-            className="w-full 4xl:h-[600px] lg:h-auto"
+            className="w-full 4xl:h-[600px] lg:h-auto sm:h-[250px] lg:h-[350px]"
             loading="lazy"
           ></iframe>
         </div>

@@ -33,7 +33,7 @@ function ProfilePageAvatar() {
 
         <div className="my-5">
           <ProfilePageCard active={true} icon={Images.multiUser} text="Become a User" />
-          <ProfilePageCard active={false} icon={Images.payment} text="Earnings" />
+          <ProfilePageCard active={false} icon={Images.payment} text="Earnings" link="/avatar/earnings"/>
           <ProfilePageCard active={false} icon={Images.flag} text="Add Experience" />
           <ProfilePageCard active={false} icon={Images.bank} text="Bank Account" link={"/avatar/bank"}/>
           <ProfilePageCard active={false} icon={Images.info} text="Account Info" link="/avatar/account-info" />
