@@ -1,7 +1,7 @@
 import Images from "@/constant/Images";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Link, useNavigate } from "react-router-dom";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import { removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import toast from "react-hot-toast";
@@ -12,6 +12,7 @@ const HeaderNavigation = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
+
   const handleLogout = () => {
     localStorage.clear();
     navigate("/auth/login");
@@ -37,12 +38,13 @@ const HeaderNavigation = () => {
   };
 
   useEffect(() => {
+
     if (role === "user") {
       navigate("/user/dashboard");
     } else if (role === "avatar") {
-      navigate("/avatar/dashboard");
+      navigate("/user/dashboard");
     }
-  }, [role, navigate]);
+  }, [role]);
 
   return (
     <>

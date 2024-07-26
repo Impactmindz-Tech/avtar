@@ -14,7 +14,6 @@ function Header() {
   const [countrys, setCountrys] = useState([]);
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
 
-  
   const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
   useEffect(() => {
@@ -84,7 +83,7 @@ function Header() {
           </button>
           <img src={Images.liveBtn} alt="liveBtn" className="sm:hidden" />
 
-          <HeaderNavigation  />
+          <HeaderNavigation />
         </div>
       </header>
     </>

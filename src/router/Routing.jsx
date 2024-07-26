@@ -30,7 +30,6 @@ import DashboardLayout from "@/Layout/DashboardLayout";
 import AvatarLayout from "@/Layout/AvatarLayout";
 import ExperiencePage from "@/page/avtar/Experience/ExperiencePage";
 import OffersPage from "@/page/avtar/Offers/OffersPage";
-import ProfilePageAvatar from "@/page/avtar/Profile/ProfilePage";
 import EditProfileAvatar from "@/page/avtar/Profile/EditProfileAvatar";
 import ChatPageAvatar from "@/page/avtar/Chat/ChatPage";
 import ChatWithUser from "@/page/avtar/Chat/ChatWithUser";
@@ -378,7 +377,7 @@ const router = createBrowserRouter([
         path: "profile",
         element: (
           <AvatarLayout>
-            <ProfilePageAvatar />
+             <Profile />
           </AvatarLayout>
         ),
       },
