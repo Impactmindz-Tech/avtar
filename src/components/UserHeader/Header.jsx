@@ -174,61 +174,7 @@ function Header() {
 
   return (
     <>
-        <section>
-      <div className="container custom_height">
-        <div className="row justify-content-center">
-          <div className="col-lg-5 text-center container_custom">
-            <div>
-              <h1>Let's Have A Meeting</h1>
-            </div>
-            {!isSignedIn ? (
-              <div className='mt-4'>
-                <button className='btn custom_btn'>
-                  SIGN IN
-                </button>
-              </div>
-            ) : (
-              <div>
-                <button className='btn custom_btn me-5 mt-4' onClick={handleSignoutClick}>
-                  Sign Out
-                </button>
-                <div className='mt-4'>
-                  <TextField
-                    label="Start Time"
-                    type="datetime-local"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    value={startTime}
-                    onChange={(e) => setStartTime(e.target.value)}
-                  />
-                  <TextField
-                    label="Duration (minutes)"
-                    type="number"
-                    value={duration}
-                    onChange={(e) => setDuration(Number(e.target.value))}
-                  />
-                </div>
-                {countdown && (
-                  <div className='mt-4'>
-                    <Typography variant="body1">
-                      {countdown}
-                    </Typography>
-                  </div>
-                )}
-                {meetLink && (
-                  <div className='mt-4'>
-                    <Typography variant="body1">
-                      Join the meeting: <a href={meetLink}>{meetLink}</a>
-                    </Typography>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
+ 
       {loading && <Loader />}
       <header className="flex justify-between items-center p-3">
         <select value={selectedCountry} onChange={handleCountryChange}>
