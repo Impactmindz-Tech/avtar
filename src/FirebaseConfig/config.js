@@ -12,5 +12,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 };
-console.log(import.meta.env);
+
 export const app = initializeApp(firebaseConfig);

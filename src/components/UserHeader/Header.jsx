@@ -7,13 +7,13 @@ import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
+import { initClient, handleAuthClick } from "../../meetConfig/googlemeet";
 
 function Header() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [countrys, setCountrys] = useState([]);
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
-
   const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
   useEffect(() => {
@@ -55,12 +55,22 @@ function Header() {
 
   useEffect(() => {
     getAllcountry();
+    initClient(updateSignInStatus);
   }, []);
 
   const handleCountryChange = (e) => {
     const selected = e.target.value;
     setSelectedCountry(selected);
     setLocalStorage("selectedCountry", selected);
+  };
+
+  const updateSignInStatus = (isSignedIn) => {
+    // Update UI based on sign-in status
+    console.log('Sign-in status:', isSignedIn);
+  };
+
+  const handlelive = () => {
+    handleAuthClick();
   };
 
   return (
@@ -78,11 +88,12 @@ function Header() {
           <img src={Images.AvatarWalk} alt="AvatarWalk" />
         </div>
         <div className="cursor-pointer flex gap-4 items-center">
-          <button className="bg-[#ff5454] flex-1  py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={roleSwitch}>
+          <button className="bg-[#ff5454] flex-1 py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={roleSwitch}>
             {role === "user" ? "switch avatar" : "switch user"}
           </button>
-          <img src={Images.liveBtn} alt="liveBtn" className="sm:hidden" />
-
+          <button className="bg-[#ff5454] py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={handlelive}>
+            Live
+          </button>
           <HeaderNavigation />
         </div>
       </header>

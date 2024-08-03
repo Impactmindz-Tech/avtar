@@ -1,0 +1,60 @@
+import { gapi } from 'gapi-script';
+
+const CLIENT_ID = '512538371782-lbuu6spqac0cunqu4vjlgdclv7c43old.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyDV7Kyb6UQgy-BGbobkpPdafBMgzxsN4Vk';
+const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+const SCOPES = "https://www.googleapis.com/auth/calendar.events";
+
+// Initialize the Google API client
+export const initClient = (updateSignInStatus) => {
+  gapi.load('client:auth2', () => {
+    gapi.client.init({
+      apiKey: API_KEY,
+      clientId: CLIENT_ID,
+      discoveryDocs: DISCOVERY_DOCS,
+      scope: SCOPES,
+    }).then(() => {
+      gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+      updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    }).catch(error => {
+      console.error('Error initializing Google API client:', error);
+    });
+  });
+};
+
+// Handle sign-in
+export const handleAuthClick = () => {
+  const authInstance = gapi.auth2.getAuthInstance();
+  if (authInstance) {
+    authInstance.signIn();
+  } else {
+    console.error('Google Auth instance is not initialized.');
+  }
+};
+
+// Handle sign-out
+export const handleSignoutClick = () => {
+  const authInstance = gapi.auth2.getAuthInstance();
+  if (authInstance) {
+    authInstance.signOut();
+  } else {
+    console.error('Google Auth instance is not initialized.');
+  }
+};
+
+// Create a Google Meet event
+export const createGoogleMeet = (event) => {
+  return gapi.client.calendar.events.insert({
+    calendarId: 'primary',
+    resource: event,
+    conferenceDataVersion: 1,
+  });
+};
+
+// Delete a Google Meet event
+export const deleteGoogleMeet = (eventId) => {
+  return gapi.client.calendar.events.delete({
+    calendarId: 'primary',
+    eventId: eventId,
+  });
+};
