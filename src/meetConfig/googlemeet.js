@@ -16,30 +16,18 @@ export const initClient = (updateSignInStatus) => {
     }).then(() => {
       gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
       updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    }).catch(error => {
-      console.error('Error initializing Google API client:', error);
     });
   });
 };
 
 // Handle sign-in
 export const handleAuthClick = () => {
-  const authInstance = gapi.auth2.getAuthInstance();
-  if (authInstance) {
-    authInstance.signIn();
-  } else {
-    console.error('Google Auth instance is not initialized.');
-  }
+  gapi.auth2.getAuthInstance().signIn();
 };
 
 // Handle sign-out
 export const handleSignoutClick = () => {
-  const authInstance = gapi.auth2.getAuthInstance();
-  if (authInstance) {
-    authInstance.signOut();
-  } else {
-    console.error('Google Auth instance is not initialized.');
-  }
+  gapi.auth2.getAuthInstance().signOut();
 };
 
 // Create a Google Meet event
