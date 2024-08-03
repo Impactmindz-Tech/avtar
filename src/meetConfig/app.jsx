@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
-import Images from "@/constant/Images";
-import { useNavigate } from "react-router-dom";
-import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
-import HeaderNavigation from "../HeaderNavigation";
-import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
-import toast from "react-hot-toast";
-import Loader from "../Loader";
-import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
-import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet, deleteGoogleMeet } from "../../meetConfig/googlemeet";
+import React, { useEffect, useState } from 'react';
+import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet, deleteGoogleMeet } from './googlemeet.js';
+import { Button, TextField, Typography } from '@mui/material';
+import moment from 'moment';
 
-function Header() {
-  const navigate = useNavigate();
+const App = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [meetLink, setMeetLink] = useState('');
   const [eventId, setEventId] = useState('');
@@ -113,71 +106,9 @@ function Header() {
       setTimerId(null);
     }
   };
-  const [loading, setLoading] = useState(false);
-  const [countrys, setCountrys] = useState([]);
-  const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
-  const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
-
-  useEffect(() => {
-    if (role === "user") {
-      navigate("/user/dashboard");
-    } else if (role === "avatar") {
-      navigate("/avatar/dashboard");
-    }
-  }, [role]);
-
-  const roleSwitch = async () => {
-    const newRole = role === "user" ? "avatar" : "user";
-    try {
-      const response = await switchProfile(newRole);
-      if (response?.isSuccess) {
-        removeLocalStorage("user");
-        setLocalStorage("user", response?.data);
-        setRole(newRole);
-        toast.success(response?.message);
-        console.log(response);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const getAllcountry = async () => {
-    try {
-      const response = await getAllcountryApi();
-      if (response?.isSuccess) {
-        setCountrys(response?.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getAllcountry();
-    initClient(updateSignInStatus);
-  }, []);
-
-  const handleCountryChange = (e) => {
-    const selected = e.target.value;
-    setSelectedCountry(selected);
-    setLocalStorage("selectedCountry", selected);
-  };
-
-  const updateSignInStatus = (isSignedIn) => {
-    // Update UI based on sign-in status
-    console.log('Sign-in status:', isSignedIn);
-  };
-
-  const handlelive = () => {
-    handleAuthClick();
-  };
 
   return (
-    <>
-        <section>
+    <section>
       <div className="container custom_height">
         <div className="row justify-content-center">
           <div className="col-lg-5 text-center container_custom">
@@ -232,30 +163,7 @@ function Header() {
         </div>
       </div>
     </section>
-      {loading && <Loader />}
-      <header className="flex justify-between items-center p-3">
-        <select value={selectedCountry} onChange={handleCountryChange}>
-          {countrys?.map((item, index) => (
-            <option key={index} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-        <div className="brand">
-          <img src={Images.AvatarWalk} alt="AvatarWalk" />
-        </div>
-        <div className="cursor-pointer flex gap-4 items-center">
-          <button className="bg-[#ff5454] flex-1 py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={roleSwitch}>
-            {role === "user" ? "switch avatar" : "switch user"}
-          </button>
-          <button className="bg-[#ff5454] py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={handlelive}>
-            Live
-          </button>
-          <HeaderNavigation />
-        </div>
-      </header>
-    </>
   );
-}
+};
 
-export default Header;
+export default App;
