@@ -166,10 +166,7 @@ function Header() {
     setLocalStorage("selectedCountry", selected);
   };
 
-  const updateSignInStatus = (isSignedIn) => {
-    // Update UI based on sign-in status
-    console.log('Sign-in status:', isSignedIn);
-  };
+
 
   const handlelive = () => {
     handleAuthClick();
@@ -186,7 +183,7 @@ function Header() {
             </div>
             {!isSignedIn ? (
               <div className='mt-4'>
-                <button className='btn custom_btn' onClick={handleAuthClick}>
+                <button className='btn custom_btn'>
                   SIGN IN
                 </button>
               </div>
