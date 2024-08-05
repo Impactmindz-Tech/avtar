@@ -37,14 +37,14 @@ const HeaderNavigation = () => {
     }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (role === "user") {
-      navigate("/user/dashboard");
-    } else if (role === "avatar") {
-      navigate("/user/dashboard");
-    }
-  }, [role]);
+  //   if (role === "user") {
+  //     navigate("/user/dashboard");
+  //   } else if (role === "avatar") {
+  //     navigate("/user/dashboard");
+  //   }
+  // }, [role]);
 
   return (
     <>

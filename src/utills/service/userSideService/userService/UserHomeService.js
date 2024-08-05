@@ -21,16 +21,16 @@ export const userExperienceListApi = async (id) => {
 
 export const getAllcountryApi = async () => {
   try {
-    const res = await axiosInstance.get("/user/getAllcountry/" );
+    const res = await axiosInstance.get("/user/getAllcountry/");
     return res.data;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const bookingExperinceApi = async (id) => {
+export const bookingExperinceApi = async (id, payload) => {
   try {
-    const res = await axiosInstance.post("/user/getAllcountry/" + id );
+    const res = await axiosInstance.post("/user/booking/" + id, payload);
     return res.data;
   } catch (error) {
     console.log(error);

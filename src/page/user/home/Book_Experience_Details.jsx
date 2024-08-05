@@ -149,7 +149,7 @@ function Book_Experience_Details() {
                     </div>
                   </div>
                 </Link>
-                <Link to="/user/booking">
+                <Link to={`/user/booking/${item?._id}`}>
                   <div className="rounded-md my-6 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
                     <button className="py-2 font-bold">Book</button>
                   </div>

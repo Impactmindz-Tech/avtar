@@ -118,13 +118,13 @@ function Header() {
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
   const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
-  useEffect(() => {
-    if (role === "user") {
-      navigate("/user/dashboard");
-    } else if (role === "avatar") {
-      navigate("/avatar/dashboard");
-    }
-  }, [role]);
+  // useEffect(() => {
+  //   if (role === "user") {
+  //     navigate("/user/dashboard");
+  //   } else if (role === "avatar") {
+  //     navigate("/avatar/dashboard");
+  //   }
+  // }, [role]);
 
   const roleSwitch = async () => {
     const newRole = role === "user" ? "avatar" : "user";
