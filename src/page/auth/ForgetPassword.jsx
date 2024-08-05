@@ -18,9 +18,7 @@ const ForgetPassword = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(loginValidation) });
 
-  const handleGoogleSignup = () => {
-    signupgoogle(navigate);
-  };
+ 
   const userRole = getLocalStorage("user")?.user?.Activeprofile;
   console.log(userRole);
 
