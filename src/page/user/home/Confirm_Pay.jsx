@@ -3,14 +3,33 @@ import HeaderBack from "@/components/HeaderBack";
 import EditDateModal from "@/components/Modal/EditDateModal";
 import EditTimeModal from "@/components/Modal/EditTimeModal";
 import ConfirmPaymentForm from "@/components/Payment Card/Confirm_Page_Payment";
+import { formatTime } from "@/constant/date-time-format/DateTimeFormat";
 import Images from "@/constant/Images";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { getBookingDetailsApi } from "@/utills/service/userSideService/userService/UserHomeService";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 function Confirm_Pay() {
+  const params = useParams();
   const [showEditDateModal, setShowEditDateModal] = useState(false);
   const [showEditTimeModal, setShowEditTimeModal] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState(null);
 
+  const getBookingDetails = async () => {
+    try {
+      const response = await getBookingDetailsApi(params?.id);
+      if (response?.isSuccess) {
+        setBookingDetails(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+  useEffect(() => {
+    getBookingDetails();
+  }, []);
   return (
     <>
       <div className="container">
@@ -18,7 +37,7 @@ function Confirm_Pay() {
 
         <div className="m-auto ">
           <div className="flex justify-center w-full ">
-            <ConfirmPayCard />
+            <ConfirmPayCard bookingDetails={bookingDetails} />
           </div>
 
           <div className="flex gap-4 md:block">
@@ -37,7 +56,7 @@ function Confirm_Pay() {
                         </div>
                         <h6 className="font-semibold">Dates</h6>
                       </div>
-                      <h4 className="font-medium my-1">Mon, Mar 21, 2024</h4>
+                      <h4 className="font-medium my-1">{bookingDetails?.data?.booking?.bookingDate}</h4>
                     </div>
                     {/* edit btn */}
                     <div className="">
@@ -54,9 +73,8 @@ function Confirm_Pay() {
                         </div>
                         <h6 className="font-semibold">Time</h6>
                       </div>
-                      <h4 className="font-medium my-1">08:00 PM - 08:30 PM</h4>
+                      <h4 className="font-medium my-1">{bookingDetails?.data?.booking?.bookingTime && bookingDetails?.data?.booking?.endTime ? `${formatTime(bookingDetails.data.booking.bookingTime)} - ${formatTime(bookingDetails.data.booking.endTime)}` : "N/A"}</h4>
                     </div>
-                    {/* edit btn */}
                     <div className="">
                       <img src={Images.edit} alt="edit" className="cursor-pointer" onClick={() => setShowEditTimeModal(true)} />
                     </div>

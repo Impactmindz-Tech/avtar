@@ -3,24 +3,32 @@ import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
 import { bookingExperinceApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Booking() {
+  const navigate = useNavigate()
   const params = useParams();
   const [date, setDate] = useState(new Date() | undefined);
   const [selectedTime, setSelectedTime] = useState(null);
   const [duration, setDuration] = useState(null);
   const [type, setType] = useState(null);
-  console.log(params);
+
+  const formatDate = (date) => {
+    return date.toISOString().split("T")[0];
+  };
   const onSubmit = async () => {
     let body = {
-      bookingDate: date,
+      bookingDate: formatDate(date),
       bookingTime: selectedTime,
       Duration: duration,
       tourType: type,
     };
     try {
       const response = await bookingExperinceApi(params?.id, body);
+      if(response?.isSuccess){
+        console.log(response)
+        navigate("/user/confirm-and-pay/" + response?.data?._id)
+      }
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -75,16 +83,16 @@ function Booking() {
             </div>
             <h3 className="text-lg font-semibold mb-2">Duration</h3>
             <div className="flex space-x-2">
-              <button className={`p-3 ${duration === "15 min" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("15 min")}>
+              <button className={`p-3 ${duration === 15 ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration(15)}>
                 15 min
               </button>
-              <button className={`p-3 ${duration === "30 min" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("30 min")}>
+              <button className={`p-3 ${duration === 30 ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration(30)}>
                 30 min
               </button>
-              <button className={`p-3 ${duration === "45 min" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("45 min")}>
+              <button className={`p-3 ${duration === 45 ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration(45)}>
                 45 min
               </button>
-              <button className={`p-3 ${duration === "1 hour" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("1 hour")}>
+              <button className={`p-3 ${duration === 1 ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration(1)}>
                 1 hour
               </button>
             </div>

@@ -36,3 +36,12 @@ export const bookingExperinceApi = async (id, payload) => {
     console.log(error);
   }
 };
+
+export const getBookingDetailsApi = async (id) => {
+  try {
+    const res = await axiosInstance.get("/user/getBookingDetails/" + id);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

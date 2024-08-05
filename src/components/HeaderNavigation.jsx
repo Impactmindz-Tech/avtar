@@ -11,24 +11,22 @@ import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
 const HeaderNavigation = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
+  const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user")?.Activeprofile : null);
 
   const handleLogout = () => {
     localStorage.clear();
     navigate("/auth/login");
   };
+
   const roleSwitch = async () => {
     const newRole = role === "user" ? "avatar" : "user";
-    console.log(`Switching from ${role} to ${newRole}`);
     try {
       const response = await switchProfile(newRole);
       if (response?.isSuccess) {
         removeLocalStorage("user");
         setLocalStorage("user", response?.data);
-        setRole(newRole);
-        console.log(`Role switched to ${newRole}`);
+        role == "user" ? navigate("/user/dashboard") : navigate("/avatar/dashboard");
         toast.success(response?.message);
-        console.log(response);
       }
     } catch (error) {
       console.log(error);

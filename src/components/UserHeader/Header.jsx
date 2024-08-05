@@ -12,13 +12,17 @@ import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet, dele
 function Header() {
   const navigate = useNavigate();
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [meetLink, setMeetLink] = useState('');
-  const [eventId, setEventId] = useState('');
+  const [meetLink, setMeetLink] = useState("");
+  const [eventId, setEventId] = useState("");
   const [duration, setDuration] = useState(30); // Default duration 30 minutes
-  const [startTime, setStartTime] = useState('');
+  const [startTime, setStartTime] = useState("");
   const [timerId, setTimerId] = useState(null);
-  const [countdown, setCountdown] = useState('');
+  const [countdown, setCountdown] = useState("");
   const [meetWindow, setMeetWindow] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [countrys, setCountrys] = useState([]);
+  const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
+  const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
   const updateSignInStatus = (isSignedIn) => {
     setIsSignedIn(isSignedIn);
@@ -37,7 +41,7 @@ function Header() {
 
         if (diff <= 0) {
           clearInterval(interval);
-          setCountdown('Meeting is starting now!');
+          setCountdown("Meeting is starting now!");
           createMeet();
         } else {
           const hours = Math.floor(diff / 3600000);
@@ -55,21 +59,21 @@ function Header() {
     const endDateTime = new Date(startDateTime.getTime() + duration * 60000);
 
     const event = {
-      summary: 'Google Meet',
-      description: 'One-on-one meeting',
+      summary: "Google Meet",
+      description: "One-on-one meeting",
       start: {
         dateTime: startDateTime.toISOString(),
-        timeZone: 'America/Los_Angeles',
+        timeZone: "America/Los_Angeles",
       },
       end: {
         dateTime: endDateTime.toISOString(),
-        timeZone: 'America/Los_Angeles',
+        timeZone: "America/Los_Angeles",
       },
       conferenceData: {
         createRequest: {
           requestId: "sample123",
           conferenceSolutionKey: {
-            type: "hangoutsMeet"
+            type: "hangoutsMeet",
           },
         },
       },
@@ -81,7 +85,7 @@ function Header() {
       setEventId(response.result.id);
 
       // Open the meeting in a new tab
-      const newWindow = window.open(meetUrl, '_blank');
+      const newWindow = window.open(meetUrl, "_blank");
       setMeetWindow(newWindow);
 
       // Schedule the end of the meeting
@@ -105,18 +109,14 @@ function Header() {
   };
 
   const resetState = () => {
-    setMeetLink('');
-    setEventId('');
-    setCountdown('');
+    setMeetLink("");
+    setEventId("");
+    setCountdown("");
     if (timerId) {
       clearTimeout(timerId);
       setTimerId(null);
     }
   };
-  const [loading, setLoading] = useState(false);
-  const [countrys, setCountrys] = useState([]);
-  const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
-  const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
   // useEffect(() => {
   //   if (role === "user") {
@@ -124,7 +124,7 @@ function Header() {
   //   } else if (role === "avatar") {
   //     navigate("/avatar/dashboard");
   //   }
-  // }, [role]);
+  // }, [role, navigate]);
 
   const roleSwitch = async () => {
     const newRole = role === "user" ? "avatar" : "user";
@@ -133,9 +133,8 @@ function Header() {
       if (response?.isSuccess) {
         removeLocalStorage("user");
         setLocalStorage("user", response?.data);
-        setRole(newRole);
+        role == "user" ? navigate("/user/dashboard") : navigate("/avatar/dashboard");
         toast.success(response?.message);
-        console.log(response);
       }
     } catch (error) {
       console.log(error);
@@ -166,15 +165,12 @@ function Header() {
     setLocalStorage("selectedCountry", selected);
   };
 
-
-
   const handlelive = () => {
     handleAuthClick();
   };
 
   return (
     <>
- 
       {loading && <Loader />}
       <header className="flex justify-between items-center p-3">
         <select value={selectedCountry} onChange={handleCountryChange}>

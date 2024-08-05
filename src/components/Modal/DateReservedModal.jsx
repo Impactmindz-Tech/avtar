@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Images from "@/constant/Images";
 
 const DateReservedModal = ({ show, onClose }) => {
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [duration, setDuration] = useState(null);
   const modalRef = useRef();
 
   const handleClickOutside = (event) => {
@@ -41,18 +43,32 @@ const DateReservedModal = ({ show, onClose }) => {
           <div className="mb-2">
             <h3 className="text-lg font-semibold mb-2">Next availability :</h3>
             <div className="flex space-x-2">
-              <button className="p-3 bg-black text-white rounded-md md:p-2 md:px-2 md:text-sm">11:00 Am</button>
-              <button className="p-3 bg-gray-200  rounded-md md:p-2 md:px-2 md:text-sm">11:30 Am</button>
-              <button className="p-3 bg-gray-200 rounded-md md:p-2 md:px-2 md:text-sm">12:00 Am</button>
+              <button className={`p-3 ${selectedTime === "11:00" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setSelectedTime("11:00")}>
+                11:00 Am
+              </button>
+              <button className={`p-3 ${selectedTime === "11:30" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setSelectedTime("11:30")}>
+                11:30 Am
+              </button>
+              <button className={`p-3 ${selectedTime === "12:00" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setSelectedTime("12:00")}>
+                12:00 Am
+              </button>
             </div>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-2">Duration</h3>
             <div className="flex space-x-2">
-              <button className="p-3 bg-gray-200 rounded-md md:p-2 md:px-2 md:text-sm">15 Min</button>
-              <button className="p-3 bg-gray-200 rounded-md md:p-2 md:px-2 md:text-sm">30 Min</button>
-              <button className="p-3 bg-gray-200 rounded-md md:p-2 md:px-2 md:text-sm">45 Min</button>
-              <button className="p-3 bg-gray-200 rounded-md md:p-2 md:px-2 md:text-sm">1 Hour</button>
+            <button className={`p-3 ${duration === "15 min" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("15 min")}>
+                15 min
+              </button>
+              <button className={`p-3 ${duration === "30 min" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("30 min")}>
+                30 min
+              </button>
+              <button className={`p-3 ${duration === "45 min" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("45 min")}>
+                45 min
+              </button>
+              <button className={`p-3 ${duration === "1 hour" ? "bg-black text-white" : "bg-gray-200"} rounded-md md:p-2 md:px-2 md:text-sm`} onClick={() => setDuration("1 hour")}>
+                1 hour
+              </button>
             </div>
           </div>
         </div>
