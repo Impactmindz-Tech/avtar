@@ -1,17 +1,16 @@
+// src/utils/googleCalendar.js
 import { gapi } from 'gapi-script';
 
-const CLIENT_ID = '512538371782-0bu8fnj3focs6m66tbninfcm2c1h9g1n.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyDV7Kyb6UQgy-BGbobkpPdafBMgzxsN4Vk';
-const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-const SCOPES = "https://www.googleapis.com/auth/calendar.events";
+const CLIENT_ID = '43407974542-q4hsviijsdl9kagq9a9l552tslnufech.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyCWJy_HmUgcAn-64DkUt8qEuR3l1h8S7tw';
+const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
-// Initialize the Google API client
 export const initClient = (updateSignInStatus) => {
   gapi.load('client:auth2', () => {
     gapi.client.init({
       apiKey: API_KEY,
       clientId: CLIENT_ID,
-      discoveryDocs: DISCOVERY_DOCS,
+      discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
       scope: SCOPES,
     }).then(() => {
       gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
@@ -20,29 +19,35 @@ export const initClient = (updateSignInStatus) => {
   });
 };
 
-// Handle sign-in
 export const handleAuthClick = () => {
   gapi.auth2.getAuthInstance().signIn();
 };
 
-// Handle sign-out
 export const handleSignoutClick = () => {
   gapi.auth2.getAuthInstance().signOut();
 };
 
-// Create a Google Meet event
-export const createGoogleMeet = (event) => {
+export const createGoogleMeet = (summary, description, startTime, endTime) => {
   return gapi.client.calendar.events.insert({
     calendarId: 'primary',
-    resource: event,
-    conferenceDataVersion: 1,
-  });
-};
-
-// Delete a Google Meet event
-export const deleteGoogleMeet = (eventId) => {
-  return gapi.client.calendar.events.delete({
-    calendarId: 'primary',
-    eventId: eventId,
+    resource: {
+      summary,
+      description,
+      start: {
+        dateTime: startTime,
+        timeZone: 'America/Los_Angeles'
+      },
+      end: {
+        dateTime: endTime,
+        timeZone: 'America/Los_Angeles'
+      },
+      conferenceData: {
+        createRequest: {
+          requestId: "sample123",
+          conferenceSolutionKey: { type: "hangoutsMeet" }
+        }
+      }
+    },
+    conferenceDataVersion: 1
   });
 };
