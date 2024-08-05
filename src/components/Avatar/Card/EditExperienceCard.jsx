@@ -1,6 +1,6 @@
 import Images from '@/constant/Images'
 
-export default function EditExperienceCard() {
+export default function EditExperienceCard({otherImageURL ,imageURL}) {
   return (
 
     <div className="relative">
@@ -8,7 +8,7 @@ export default function EditExperienceCard() {
         <img src={Images.closeWhite} alt="close" className="w-5 h-5 sm:h-3 sm:w-3" />
       </div>
       <img
-        src={Images.house}
+        src={imageURL}
         alt="house"
         className="w-full h-[230px] object-cover rounded-md sm:h-auto "
       />
