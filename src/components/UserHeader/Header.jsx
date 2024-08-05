@@ -9,7 +9,7 @@ import Loader from "../Loader";
 import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet } from "../../meetConfig/googleCalender";
 import { Button, TextField, Typography } from '@mui/material';
-import moment from 'moment';
+//import moment from 'moment';
 
 function Header() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Header() {
   const [meetLink, setMeetLink] = useState('');
   const [eventId, setEventId] = useState('');
   const [duration, setDuration] = useState(30); // Default duration 30 minutes
-  const [startTime, setStartTime] = useState(moment().format("YYYY-MM-DDTHH:mm:ss")); // Default to now
+  //const [startTime, setStartTime] = useState(moment().format("YYYY-MM-DDTHH:mm:ss")); // Default to now
 
   const updateSignInStatus = (isSignedIn) => {
     setIsSignedIn(isSignedIn);
