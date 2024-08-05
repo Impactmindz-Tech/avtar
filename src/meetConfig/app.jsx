@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet, deleteGoogleMeet } from './googlemeet.js';
+import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet, deleteGoogleMeet } from './googleCalender.js';
 import { Button, TextField, Typography } from '@mui/material';
 import moment from 'moment';
 
