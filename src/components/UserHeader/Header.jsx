@@ -7,7 +7,7 @@ import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
-import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet } from "../../meetConfig/googleCalender";
+import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet } from "../../meetConfig/googlemeet";
 import { Button, TextField, Typography } from '@mui/material';
 //import moment from 'moment';
 
