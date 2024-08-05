@@ -1,9 +1,23 @@
-import BlackBottomButton from "@/components/Button/BlackBottomButton";
 import BookingCalendar from "@/components/Calendar/BookingCalendar";
 import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
+import { bookingExperinceApi } from "@/utills/service/userSideService/userService/UserHomeService";
+import { useEffect } from "react";
 
 function Booking() {
+  const onSubmit = () => {
+    try {
+      const response = bookingExperinceApi();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    onSubmit();
+  }, []);
+
   return (
     <div className="container">
       <HeaderBack link="/user/book-experience" text={"Set Date"} />
@@ -37,6 +51,14 @@ function Booking() {
         {/* duration */}
         <div className="my-2">
           <div className="mb-2">
+            <div className="mb-2">
+              <h3 className="text-lg font-semibold mb-2">Next availability :</h3>
+              <div className="flex space-x-2">
+                <button className="p-3 bg-black text-white rounded-md md:p-2 md:px-2 md:text-sm">11:00 Am</button>
+                <button className="p-3 bg-gray-200  rounded-md md:p-2 md:px-2 md:text-sm">11:30 Am</button>
+                <button className="p-3 bg-gray-200 rounded-md md:p-2 md:px-2 md:text-sm">12:00 Am</button>
+              </div>
+            </div>
             <h3 className="text-lg font-semibold mb-2">Duration</h3>
             <div className="flex space-x-2">
               <button className="p-3 bg-gray-200 rounded-md md:p-1 md:px-2">15 min</button>
@@ -54,9 +76,11 @@ function Booking() {
           </div>
         </div>
 
-        <BlackBottomButton link="/user/confirm-and-pay" text="Proceed" />
+        <div onClick={onSubmit} className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-2 cursor-pointer bg-backgroundFill-900 text-white text-center">
+          <button className="py-1 font-bold ">{"Book"}</button>
+        </div>
+        {/* <BlackBottomButton link="/user/confirm-and-pay" text="Proceed" /> */}
       </div>
-
     </div>
   );
 }

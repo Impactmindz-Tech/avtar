@@ -27,3 +27,12 @@ export const getAllcountryApi = async () => {
     console.log(error);
   }
 };
+
+export const bookingExperinceApi = async (id) => {
+  try {
+    const res = await axiosInstance.post("/user/getAllcountry/" + id );
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

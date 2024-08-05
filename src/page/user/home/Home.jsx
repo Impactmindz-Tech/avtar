@@ -40,13 +40,13 @@ const Home = () => {
 
   useEffect(() => {
     fetchUserExperience(activeTab);
-  }, [activeTab, search, country]); // Add country to the dependency array
+  }, [activeTab, search, country]);
 
   return (
     <>
       {loading && <Loader />}
       <div className="container">
-        <UserTopSearch onSearch={setSearch} /> {/* Pass callback to update country */}
+        <UserTopSearch onSearch={setSearch} />
         <div className="lg:overflow-x-auto lg:overflow-y-hidden border-b">
           <div className="flex border-b">
             {tabs.map((tab) => (
