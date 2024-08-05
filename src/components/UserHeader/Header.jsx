@@ -22,7 +22,6 @@ function Header() {
   const [meetLink, setMeetLink] = useState('');
   const [eventId, setEventId] = useState('');
   const [duration, setDuration] = useState(30); // Default duration 30 minutes
-  //const [startTime, setStartTime] = useState(moment().format("YYYY-MM-DDTHH:mm:ss")); // Default to now
 
   const updateSignInStatus = (isSignedIn) => {
     setIsSignedIn(isSignedIn);
@@ -32,26 +31,28 @@ function Header() {
     initClient(updateSignInStatus);
   }, []);
 
-  useEffect(() => {
-    if (role === "user") {
-      navigate("/user/dashboard");
-    } else if (role === "avatar") {
-      navigate("/avatar/dashboard");
-    }
-  }, [role]);
+  // useEffect(() => {
+  //   if (role) {
+  //     navigate(role === "user" ? "/user/dashboard" : "/avatar/dashboard", { replace: true });
+  //   }
+  // }, [role, navigate]);
 
   const roleSwitch = async () => {
     const newRole = role === "user" ? "avatar" : "user";
+    if (role === newRole) return; // Prevent unnecessary role switch
+
+    setLoading(true);
     try {
       const response = await switchProfile(newRole);
       if (response?.isSuccess) {
         removeLocalStorage("user");
         setLocalStorage("user", response?.data);
-        role == "user" ? navigate("/user/dashboard") : navigate("/avatar/dashboard");
+        role === "user" ? navigate( "/user/dashboard" ,{ replace: true }) : navigate( "/avatar/dashboard" ,{ replace: true })
         toast.success(response?.message);
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Role switching failed");
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -64,21 +65,19 @@ function Header() {
         setCountrys(response?.data);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     getAllcountry();
-  
-  }, []);
+  }, []); // Empty dependency array to fetch countries only on mount
 
   const handleCountryChange = (e) => {
     const selected = e.target.value;
     setSelectedCountry(selected);
     setLocalStorage("selectedCountry", selected);
   };
-  console.log(meetLink,'link');
 
   const handleLiveButtonClick = async () => {
     if (!isSignedIn) {
@@ -105,7 +104,7 @@ function Header() {
       toast.success("Google Meet created successfully!");
       openMeetWindow(meetLink, duration);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error("Failed to create Google Meet.");
     }
   };
@@ -119,9 +118,7 @@ function Header() {
 
   return (
     <>   
-      <section>
-
-      </section>
+      <section></section>
       {loading && <Loader />}
       <header className="flex justify-between items-center p-3">
         <select value={selectedCountry} onChange={handleCountryChange}>
@@ -141,7 +138,7 @@ function Header() {
           <button className="bg-[#ff5454] py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={handleLiveButtonClick}>
             Live
           </button>
-          <HeaderNavigation />
+          {/* <HeaderNavigation /> */}
         </div>
       </header>
     </>

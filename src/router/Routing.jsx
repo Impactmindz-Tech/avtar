@@ -56,29 +56,28 @@ import Booking from "@/page/user/home/Booking";
 import Confirm_Pay from "@/page/user/home/Confirm_Pay";
 const Root = () => {
   const navigate = useNavigate();
-  const token = getLocalStorage("token");
-  const currentState = getLocalStorage("user")?.Activeprofile; // 'auth', 'user', 'avatar'
+  const token = getLocalStorage('token');
+  const currentState = getLocalStorage('user')?.Activeprofile;
 
   useEffect(() => {
     if (!token) {
-      navigate("/auth/login", { replace: true });
-    } else {
+      navigate('/auth/login', { replace: true });
+    } else if (currentState) {
       switch (currentState) {
-        case "user":
-          navigate("/user/dashboard", { replace: true });
+        case 'user':
+          navigate('/user/dashboard', { replace: true });
           break;
-        case "avatar":
-          navigate("/avatar/dashboard", { replace: true });
+        case 'avatar':
+          navigate('/avatar/dashboard', { replace: true });
           break;
         default:
-          navigate("/auth/login", { replace: true });
+          navigate('/auth/login', { replace: true });
       }
     }
   }, [token, currentState, navigate]);
 
   return null;
 };
-
 const router = createBrowserRouter([
   {
     path: "/",

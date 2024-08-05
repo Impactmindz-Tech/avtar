@@ -8,11 +8,11 @@ const AuthProtected = () => {
   if (token) {
     switch (currentState) {
       case 'user':
-        return <Navigate to='/user/dashboard' replace />;
+        return <Navigate to='/user/dashboard'  />;
       case 'avatar':
-        return <Navigate to='/avatar/dashboard' replace />;
+        return <Navigate to='/avatar/dashboard'  />;
       default:
-        return <Navigate to='/user/dashboard' replace />;
+        return <Navigate to='/user/dashboard'  />;
     }
   }
 

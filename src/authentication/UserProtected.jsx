@@ -6,7 +6,7 @@ const UserProtected = () => {
   const currentState = getLocalStorage('user')?.Activeprofile;
   
   if (!token || currentState !== 'user') {
-    return <Navigate to='/auth/login' replace />;
+    return <Navigate to='/auth/login'  />;
   }
 
   return <Outlet />;
