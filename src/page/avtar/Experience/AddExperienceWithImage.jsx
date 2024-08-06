@@ -21,7 +21,7 @@ function AddExperienceWithImagePage() {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
-console.log(selectedCountry)
+  console.log(selectedCountry);
   const {
     handleSubmit,
     register,
@@ -80,7 +80,7 @@ console.log(selectedCountry)
     formData.append("State", selectedState.name);
     formData.append("city", selectedCity.name);
     formData.append("file", selectedFile);
-    formData.append("about", 'selectedFile');
+    formData.append("about", "selectedFile");
     // for (let [key, value] of formData.entries()) {
     //   console.log(key, value);
     // }

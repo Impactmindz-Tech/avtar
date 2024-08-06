@@ -46,7 +46,7 @@ const ExperiencePage = () => {
             return (
               <>
                 <div key={index} className="my-5 grid grid-cols-3  sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-                  {item?.status == "Requested" ? <RequestedCard item={item} /> : item?.status == "Booked" ? <BookedCard item={item} /> : item?.status == "Completed" ? <CompletedCard item={item} /> : item?.status == "Booked" ? <CancelledCard item={item} /> : null}
+                  {item?.status == "Requested" ? <RequestedCard item={item} /> : item?.status == "Booked" ? <BookedCard item={item} /> : item?.status == "Completed" ? <CompletedCard item={item} /> : item?.status == "Cancelled" ? <CancelledCard item={item} /> : null}
                 </div>
               </>
             );
