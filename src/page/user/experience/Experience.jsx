@@ -4,17 +4,21 @@ import BookedCard from "@/components/Cards/ExperiencePageCard/BookedCard";
 import CancelledCard from "@/components/Cards/ExperiencePageCard/CancelledCard";
 import CompletedCard from "@/components/Cards/ExperiencePageCard/CompletedCard";
 import ExperiencePageHeader from "@/components/UserHeader/ExperiencePageHeader";
+import { setExperinceStatus } from "@/store/slice/experinceS/ExperinceSlice";
 import { experienceGetrequestsApi } from "@/utills/service/experienceService/ExperienceService";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function Experience() {
+  const dispatch = useDispatch();
+  const experinceStatusDetails = useSelector((state) => state?.ExperinceProduct?.experinceStatus);
   const [activeTab, setActiveTab] = useState("Booked");
   const tabs = ["Requested", "Booked", "Completed", "Cancelled"];
 
   const experienceGetrequests = async (status) => {
-  console.log(status , 'status')
     try {
       const response = await experienceGetrequestsApi(status);
+      dispatch(setExperinceStatus(response));
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -40,20 +44,15 @@ function Experience() {
               </div>
             </div>
 
-            {activeTab === "Booked" && (
               <>
                 <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
-                  <ExperienceCard />
-                  <ExperienceCard />
-                  <ExperienceCard />
-                  <ExperienceCard />
-                  <ExperienceCard />
-                  <ExperienceCard />
-                  <ExperienceCard />
+                  {experinceStatusDetails?.isSuccess &&
+                    experinceStatusDetails?.data?.map((item, index) => {
+                      return <ExperienceCard key={index} item={item} />;
+                    })}
                 </div>
               </>
-            )}
-            {activeTab === "Requested" && (
+            {/* {activeTab === "Requested" && (
               <>
                 <div className="my-5 grid grid-cols-3 2xl:grid-cols-2  lg:grid-cols-1 xl:grid-cols-2 gap-4">
                   <RequestedCard />
@@ -82,7 +81,7 @@ function Experience() {
                   <CancelledCard />
                 </div>
               </>
-            )}
+            )} */}
           </div>
         </div>
       </div>

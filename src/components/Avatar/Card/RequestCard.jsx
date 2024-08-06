@@ -1,12 +1,12 @@
 import Images from "@/constant/Images";
 
-const RequestedCard = () => {
+const RequestedCard = ({ item }) => {
   return (
     <div className="p-4 sm:p-0 sm:mt-2">
       <div className="BoxShadowLessRounded pb-2">
         <div className="flex  gap-4 p-4 sm:flex-wrap">
           <div className="sm:w-[100%] relative">
-            <img src={Images.cardImageRounded} alt="cardImageRounded" className="w-30 h-[100px] sm:w-full object-cover sm:h-[200px] rounded-lg" />
+            <img src={item?.experienceImage} alt="cardImageRounded" className="w-30 h-[100px] sm:w-full object-cover sm:h-[200px] rounded-lg" />
             <div className="absolute bottom-3 right-1 px-2 rounded-full font-bold bg-white">$80</div>
           </div>
           <div className="w-[80%] sm:w-[100%]">

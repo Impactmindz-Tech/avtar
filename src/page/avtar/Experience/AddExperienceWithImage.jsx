@@ -73,13 +73,14 @@ console.log(selectedCountry)
     const formData = new FormData();
 
     // Append text fields
-    formData.append("name", "John Doe");
+    formData.append("ExperienceName", data?.ExperienceName);
     formData.append("AmountsperMinute", data?.AmountsperMinute);
     formData.append("notesForUser", data?.notesForUser);
-    formData.append("Country", selectedCountry.name);
+    formData.append("country", selectedCountry.name);
     formData.append("State", selectedState.name);
-    formData.append("City", selectedCity.name);
+    formData.append("city", selectedCity.name);
     formData.append("file", selectedFile);
+    formData.append("about", 'selectedFile');
     // for (let [key, value] of formData.entries()) {
     //   console.log(key, value);
     // }

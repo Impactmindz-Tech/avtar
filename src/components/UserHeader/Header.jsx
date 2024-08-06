@@ -45,8 +45,8 @@ function Header() {
     try {
       const response = await switchProfile(newRole);
       if (response?.isSuccess) {
-        removeLocalStorage("user");
         setLocalStorage("user", response?.data);
+        setLocalStorage("token", response?.token);
         role === "user" ? navigate( "/user/dashboard" ,{ replace: true }) : navigate( "/avatar/dashboard" ,{ replace: true })
         toast.success(response?.message);
       }
