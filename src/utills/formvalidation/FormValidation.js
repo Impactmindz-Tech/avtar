@@ -42,3 +42,9 @@ export const editProfileValidation = yup.object({
   country: yup.string().required("password is requird"),
   city: yup.string().required("password is requird"),
 });
+
+export const addExperinceValidation = yup.object({
+  AmountsperMinute: yup.string().required("Amountsper Minute is requird"),
+  notesForUser: yup.string().required("Notes For User is requird"),
+  ExperienceName: yup.string().required("Experience Name is requird"),
+});

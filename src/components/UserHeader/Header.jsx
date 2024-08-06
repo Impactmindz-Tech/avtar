@@ -138,7 +138,7 @@ function Header() {
           <button className="bg-[#ff5454] py-[7px] text-white rounded-lg px-4 sm:hidden" onClick={handleLiveButtonClick}>
             Live
           </button>
-          {/* <HeaderNavigation /> */}
+          <HeaderNavigation />
         </div>
       </header>
     </>

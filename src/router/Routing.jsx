@@ -11,7 +11,6 @@ import Filters from "@/page/user/Filters";
 import Report from "@/page/user/Report";
 import See_All_Review from "@/page/user/See_All_Review";
 import Payment_Status from "@/page/user/Payment_Status";
-import Experience from "@/page/user/Experience";
 import Update_Experience from "@/page/user/Update_Experience";
 import ChatWithAvatar from "@/page/user/ChatWithAvatar";
 import RateTour from "@/page/user/RateTour";
@@ -54,6 +53,7 @@ import OtpVerify from "@/page/auth/OtpVerify";
 import NewPassword from "@/page/auth/NewPassword";
 import Booking from "@/page/user/home/Booking";
 import Confirm_Pay from "@/page/user/home/Confirm_Pay";
+import Experience from "@/page/user/experience/Experience";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage('token');
