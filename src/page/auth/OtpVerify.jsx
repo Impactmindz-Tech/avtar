@@ -9,7 +9,7 @@ import { loginValidation } from "@/utills/formvalidation/FormValidation";
 import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import { loginApi, verifyOtpApi } from "@/utills/service/authService";
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
-
+import toast from "react-hot-toast";
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
 
 const OtpVerify = () => {
@@ -29,6 +29,7 @@ const OtpVerify = () => {
     try {
       const response = await verifyOtpApi(params?.id, body);
       if (response?.isSuccess) {
+        toast.success(response?.message)
         navigate("/auth/new-password/" + response?.id);
       }
     } catch (error) {

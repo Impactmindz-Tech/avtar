@@ -9,6 +9,7 @@ import { forgetPassword, loginValidation } from "@/utills/formvalidation/FormVal
 import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import { forgetPasswordApi, loginApi } from "@/utills/service/authService";
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
+import toast from "react-hot-toast";
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const ForgetPassword = () => {
     try {
       const response = await forgetPasswordApi(formData);
       if (response?.isSuccess) {
+        toast.success(response?.message)
         navigate("/auth/otp-verify/" + response?.id);
       }
       console.log(response);
