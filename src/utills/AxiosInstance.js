@@ -2,7 +2,7 @@ import axios from "axios";
 import { getLocalStorage } from "./LocalStorageUtills";
 
 const axiosInstance = axios.create({
-  baseURL: "https://avatar-backend.vercel.app",
+  baseURL: "https://avatarbackend.onrender.com/",
 });
 
 axiosInstance.interceptors.request.use(
