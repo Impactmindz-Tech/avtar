@@ -1,42 +1,35 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { signupgoogle } from "@/constant/optimizedFunction/loginFunction/LoginFunction"; // Adjust path based on your project
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "@/utills/formvalidation/FormValidation";
 import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
-import { loginApi } from "@/utills/service/authService";
+import { loginApi, verifyOtpApi } from "@/utills/service/authService";
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
 
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
 
 const OtpVerify = () => {
+  const params = useParams();
+  const [value, setValue] = React.useState("");
   const navigate = useNavigate();
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(loginValidation) });
 
   const handleGoogleSignup = () => {
     signupgoogle(navigate);
   };
-  const userRole = getLocalStorage("user")?.user?.Activeprofile;
-  console.log(userRole);
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      otp: value,
+    };
     try {
-      const response = await loginApi(formData);
-      console.log(response);
-      if (response?.isSuccess && response?.data?.length > 1) {
-        setLocalStorage("userDetails", response);
-        navigate("/auth/role/" + response?.data[0].userId, { state: { formData } });
-      } else {
-        setLocalStorage("user", response?.data);
-        setLocalStorage("token", response?.token);
-        navigate("/user/dashboard");
+      const response = await verifyOtpApi(params?.id, body);
+      if (response?.isSuccess) {
+        navigate("/auth/new-password/" + response?.id);
       }
     } catch (error) {
       console.log(error);
@@ -51,16 +44,17 @@ const OtpVerify = () => {
           <h1>OTP Verification</h1>
           <p className="text-grey-800">Enter the verification code we just send on your email address.</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form>
           <div className="m-auto  flex justify-center">
-            <InputOTP maxLength={6}>
+            <InputOTP maxLength={4} value={value} onChange={(value) => setValue(value)}>
               <InputOTPGroup>
                 <InputOTPSlot index={0} className="input-otp-slot" />
                 <InputOTPSlot index={1} className="input-otp-slot" />
                 <InputOTPSlot index={2} className="input-otp-slot" />
-                <InputOTPSlot index={4} className="input-otp-slot" />
+                <InputOTPSlot index={3} className="input-otp-slot" />
               </InputOTPGroup>
             </InputOTP>
+            {/* <div className="text-center text-sm">{value === "" ? <>Enter your one-time password.</> : <>You entered: {value}</>}</div> */}
           </div>
 
           <div className="text-center ">
@@ -69,11 +63,9 @@ const OtpVerify = () => {
               I din’t receive a code. <b className="text-grey-900 cursor-pointer">Resend</b>
             </p>
           </div>
-          <div className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
-            <Link to="/auth/new-password">
-              {" "}
-              <button className="w-full">Verify</button>
-            </Link>
+          <div onClick={onSubmit} className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
+            {/* <Link to="/auth/new-password"> */} <button className="w-full">Verify</button>
+            {/* </Link> */}
           </div>
         </form>
       </div>

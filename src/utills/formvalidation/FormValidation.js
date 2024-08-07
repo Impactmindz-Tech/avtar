@@ -34,6 +34,21 @@ export const loginValidation = yup.object({
   password: yup.string().required("password is requird"),
 });
 
+export const forgetPassword = yup.object({
+  email: emailValidation,
+});
+
+export const conformPassword = yup.object({
+  newPassword: yup
+    .string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("newPassword"), null], "Passwords must match")
+    .required("Confirm password is required"),
+});
+
 export const editProfileValidation = yup.object({
   firstName: yup.string().required("password is requird"),
   lastName: yup.string().required("password is requird"),

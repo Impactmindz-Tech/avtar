@@ -50,10 +50,10 @@ import Offers from "@/page/user/offers/OffersPage";
 import OfferSuccessPage from "@/page/user/offers/OfferSuccessPage";
 import ForgetPassword from "@/page/auth/ForgetPassword";
 import OtpVerify from "@/page/auth/OtpVerify";
-import NewPassword from "@/page/auth/NewPassword";
 import Booking from "@/page/user/home/Booking";
 import Confirm_Pay from "@/page/user/home/Confirm_Pay";
 import Experience from "@/page/user/experience/Experience";
+import ConfirmPassword from "@/page/auth/ConfirmPassword";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage('token');
@@ -112,7 +112,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "otp-verify",
+        path: "otp-verify/:id",
         element: (
           <AuthLayout>
             <OtpVerify />
@@ -120,10 +120,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "new-password",
+        path: "new-password/:id",
         element: (
           <AuthLayout>
-            <NewPassword />
+            <ConfirmPassword />
           </AuthLayout>
         ),
       },

@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { signupgoogle } from "@/constant/optimizedFunction/loginFunction/LoginFunction"; // Adjust path based on your project
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginValidation } from "@/utills/formvalidation/FormValidation";
+import { forgetPassword, loginValidation } from "@/utills/formvalidation/FormValidation";
 import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
-import { loginApi } from "@/utills/service/authService";
+import { forgetPasswordApi, loginApi } from "@/utills/service/authService";
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
 
 const ForgetPassword = () => {
@@ -16,26 +16,16 @@ const ForgetPassword = () => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(loginValidation) });
-
-  const handleGoogleSignup = () => {
-    signupgoogle(navigate);
-  };
-  const userRole = getLocalStorage("user")?.user?.Activeprofile;
-  console.log(userRole);
+  } = useForm({ resolver: yupResolver(forgetPassword) });
 
   const onSubmit = async (formData) => {
+    console.log(formData);
     try {
-      const response = await loginApi(formData);
-      console.log(response);
-      if (response?.isSuccess && response?.data?.length > 1) {
-        setLocalStorage("userDetails", response);
-        navigate("/auth/role/" + response?.data[0].userId, { state: { formData } });
-      } else {
-        setLocalStorage("user", response?.data);
-        setLocalStorage("token", response?.token);
-        navigate("/user/dashboard");
+      const response = await forgetPasswordApi(formData);
+      if (response?.isSuccess) {
+        navigate("/auth/otp-verify/" + response?.id);
       }
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -55,11 +45,13 @@ const ForgetPassword = () => {
               Email
             </label>
             <br />
-            <input className="input mt-3" type="email" placeholder="Your email" name="email" id="email" {...register("userName")} />
+            <input className="input mt-3" type="email" placeholder="Your email" name="email" id="email" {...register("email")} />
           </div>
 
           <div className="cursor-pointer w-full bg-primaryColor-900 p-4 text-center text-white mt-8 rounded-xl">
-          <Link to="/auth/otp-verify">  <button>Submit</button></Link>
+            {/* <Link to="/auth/otp-verify"> */}
+            <button>Submit</button>
+            {/* </Link> */}
           </div>
         </form>
       </div>
