@@ -54,24 +54,25 @@ import Confirm_Pay from "@/page/user/home/Confirm_Pay";
 import Experience from "@/page/user/experience/Experience";
 import ConfirmPassword from "@/page/auth/ConfirmPassword";
 import Chat from "@/page/user/Chat";
+import ChatUser from "@/page/user/chat/ChatUser";
 const Root = () => {
   const navigate = useNavigate();
-  const token = getLocalStorage('token');
-  const currentState = getLocalStorage('user')?.Activeprofile;
+  const token = getLocalStorage("token");
+  const currentState = getLocalStorage("user")?.Activeprofile;
 
   useEffect(() => {
     if (!token) {
-      navigate('/auth/login', { replace: true });
+      navigate("/auth/login", { replace: true });
     } else if (currentState) {
       switch (currentState) {
-        case 'user':
-          navigate('/user/dashboard', { replace: true });
+        case "user":
+          navigate("/user/dashboard", { replace: true });
           break;
-        case 'avatar':
-          navigate('/avatar/dashboard', { replace: true });
+        case "avatar":
+          navigate("/avatar/dashboard", { replace: true });
           break;
         default:
-          navigate('/auth/login', { replace: true });
+          navigate("/auth/login", { replace: true });
       }
     }
   }, [token, currentState, navigate]);
@@ -194,6 +195,14 @@ const router = createBrowserRouter([
         element: (
           <DashboardLayout>
             <ChatAndSupport />
+          </DashboardLayout>
+        ),
+      },
+      {
+        path: "ChatUser/:id",
+        element: (
+          <DashboardLayout>
+            <ChatUser />
           </DashboardLayout>
         ),
       },
@@ -376,7 +385,7 @@ const router = createBrowserRouter([
         path: "profile",
         element: (
           <AvatarLayout>
-             <Profile />
+            <Profile />
           </AvatarLayout>
         ),
       },

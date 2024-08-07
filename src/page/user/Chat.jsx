@@ -12,10 +12,6 @@ function Chat() {
 
         <div className="userContainer my-10">
           <ChatUserCard />
-          <ChatUserCard />
-          <ChatUserCard />
-          <ChatUserCard />
-          <ChatUserCard />
         </div>
       </div>
     </div>
