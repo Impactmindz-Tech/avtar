@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Images from "@/constant/Images";
 import { useNavigate } from "react-router-dom";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet } from "../../meetConfig/googlemeet";
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography } from "@mui/material";
 //import moment from 'moment';
 
 function Header() {
@@ -19,8 +19,8 @@ function Header() {
   const [role, setRole] = useState(getLocalStorage("user") ? getLocalStorage("user").Activeprofile : null);
   const [selectedCountry, setSelectedCountry] = useState(getLocalStorage("selectedCountry") || "");
 
-  const [meetLink, setMeetLink] = useState('');
-  const [eventId, setEventId] = useState('');
+  const [meetLink, setMeetLink] = useState("");
+  const [eventId, setEventId] = useState("");
   const [duration, setDuration] = useState(30); // Default duration 30 minutes
 
   const updateSignInStatus = (isSignedIn) => {
@@ -47,7 +47,7 @@ function Header() {
       if (response?.isSuccess) {
         setLocalStorage("user", response?.data);
         setLocalStorage("token", response?.token);
-        role === "user" ? navigate( "/user/dashboard" ,{ replace: true }) : navigate( "/avatar/dashboard" ,{ replace: true })
+        role === "user" ? navigate("/user/dashboard", { replace: true }) : navigate("/avatar/dashboard", { replace: true });
         toast.success(response?.message);
       }
     } catch (error) {
@@ -73,18 +73,19 @@ function Header() {
     getAllcountry();
   }, []); // Empty dependency array to fetch countries only on mount
 
-  const handleCountryChange = (e) => {
+  const handleCountryChange = useCallback((e) => {
     const selected = e.target.value;
     setSelectedCountry(selected);
     setLocalStorage("selectedCountry", selected);
-  };
+    window.dispatchEvent(new Event("storage")); // Notify other components of the change
+  }, []);
 
   const handleLiveButtonClick = async () => {
     if (!isSignedIn) {
       try {
         await handleAuthClick();
       } catch (error) {
-        if (error.error === 'popup_closed_by_user') {
+        if (error.error === "popup_closed_by_user") {
           toast.error("Authentication popup was closed before completing. Please try again.");
         } else {
           toast.error("An error occurred during authentication. Please try again.");
@@ -94,7 +95,7 @@ function Header() {
       }
     }
 
-    const endTime = moment(startTime).add(duration, 'minutes').format("YYYY-MM-DDTHH:mm:ss");
+    const endTime = moment(startTime).add(duration, "minutes").format("YYYY-MM-DDTHH:mm:ss");
     try {
       const response = await createGoogleMeet("Live Event", "Description of the event", startTime, endTime);
       const meetLink = response.result.hangoutLink;
@@ -117,7 +118,7 @@ function Header() {
   };
 
   return (
-    <>   
+    <>
       <section></section>
       {loading && <Loader />}
       <header className="flex justify-between items-center p-3">

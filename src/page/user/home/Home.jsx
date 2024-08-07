@@ -1,46 +1,63 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/store/slice/experinceS/ExperinceSlice";
 import UserTopSearch from "@/components/UserTopSearch/UserTopSearch";
 import { userExperienceApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import ExperienceList from "./ExperienceList";
 import Loader from "@/components/Loader";
-import { getLocalStorage } from "@/utills/LocalStorageUtills";
+import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import MultipleAddressModal from "@/components/Modal/MultipleAddressModal";
 
 const Home = () => {
-  // select multiple address modal
   const [multipleAddressModalState, setMultipleAddressModalState] = useState(false);
   const [activeTab, setActiveTab] = useState("Popular");
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState(""); // Default value for country
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const userExperienceData = useSelector((state) => state.ExperinceProduct.products);
+  const [country, setCountry] = useState(getLocalStorage("selectedCountry") || "India");
   const tabs = ["Popular", "Recommended", "Mostbooked", "Recent"];
 
-  const country = getLocalStorage("selectedCountry");
-  const fetchUserExperience = async (tab) => {
-    const payload = {
-      tab: tab,
-      country: country,
-      search: search,
-    };
-    setLoading(true);
-    try {
-      const response = await userExperienceApi(payload);
-      if (response?.isSuccess) {
-        dispatch(setProducts(response));
+  const fetchUserExperience = useCallback( async (tab) => {
+      const payload = {
+        tab: tab,
+        country: country,
+        search: search,
+      };
+      setLoading(true);
+      try {
+        const response = await userExperienceApi(payload);
+        if (response?.isSuccess) {
+          dispatch(setProducts(response));
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    [country, dispatch, search]
+  );
 
   useEffect(() => {
     fetchUserExperience(activeTab);
-  }, [activeTab, search, country]);
+  }, [activeTab, fetchUserExperience]);
+
+  // Handle localStorage updates for country
+  const handleCountryUpdate = useCallback(() => {
+    const storedCountry = getLocalStorage("selectedCountry");
+    if (storedCountry && storedCountry !== country) {
+      setCountry(storedCountry);
+    }
+  }, [country]);
+
+  useEffect(() => {
+    handleCountryUpdate();
+    window.addEventListener("storage", handleCountryUpdate);
+    return () => {
+      window.removeEventListener("storage", handleCountryUpdate);
+    };
+  }, [handleCountryUpdate]);
 
   return (
     <>

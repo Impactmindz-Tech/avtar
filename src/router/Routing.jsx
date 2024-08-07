@@ -15,7 +15,6 @@ import Update_Experience from "@/page/user/Update_Experience";
 import ChatWithAvatar from "@/page/user/ChatWithAvatar";
 import RateTour from "@/page/user/RateTour";
 import Tip from "@/page/user/Tip";
-import Chat from "@/page/user/Chat";
 import AvtarHome from "@/page/avtar/AvtarHome";
 import AuthProtected from "@/authentication/AuthProteced";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
@@ -54,6 +53,7 @@ import Booking from "@/page/user/home/Booking";
 import Confirm_Pay from "@/page/user/home/Confirm_Pay";
 import Experience from "@/page/user/experience/Experience";
 import ConfirmPassword from "@/page/auth/ConfirmPassword";
+import Chat from "@/page/user/Chat";
 const Root = () => {
   const navigate = useNavigate();
   const token = getLocalStorage('token');

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const ChatUserCard = () => {
   return (
     <Link to="/avatar/chatwithuser">
-      {" "}
       <div className="flex gap-2 items-center w-full mb-5 cursor-pointer">
         <div className="image">
           <img src={Images.user3} alt="user3" />
