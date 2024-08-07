@@ -22,6 +22,7 @@ function Booking() {
       bookingTime: selectedTime,
       Duration: duration,
       tourType: type,
+      path:"tt"
     };
     try {
       const response = await bookingExperinceApi(params?.id, body);
