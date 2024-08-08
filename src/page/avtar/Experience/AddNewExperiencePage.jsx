@@ -2,9 +2,26 @@ import MyExperienceCard from "@/components/Avatar/Card/ExperiencePageCards/MyExp
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
 import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
+import { getExpApi } from "@/utills/service/avtarService/AddExperienceService";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function AddNewExperiencePage() {
+  const [experience, setExperience] = useState(null);
+  const getExp = async () => {
+    try {
+      const response = await getExpApi();
+      if (response?.isSuccess) {
+        setExperience(response?.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(experience, "tiunku");
+  useEffect(() => {
+    getExp();
+  }, []);
   return (
     <div>
       <HeaderBack link="/avatar/dashboard" text={"Experience"} />
@@ -22,11 +39,9 @@ function AddNewExperiencePage() {
       <TitleHeading title={"My Experience"} />
 
       <div className="grid grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2  sm:grid-cols-1 xl:grid-cols-3 gap-4 my-2">
-        <MyExperienceCard />
-        <MyExperienceCard />
-        <MyExperienceCard />
-        <MyExperienceCard />
-        <MyExperienceCard />
+        {experience?.map((item) => {
+          return <MyExperienceCard key={item?._id} item={item} />;
+        })}
       </div>
     </div>
   );

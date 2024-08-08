@@ -10,6 +10,7 @@ import CountrySelect from "@/components/countryStateCity/CountrySelect";
 import StateSelect from "@/components/countryStateCity/StateSelect";
 import CitySelect from "@/components/countryStateCity/CitySelect";
 import { AddexperienceApi } from "@/utills/service/avtarService/AddExperienceService";
+import toast from "react-hot-toast";
 
 function AddExperienceWithImagePage() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -69,6 +70,9 @@ function AddExperienceWithImagePage() {
 
   // console.log(otherSelectedFiles);
   const onSubmit = async (data) => {
+    if(!selectedFile){
+      toast.error("Please Select Image")
+    }
     const formData = new FormData();
 
     // Append text fields

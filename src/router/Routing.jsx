@@ -462,7 +462,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "edit-experience",
+        path: "edit-experience/:id",
         element: (
           <AvatarLayout>
             <EditExperiencePage />

@@ -2,51 +2,76 @@ import EditExperienceCard from "@/components/Avatar/Card/EditExperienceCard";
 import TitleHeading from "@/components/Avatar/Heading/TitleHeading";
 import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
-import { Link } from "react-router-dom";
+import { addExperinceValidation } from "@/utills/formvalidation/FormValidation";
+import { editexperienceApi } from "@/utills/service/avtarService/AddExperienceService";
+import { Link, useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
 
 function EditExperiencePage() {
+  const params = useParams()
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    setValue,
+  } = useForm({ resolver: yupResolver(addExperinceValidation) });
+
+  const onSubmit = () => {
+    try {
+      const response = editexperienceApi(params);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    setValue();
+  }, []);
   return (
     <div>
       <HeaderBack link="/avatar/add-experience" text={"Edit Experience"} />
       <TitleHeading title={"Experience Images"} />
 
-      <div className="flex justify-between my-4 flex-wrap">
-        <div className="w-[49%] relative">
-          <div className="absolute top-2 right-2 flex gap-2">
-            <Link to="/avatar/edit-experience">
-              {" "}
-              <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
-                <img src={Images.rotate} alt="edit" className="cursor-pointer w-6 h-6" />
-              </div>
-            </Link>
-            <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
-              <img src={Images.close} alt="redtrash" className="cursor-pointer w-6 h-6" />
-            </div>
-          </div>
-          <img src={Images.cardImageRounded} alt="banner" className="w-[100%] h-[300px] object-cover rounded-2xl sm:h-[140px]" />
-        </div>
-
-        <div className="border rounded-lg  w-[49%] bg-[#f2f2f2] border-[#e2e2e2] flex justify-center items-center">
-          <div className="">
-            <div className="flex justify-center">
-              <Link to="/avatar/add-new-experience">
-                <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex justify-between my-4 flex-wrap">
+          <div className="w-[49%] relative">
+            <div className="absolute top-2 right-2 flex gap-2">
+              <Link to="/avatar/edit-experience">
+                {" "}
+                <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
+                  <img src={Images.rotate} alt="edit" className="cursor-pointer w-6 h-6" />
+                </div>
               </Link>
+              <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
+                <img src={Images.close} alt="redtrash" className="cursor-pointer w-6 h-6" />
+              </div>
             </div>
-            <h1 className="text-center text-grey-800 py-2 font-semibold hover:text-grey-900">Other Image</h1>
+            <img src={Images.cardImageRounded} alt="banner" className="w-[100%] h-[300px] object-cover rounded-2xl sm:h-[140px]" />
+          </div>
+
+          <div className="border rounded-lg  w-[49%] bg-[#f2f2f2] border-[#e2e2e2] flex justify-center items-center">
+            <div className="">
+              <div className="flex justify-center">
+                <Link to="/avatar/add-new-experience">
+                  <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
+                </Link>
+              </div>
+              <h1 className="text-center text-grey-800 py-2 font-semibold hover:text-grey-900">Other Image</h1>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="my-6 grid grid-cols-4 2xl:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-        <EditExperienceCard />
-        <EditExperienceCard />
-        <EditExperienceCard />
-        <EditExperienceCard />
-      </div>
+        <div className="my-6 grid grid-cols-4 2xl:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+          <EditExperienceCard />
+          <EditExperienceCard />
+          <EditExperienceCard />
+          <EditExperienceCard />
+        </div>
 
-      <div className="forms">
-        <form action="">
+        <div className="forms">
           <div className="my-2">
             <label htmlFor="exp-name" className="font-semibold">
               Experience Name
@@ -105,8 +130,8 @@ function EditExperiencePage() {
           <div className="my-2">
             <button className="w-full my-6 rounded-md bottom-1 m-auto left-0 right-0 p-3 cursor-pointer bg-backgroundFill-900 text-white text-center">Save</button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 }
