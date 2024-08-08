@@ -1,15 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import Images from "@/constant/Images";
 import { useNavigate } from "react-router-dom";
-import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
+import { getLocalStorage, setLocalStorage } from "@/utills/LocalStorageUtills";
 import HeaderNavigation from "../HeaderNavigation";
 import { switchProfile } from "@/utills/service/switchRole/RoleSwitch";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { getAllcountryApi } from "@/utills/service/userSideService/userService/UserHomeService";
-import { initClient, handleAuthClick, handleSignoutClick, createGoogleMeet } from "../../meetConfig/googlemeet";
-import { Button, TextField, Typography } from "@mui/material";
-//import moment from 'moment';
+import { initClient, handleAuthClick, createGoogleMeet } from "../../meetConfig/googlemeet";
+import moment from 'moment';
 
 function Header() {
   const navigate = useNavigate();
@@ -23,21 +22,17 @@ function Header() {
   const [eventId, setEventId] = useState("");
   const [duration, setDuration] = useState(30); // Default duration 30 minutes
 
-  const updateSignInStatus = (isSignedIn) => {
-    setIsSignedIn(isSignedIn);
-  };
-
   useEffect(() => {
     initClient(updateSignInStatus);
   }, []);
 
-  // useEffect(() => {
-  //   if (role) {
-  //     navigate(role === "user" ? "/user/dashboard" : "/avatar/dashboard", { replace: true });
-  //   }
-  // }, [role, navigate]);
+  // This useEffect is removed as navigation is handled directly in roleSwitch
 
-  const roleSwitch = async () => {
+  const updateSignInStatus = (isSignedIn) => {
+    setIsSignedIn(isSignedIn);
+  };
+
+  const roleSwitch = useCallback(async () => {
     const newRole = role === "user" ? "avatar" : "user";
     if (role === newRole) return; // Prevent unnecessary role switch
 
@@ -47,8 +42,12 @@ function Header() {
       if (response?.isSuccess) {
         setLocalStorage("user", response?.data);
         setLocalStorage("token", response?.token);
-        role === "user" ? navigate("/user/dashboard", { replace: true }) : navigate("/avatar/dashboard", { replace: true });
+        setRole(newRole); // Trigger state update
         toast.success(response?.message);
+
+        // Navigate immediately after successful role switch
+        const targetPath = newRole === "user" ? "/user/dashboard" : "/avatar/dashboard";
+        navigate(targetPath, { replace: true });
       }
     } catch (error) {
       toast.error("Role switching failed");
@@ -56,7 +55,7 @@ function Header() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [role, navigate]);
 
   const getAllcountry = async () => {
     try {
