@@ -12,7 +12,7 @@ const ExperienceList = ({ product }) => {
           <div className="font-bold text-xl mb-2 relative xl:pt-7 lg:pt-7">
             {product.ExperienceName}
             <div className="absolute -top-12 right-0 z-50">
-              <img src={product.avatarImage} alt="user" className="w-20 h-20" />
+              <img  src={product.avatarImage} alt="user" className="w-20 h-20" />
             </div>
           </div>
           <p className="text-grey-800 text-base">

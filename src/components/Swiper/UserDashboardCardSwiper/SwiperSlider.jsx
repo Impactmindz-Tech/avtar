@@ -9,7 +9,7 @@ function SwiperSlider({ item }) {
       {item?.map((src, index) => {
         return (
           <SwiperSlide key={index}>
-            <img className="w-full" src={src} alt="slider_img" />
+            <img className="w-full h-[250px]" src={src} alt="slider_img" />
           </SwiperSlide>
         );
       })}
