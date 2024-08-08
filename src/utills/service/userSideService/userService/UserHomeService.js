@@ -1,4 +1,5 @@
 import axiosInstance from "@/utills/AxiosInstance";
+import toast from "react-hot-toast";
 
 export const userExperienceApi = async (payload) => {
   const { tab, country, search } = payload;
@@ -33,6 +34,7 @@ export const bookingExperinceApi = async (id, payload) => {
     const res = await axiosInstance.post("/user/booking/" + id, payload);
     return res.data;
   } catch (error) {
+    toast.error(error?.response?.data?.message);
     console.log(error);
   }
 };

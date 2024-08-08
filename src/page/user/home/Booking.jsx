@@ -1,6 +1,6 @@
 import BookingCalendar from "@/components/Calendar/BookingCalendar";
 import HeaderBack from "@/components/HeaderBack";
-import Images from "@/constant/Images";
+import toast from "react-hot-toast";
 import { bookingExperinceApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -28,6 +28,7 @@ function Booking() {
       const response = await bookingExperinceApi(params?.id, body);
       if(response?.isSuccess){
         console.log(response)
+        toast.success("Booking Create Successfully")
         navigate("/user/confirm-and-pay/" + response?.data?._id)
       }
       console.log(response);
@@ -43,7 +44,7 @@ function Booking() {
       <div className="my-4">
         <BookingCalendar setDate={setDate} date={date} />
         {/* eastern  */}
-        <div className=" bg-white  rounded-lg my-5">
+        {/* <div className=" bg-white  rounded-lg my-5">
           <h2 className="text-xl font-semibold mb-4">Eastern Standard Time</h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -64,7 +65,7 @@ function Booking() {
             </div>
           </div>
         </div>
-        <button className="border hover:bg-[#FF7070] hover:text-white font-bold border-borderFill-400 text-borderFill-400 w-full p-2 text-lg rounded-lg">Instant Live</button>
+        <button className="border hover:bg-[#FF7070] hover:text-white font-bold border-borderFill-400 text-borderFill-400 w-full p-2 text-lg rounded-lg">Instant Live</button> */}
 
         <div className="my-2">
           <div className="mb-2">

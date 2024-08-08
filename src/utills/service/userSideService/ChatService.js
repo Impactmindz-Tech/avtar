@@ -8,3 +8,12 @@ export const getavatarChatApi = async () => {
     console.log(error);
   }
 };
+
+export const chatServiceApi = async (id, payload) => {
+  try {
+    const res = await axiosInstance.post("/user/chat/" + id, payload);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

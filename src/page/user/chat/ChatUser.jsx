@@ -1,7 +1,24 @@
 import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
+import { chatServiceApi } from "@/utills/service/userSideService/ChatService";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function ChatUser() {
+  const params = useParams();
+  const [chatValue, setChatValue] = useState();
+  const chatService = async () => {
+    let body = {
+      message: chatValue,
+    };
+    try {
+      const response = await chatServiceApi(params?.id, body);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="container">
       <HeaderBack link="/avatar/chat" text={"Melia Jhon"} />
@@ -33,10 +50,10 @@ function ChatUser() {
             <div className="absolute right-3 top-2">
               <img src={Images.microphone} alt="microphone" className="cursor-pointer w-7" />
             </div>
-            <input type="text" placeholder="Send message..." className="p-3 px-5 w-full bg-boxFill-900 rounded-md outline-none" />
+            <input type="text" onChange={(e) => setChatValue(e.target.value)} placeholder="Send message..." className="p-3 px-5 w-full bg-boxFill-900 rounded-md outline-none" />
           </div>
 
-          <div className="bg-backgroundFill-900 rounded-md cursor-pointer p-3 sm:w-[15%] w-[8%] flex justify-center items-center">
+          <div onClick={chatService} className="bg-backgroundFill-900 rounded-md cursor-pointer p-3 sm:w-[15%] w-[8%] flex justify-center items-center">
             <img src={Images.sendIcon} alt="send icon" />
           </div>
         </div>
