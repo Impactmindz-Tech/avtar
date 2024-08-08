@@ -3,7 +3,7 @@ import HeaderBack from "@/components/HeaderBack";
 import EditDateModal from "@/components/Modal/EditDateModal";
 import EditTimeModal from "@/components/Modal/EditTimeModal";
 import ConfirmPaymentForm from "@/components/Payment Card/Confirm_Page_Payment";
-import { formatTime } from "@/constant/date-time-format/DateTimeFormat";
+import { formatDate, formatTime } from "@/constant/date-time-format/DateTimeFormat";
 import Images from "@/constant/Images";
 import { getBookingDetailsApi } from "@/utills/service/userSideService/userService/UserHomeService";
 import { useEffect, useState } from "react";
@@ -25,7 +25,6 @@ function Confirm_Pay() {
       console.log(error);
     }
   };
-
 
   useEffect(() => {
     getBookingDetails();
@@ -56,7 +55,7 @@ function Confirm_Pay() {
                         </div>
                         <h6 className="font-semibold">Dates</h6>
                       </div>
-                      <h4 className="font-medium my-1">{bookingDetails?.data?.booking?.bookingDate}</h4>
+                      <h4 className="font-medium my-1">{formatDate(bookingDetails?.data?.booking?.bookingDate)}</h4>
                     </div>
                     {/* edit btn */}
                     <div className="">
