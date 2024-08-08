@@ -3,13 +3,13 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Images from "@/constant/Images";
-function SwiperSlider({ item }) {
+function SwiperSlider({ item , setheight }) {
   return (
     <Swiper pagination={true} modules={[Pagination]} className="mySwiper z-10">
       {item?.map((src, index) => {
         return (
           <SwiperSlide key={index}>
-            <img className="w-full h-[250px]" src={src} alt="slider_img" />
+            <img className={`w-full ${setheight ? " h-[250px]" : ""}`} src={src} alt="slider_img" />
           </SwiperSlide>
         );
       })}
