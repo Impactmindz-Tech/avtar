@@ -39,10 +39,7 @@ export const forgetPassword = yup.object({
 });
 
 export const conformPassword = yup.object({
-  newPassword: yup
-    .string()
-    .required("Password is required")
-    .min(8, "Password must be at least 8 characters"),
+  newPassword: yup.string().required("Password is required").min(8, "Password must be at least 8 characters"),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("newPassword"), null], "Passwords must match")
@@ -62,4 +59,12 @@ export const addExperinceValidation = yup.object({
   AmountsperMinute: yup.string().required("Amountsper Minute is requird"),
   notesForUser: yup.string().required("Notes For User is requird"),
   ExperienceName: yup.string().required("Experience Name is requird"),
+});
+
+export const createOfferValidation = yup.object({
+  Title: yup.string().required("Title is requird"),
+  price: yup.string().required("price is requird"),
+  Minutes: yup.string().required("Minutes is requird"),
+  ZipCode: yup.string().required("ZipCode is requird"),
+  Notes: yup.string().required("Notes is requird"),
 });

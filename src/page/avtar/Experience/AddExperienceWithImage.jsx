@@ -21,7 +21,6 @@ function AddExperienceWithImagePage() {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
-  console.log(selectedCountry);
   const {
     handleSubmit,
     register,
