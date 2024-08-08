@@ -61,25 +61,35 @@ const HeaderNavigation = () => {
             <div className="pt-14 pb-4 px-20 sm:px-2">
               <div className="my-2">
                 <Link to={"/user/dashboard"}>
-                  <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Home</button>
+                  <SheetTrigger>
+                    <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Home</button>
+                  </SheetTrigger>
                 </Link>
               </div>
               <div className="my-2">
-                <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Explore</button>
+                <SheetTrigger>
+                  <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Explore</button>
+                </SheetTrigger>
               </div>
               <div className="my-2">
                 <Link to={"/user/experience"}>
-                  <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Experience</button>
+                  <SheetTrigger>
+                    <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Experience</button>
+                  </SheetTrigger>
                 </Link>
               </div>
               <div className="">
                 <Link to={"/user/profile"}>
-                  <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Profile</button>
+                  <SheetTrigger>
+                    <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Profile</button>
+                  </SheetTrigger>
                 </Link>
               </div>
               <div className="my-2 ">
                 <Link to={"/user/offers"}>
-                  <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Offer</button>
+                  <SheetTrigger>
+                    <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Offer</button>
+                  </SheetTrigger>
                 </Link>
               </div>
               <div className="my-2 hidden sm:block">
@@ -98,11 +108,15 @@ const HeaderNavigation = () => {
               </div>
               <div className="my-2">
                 <Link to={"/user/chat"}>
+                <SheetTrigger>
                   <button className="py-3 px-10 w-[200px] bg-[#2D2D2D] text-white">Chats</button>
+                </SheetTrigger>
                 </Link>
               </div>
               <div className="my-2" onClick={handleLogout}>
+                <SheetTrigger>
                 <button className="py-3 px-10 w-[200px] bg-[#ff5454]">logOut</button>
+                </SheetTrigger>
               </div>
             </div>
           </SheetContent>
