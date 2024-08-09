@@ -40,7 +40,7 @@ const ChatUserCard = () => {
       const responce = await getavatarChatApi();
       if(responce?.isSuccess){
         setAvtar(responce)
-        console.log(responce)
+        console.log(responce,'get')
       }
     } catch (error) {
       console.log(error);
@@ -50,6 +50,7 @@ const ChatUserCard = () => {
   console.log(avtar)
   useEffect(()=>{
     getavatarChat()
+    console.log(avtar);
   },[])
   return (
     <>
@@ -62,7 +63,7 @@ const ChatUserCard = () => {
                   <img className="w-[56px] h-[56px] rounded-full" src={item.profile} alt="user3" />
                 </div>
                 <div className="flex-1 relative ">
-                  <h3 className="font-medium text-primaryColor-900">{item?.Name}</h3>
+                  <h3 className="font-medium text-primaryColor-900">{item.name}</h3>
                   <p className="text-primaryColor-900">{item?.Thank}</p>
                 </div>
                 <div className="flex items-center text-grey-800">{item?.time}</div>

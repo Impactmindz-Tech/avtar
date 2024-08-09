@@ -1,45 +1,80 @@
 import HeaderBack from "@/components/HeaderBack";
+import { formatTime } from "@/constant/date-time-format/DateTimeFormat";
 import Images from "@/constant/Images";
-import { chatServiceApi } from "@/utills/service/userSideService/ChatService";
-import { useState } from "react";
+import { chatServiceApi, getcChatApi } from "@/utills/service/userSideService/ChatService";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function ChatUser() {
   const params = useParams();
   const [chatValue, setChatValue] = useState();
+  const [chat, setChat] = useState([]);
   const chatService = async () => {
     let body = {
       message: chatValue,
     };
     try {
       const response = await chatServiceApi(params?.id, body);
-      console.log(response);
+      if(response?.isSuccess){
+        setChatValue('')
+        getcChat()
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
+  const getcChat = async () => {
+    let body = {
+      message: chatValue,
+    };
+    try {
+      const response = await getcChatApi(params?.id, body);
+      if (response?.isSuccess) {
+        setChat(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getcChat();
+  }, []);
+
   return (
     <div className="container">
       <HeaderBack link="/avatar/chat" text={"Melia Jhon"} />
-      <div className=" m-auto h-[90vh] relative">
-        {/* chat container */}
-        <div className="w-full h-[80vh]  py-2 flex flex-col justify-end">
-          <div className="child">
+      <div className=" m-auto h-[90vh]  relative">
+        <div className="w-full h-[80vh] overflow-y-scroll  py-2 flex flex-col">
+          <div className="child h-full">
             <div className="rounded-lg bg-boxFill-900 text-grey-800 flex justify-center p-2 sm:px-10 w-[15%] m-auto">Today</div>
           </div>
-          {/* right  */}
-          <div className="w-full clear-both">
-            <div className="float-right mt-3">
-              <div className="bg-grey-900 p-3 rounded-md text-white borderRadiusLeftChatRight font-medium">Hi, good morning melia...</div>
-              <p className="float-right text-grey-800">02:20</p>
-            </div>{" "}
+          <div className="w-[50%] ml-auto ">
+            <div className="text-right mt-3">
+              {chat?.data?.receivedMessages?.map((receiver) => {
+                return (
+                  <>
+                    <div className="bg-grey-900 leading-7 break-words p-3 rounded-md text-white borderRadiusLeftChatRight font-medium">{receiver?.message}</div><br />
+                    <p className="text-grey-800 mt-3 ">{formatTime(receiver?.timestamp)}</p>
+                    <br />
+                  </>
+                );
+              })}
+            </div>
           </div>
           {/* left */}
-          <div className="w-full clear-both">
-            <div className="float-left mt-3">
-              <div className="bg-borderFill-800 p-3 rounded-md text-grey-900 borderRadiusLeftChatLeft font-medium">Hi, good morning rosan...</div>
-              <p className="float-left text-grey-800">02:25</p>
+          <div className="w-[50%] clear-both">
+            <div className=" mt-3">
+              {chat?.data?.sentMessages?.map((sender) => {
+                return (
+                  <>
+                    <div className="bg-borderFill-800 p-3 rounded-md text-grey-900 borderRadiusLeftChatLeft font-medium">{sender?.message}</div>
+                    <p className="float-left text-grey-800">{formatTime(sender?.timestamp)}</p>
+                    <br />
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>

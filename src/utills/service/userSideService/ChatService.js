@@ -17,3 +17,12 @@ export const chatServiceApi = async (id, payload) => {
     console.log(error);
   }
 };
+
+export const getcChatApi = async (id) => {
+  try {
+    const res = await axiosInstance.get("/user/getchat/" + id);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
