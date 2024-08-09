@@ -4,19 +4,67 @@ import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
 import { addExperinceValidation } from "@/utills/formvalidation/FormValidation";
 import { editexperienceApi } from "@/utills/service/avtarService/AddExperienceService";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import CountrySelect from "@/components/countryStateCity/CountrySelect";
+import StateSelect from "@/components/countryStateCity/StateSelect";
+import CitySelect from "@/components/countryStateCity/CitySelect";
 
 function EditExperiencePage() {
-  const params = useParams()
+  const location = useLocation();
+  const params = useParams();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [otherSelectedFiles, setOtherSelectedFiles] = useState([]);
+  const [otherImageURLs, setOtherImageURLs] = useState([]);
+  const [imageURL, setImageURL] = useState(null);
+  const mainImage = useRef(null);
+  const otherImage = useRef(null);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
   const {
     handleSubmit,
     register,
     formState: { errors },
     setValue,
   } = useForm({ resolver: yupResolver(addExperinceValidation) });
+  const state = location?.state;
+  console.log(state);
+
+  const handleRemoveMainImage = () => {
+    setImageURL(null);
+    setSelectedFile(null);
+  };
+
+  const handleMainImageClick = () => {
+    if (mainImage.current) {
+      mainImage.current.click();
+    }
+  };
+
+  const handleOtherImageClick = () => {
+    if (otherImage.current) {
+      otherImage.current.click();
+    }
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      setSelectedFile(file);
+      setImageURL(URL.createObjectURL(file));
+    }
+  };
+
+  const handleOtherFileChange = (e) => {
+    if (e.target.files) {
+      const files = Array.from(e.target.files);
+      setOtherSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+      setOtherImageURLs((prevURLs) => [...prevURLs, ...files.map((file) => URL.createObjectURL(file))]);
+    }
+  };
 
   const onSubmit = () => {
     try {
@@ -27,90 +75,91 @@ function EditExperiencePage() {
     }
   };
 
+  console.log(selectedFile, "tinku");
+
   useEffect(() => {
-    setValue();
-  }, []);
+    if (state) {
+      setValue("ExperienceName", state?.ExperienceName);
+      setValue("AmountsperMinute", state?.AmountsperMinute);
+      setValue("notesForUser", state?.notesForUser);
+      setImageURL(state?.thumbnail);
+      setSelectedCountry(state?.country);
+      setSelectedState(state?.State);
+      setSelectedCity(state?.city);
+    }
+  }, [state, setValue]);
   return (
     <div>
       <HeaderBack link="/avatar/add-experience" text={"Edit Experience"} />
       <TitleHeading title={"Experience Images"} />
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex justify-between my-4 flex-wrap">
+        <div className="flex justify-between my-4 flex-wrap h-[300px]">
           <div className="w-[49%] relative">
             <div className="absolute top-2 right-2 flex gap-2">
-              <Link to="/avatar/edit-experience">
-                {" "}
-                <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
-                  <img src={Images.rotate} alt="edit" className="cursor-pointer w-6 h-6" />
-                </div>
-              </Link>
               <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
-                <img src={Images.close} alt="redtrash" className="cursor-pointer w-6 h-6" />
+                <img src={Images.rotate} alt="edit" className="cursor-pointer w-6 h-6" />
+              </div>
+              <div className="bg-white p-4 sm:p-2 rounded-md BoxShadowLessRounded">
+                <img onClick={handleRemoveMainImage} src={Images.close} alt="remove" className="cursor-pointer w-6 h-6" />
               </div>
             </div>
-            <img src={Images.cardImageRounded} alt="banner" className="w-[100%] h-[300px] object-cover rounded-2xl sm:h-[140px]" />
+
+            {!imageURL ? (
+              <div onClick={handleMainImageClick} className="border rounded-lg w-full h-full bg-[#f2f2f2] border-[#e2e2e2] flex justify-center items-center">
+                <input className="hidden" onChange={handleFileChange} ref={mainImage} type="file" />
+                <div className="flex justify-center">
+                  <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
+                </div>
+                <h1 className="text-center text-grey-800 py-2 font-semibold hover:text-grey-900">Main Image</h1>
+              </div>
+            ) : (
+              <img src={imageURL} alt="Selected" className="w-full h-[300px] object-cover rounded-2xl sm:h-[140px] z-10" />
+            )}
           </div>
 
-          <div className="border rounded-lg  w-[49%] bg-[#f2f2f2] border-[#e2e2e2] flex justify-center items-center">
-            <div className="">
+          <div className="w-[49%] h-full relative">
+            <div onClick={handleOtherImageClick} className="border h-full rounded-lg w-full bg-[#f2f2f2] border-[#e2e2e2] flex justify-center items-center">
+              <input className="hidden" onChange={handleOtherFileChange} ref={otherImage} type="file" multiple />
               <div className="flex justify-center">
-                <Link to="/avatar/add-new-experience">
-                  <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
-                </Link>
+                <img src={Images.add} alt="add" className="w-10 h-10 cursor-pointer" />
               </div>
-              <h1 className="text-center text-grey-800 py-2 font-semibold hover:text-grey-900">Other Image</h1>
+              <h1 className="text-center text-grey-800 py-2 font-semibold hover:text-grey-900">Other Images</h1>
             </div>
           </div>
         </div>
 
         <div className="my-6 grid grid-cols-4 2xl:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-          <EditExperienceCard />
-          <EditExperienceCard />
-          <EditExperienceCard />
-          <EditExperienceCard />
+          {otherImageURLs.map((url, index) => (
+            <EditExperienceCard key={index} imageURL={url} onRemove={() => handleRemoveOtherImage(index)} />
+          ))}
         </div>
 
         <div className="forms">
           <div className="my-2">
-            <label htmlFor="exp-name" className="font-semibold">
+            <label htmlFor="ExperienceName" className="font-semibold">
               Experience Name
             </label>
-            <input type="text" name="name" id="exp-name" value="Eiffel Tower" className="input my-2" />
+            <input type="text" name="ExperienceName" id="ExperienceName" className="input my-2" {...register("ExperienceName")} />
           </div>
 
           <div className="my-2">
-            <label htmlFor="country" className="font-semibold">
-              Country
-            </label>
-            <select name="Country" id="country" className="input my-2">
-              <option value="USA">USA</option>
-            </select>
+            <CountrySelect selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} />
           </div>
 
           <div className="my-2">
-            <label htmlFor="state" className="font-semibold">
-              state
-            </label>
-            <select name="state" id="state" className="input my-2">
-              <option value="California">California</option>
-            </select>
+            <StateSelect selectedCountry={selectedCountry} selectedState={selectedState} setSelectedState={setSelectedState} />
           </div>
 
           <div className="my-2">
-            <label htmlFor="City" className="font-semibold">
-              City
-            </label>
-            <select name="City" id="City" className="input my-2">
-              <option value="Los Angeles">Los Angeles</option>
-            </select>
+            <CitySelect selectedCountry={selectedCountry} selectedState={selectedState} selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
           </div>
 
           <div className="my-2">
-            <label htmlFor="amount" className="font-semibold">
+            <label htmlFor="AmountsperMinute" className="font-semibold">
               Add Amount Per Minutes
             </label>
-            <input type="text" name="name" id="amount" value="$5" className="input my-2" />
+            <input type="text" name="AmountsperMinute" id="AmountsperMinute" className="input my-2" {...register("AmountsperMinute")} />
           </div>
 
           <div className="my-4 flex justify-between items-center">
@@ -121,10 +170,10 @@ function EditExperiencePage() {
           </div>
 
           <div className="my-2">
-            <label htmlFor="notes" className="font-semibold">
+            <label htmlFor="notesForUser" className="font-semibold">
               Notes for Users
             </label>
-            <textarea name="notes" rows={5} id="notes" className="input my-2 resize-none" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry."></textarea>
+            <textarea name="notesForUser" rows={5} id="notesForUser" className="input my-2 resize-none" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry." {...register("notesForUser")}></textarea>
           </div>
 
           <div className="my-2">
