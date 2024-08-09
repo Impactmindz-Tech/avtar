@@ -31,7 +31,16 @@ export const getExpApi = async () => {
 };
 export const editexperienceApi = async (id, payload) => {
   try {
-    const res = await axiosInstance.get("/avatar/Editexperience/" + id, payload);
+    const res = await axiosInstance.patch("/avatar/Editexperience/" + id, payload);
+    return res.data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+    console.log(error);
+  }
+};
+export const deleteExperienceApi = async (id, payload) => {
+  try {
+    const res = await axiosInstance.patch("/avatar/deleteExperience/" + id, payload);
     return res.data;
   } catch (error) {
     toast.error(error?.response?.data?.message);

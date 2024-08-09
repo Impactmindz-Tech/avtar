@@ -4,15 +4,18 @@ import HeaderBack from "@/components/HeaderBack";
 import Images from "@/constant/Images";
 import { addExperinceValidation } from "@/utills/formvalidation/FormValidation";
 import { editexperienceApi } from "@/utills/service/avtarService/AddExperienceService";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useRef, useState } from "react";
 import CountrySelect from "@/components/countryStateCity/CountrySelect";
 import StateSelect from "@/components/countryStateCity/StateSelect";
 import CitySelect from "@/components/countryStateCity/CitySelect";
+import { Country, State, City } from "country-state-city";
+import toast from "react-hot-toast";
 
 function EditExperiencePage() {
+  const navigate = useNavigate();
   const location = useLocation();
   const params = useParams();
   const [selectedFile, setSelectedFile] = useState(null);
@@ -66,28 +69,54 @@ function EditExperiencePage() {
     }
   };
 
-  const onSubmit = () => {
-    try {
-      const response = editexperienceApi(params);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  console.log(selectedFile, "tinku");
-
+  console.log(selectedCountry, "tinku");
   useEffect(() => {
     if (state) {
       setValue("ExperienceName", state?.ExperienceName);
       setValue("AmountsperMinute", state?.AmountsperMinute);
       setValue("notesForUser", state?.notesForUser);
       setImageURL(state?.thumbnail);
-      setSelectedCountry(state?.country);
-      setSelectedState(state?.State);
-      setSelectedCity(state?.city);
+
+      // For country
+      const countryObject = Country.getAllCountries().find((country) => country.name === state?.country);
+      setSelectedCountry(countryObject);
+
+      // For state
+      if (countryObject) {
+        const stateObject = State.getStatesOfCountry(countryObject.isoCode).find((stateItem) => stateItem.name === state?.State);
+        setSelectedState(stateObject);
+
+        // For city
+        if (stateObject) {
+          const cityObject = City.getCitiesOfState(countryObject.isoCode, stateObject.isoCode).find((city) => city.name === state?.city);
+          setSelectedCity(cityObject);
+        }
+      }
     }
   }, [state, setValue]);
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+
+    formData.append("ExperienceName", data?.ExperienceName);
+    formData.append("AmountsperMinute", data?.AmountsperMinute);
+    formData.append("notesForUser", data?.notesForUser);
+    formData.append("country", selectedCountry.name);
+    formData.append("State", selectedState.name);
+    formData.append("city", selectedCity.name);
+    formData.append("file", selectedFile);
+    formData.append("about", "selectedFile");
+    try {
+      const response = await editexperienceApi(params?.id, formData);
+      if (response?.isSuccess) {
+        navigate("/avatar/add-experience");
+        toast.success(response?.message)
+      }
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <HeaderBack link="/avatar/add-experience" text={"Edit Experience"} />
@@ -141,6 +170,7 @@ function EditExperiencePage() {
               Experience Name
             </label>
             <input type="text" name="ExperienceName" id="ExperienceName" className="input my-2" {...register("ExperienceName")} />
+            <p className="text-[red]">{errors?.ExperienceName?.message}</p>
           </div>
 
           <div className="my-2">
@@ -160,6 +190,7 @@ function EditExperiencePage() {
               Add Amount Per Minutes
             </label>
             <input type="text" name="AmountsperMinute" id="AmountsperMinute" className="input my-2" {...register("AmountsperMinute")} />
+            <p className="text-[red]">{errors?.AmountsperMinute?.message}</p>
           </div>
 
           <div className="my-4 flex justify-between items-center">
@@ -174,6 +205,7 @@ function EditExperiencePage() {
               Notes for Users
             </label>
             <textarea name="notesForUser" rows={5} id="notesForUser" className="input my-2 resize-none" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry." {...register("notesForUser")}></textarea>
+            <p className="text-[red]">{errors?.notesForUser?.message}</p>
           </div>
 
           <div className="my-2">

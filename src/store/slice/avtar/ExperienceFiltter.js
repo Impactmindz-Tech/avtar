@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   experinceStatus: [],
+  experinceList: [],
 };
 
 const ExperinceStatusSlice = createSlice({
@@ -11,9 +12,12 @@ const ExperinceStatusSlice = createSlice({
     setExperinceStatus: (state, action) => {
       state.experinceStatus = action.payload;
     },
+    setExperinceList: (state, action) => {
+      state.experinceList = action.payload;
+    },
   },
 });
 
-export const { setExperinceStatus } = ExperinceStatusSlice.actions;
+export const { setExperinceStatus, setExperinceList } = ExperinceStatusSlice.actions;
 
 export default ExperinceStatusSlice;

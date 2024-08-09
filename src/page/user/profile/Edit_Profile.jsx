@@ -24,7 +24,7 @@ const EditProfile = () => {
   } = useForm({ resolver: yupResolver(editProfileValidation) });
 
   const onSubmit = async (formData) => {
-    const id = getLocalStorage("user")?.id;
+    const id = getLocalStorage("user")?._id;
     const form = new FormData();
     form.append("file", image);
     for (const key in formData) {
@@ -46,8 +46,8 @@ const EditProfile = () => {
       setValue("firstName", getLocalStorage("user")?.firstName);
       setValue("lastName", getLocalStorage("user")?.lastName);
       setValue("mobileNumber", getLocalStorage("user")?.mobileNumber);
-      setValue("city", getLocalStorage("user")?.city);
-      setValue("country", getLocalStorage("user")?.country);
+      setValue("city", getLocalStorage("user")?.City);
+      setValue("country", getLocalStorage("user")?.Country);
       setPreview(user.profileimage);
       setValue("dob", getLocalStorage("user")?.dob);
     }
