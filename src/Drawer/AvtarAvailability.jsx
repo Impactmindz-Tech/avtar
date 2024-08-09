@@ -52,7 +52,7 @@ const AvtarAvailability = () => {
     }
 
     try {
-      const response = avtarAvailableApi(id ,  );
+      const response = await avtarAvailableApi(id , formValues);
       console.log(response)
     } catch (error) {
       console.log(error);
