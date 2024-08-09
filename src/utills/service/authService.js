@@ -5,7 +5,9 @@ export const loginApi = async (payload) => {
   try {
     const res = await axiosInstance.post("/user/login", payload);
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
 };
 export const forgetPasswordApi = async (payload) => {
   try {
@@ -30,7 +32,9 @@ export const registrationApi = async (payload) => {
   try {
     const res = await axiosInstance.post("/user/Adduser", payload);
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
 };
 
 export const changePasswordApi = async (id, payload) => {
@@ -47,12 +51,16 @@ export const userRoleApi = async (id, payload) => {
   try {
     const res = await axiosInstance.post("/user/userprofile/" + id, payload);
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
 };
 
 export const addAddressApi = async (id, payload) => {
   try {
     const res = await axiosInstance.post("/user/addprofile/" + id, payload);
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
 };

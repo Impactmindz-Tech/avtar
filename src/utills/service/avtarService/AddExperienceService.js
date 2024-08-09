@@ -47,3 +47,12 @@ export const deleteExperienceApi = async (id, payload) => {
     console.log(error);
   }
 };
+export const avtarAvailableApi = async (id, payload) => {
+  try {
+    const res = await axiosInstance.post("/avatar/available/" + id, payload);
+    return res.data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+    console.log(error);
+  }
+};

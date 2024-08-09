@@ -103,16 +103,15 @@ module.exports = {
       },
       container: {
         center: true,
-        padding: '1rem',
+        padding: "1rem",
         screens: {
-          sm: '640px',
-          md: '768px',
-          lg: '1024px',
-          xl: '1280px',
-          '2xl': '1536px',
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1536px",
         },
       },
-  
     },
     screens: {
       "4xl": { max: "2047px" },
@@ -122,8 +121,13 @@ module.exports = {
       lg: { max: "1023px" },
       md: { max: "767px" },
       sm: { max: "639px" },
+
+      "min-2xl": { min: "1536px" },
+      "min-xl": { min: "1280px" },
+      "min-lg": { min: "1024px" },
+      "min-md": { min: "768px" },
+      "min-sm": { min: "640px" },
     },
-  
   },
   plugins: [require("tailwindcss-animate")],
 };

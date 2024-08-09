@@ -2,6 +2,7 @@ import ProfilePageCard from "@/components/Cards/ProfileCard/ProfilePageCard";
 import ShareYourProfileModal from "@/components/Modal/ShareYourProfileModal";
 import UserLogoutModal from "@/components/Modal/UserLogoutModal";
 import Images from "@/constant/Images";
+import AvtarAvailability from "@/Drawer/AvtarAvailability";
 import { getLocalStorage } from "@/utills/LocalStorageUtills";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -62,7 +63,7 @@ function Profile() {
               <ProfilePageCard active={false} icon={Images.info} text="Account Info" link="/avatar/account-info" />
 
               <ProfilePageCard active={false} icon={Images.notification} text="Notifications" link={"/user/notification"} />
-              <ProfilePageCard active={false} icon={Images.notification} text="Availability" />
+              <ProfilePageCard active={false} icon={Images.notification} text={<AvtarAvailability/>} />
               <div onClick={() => setShareProfileModalState(true)}>
                 <ProfilePageCard active={false} icon={Images.share} text="Share Your Profile" />
               </div>

@@ -11,8 +11,10 @@ import StateSelect from "@/components/countryStateCity/StateSelect";
 import CitySelect from "@/components/countryStateCity/CitySelect";
 import { AddexperienceApi } from "@/utills/service/avtarService/AddExperienceService";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function AddExperienceWithImagePage() {
+  const navigate = useNavigate()
   const [selectedFile, setSelectedFile] = useState(null);
   const [otherSelectedFiles, setOtherSelectedFiles] = useState([]);
   const [imageURL, setImageURL] = useState(null);
@@ -100,6 +102,10 @@ function AddExperienceWithImagePage() {
 
     try {
       const response = await AddexperienceApi(formData);
+      if(response?.isSuccess){
+        toast.success(response?.message)
+        navigate("/avatar/add-experience")
+      }
       console.log("API response: ", response);
     } catch (error) {
       console.error("API error: ", error);
@@ -108,7 +114,7 @@ function AddExperienceWithImagePage() {
 
   return (
     <div>
-      <HeaderBack link="/avatar/add-new-experience" text={"Add Experience"} />
+      <HeaderBack link="/avatar/add-experience" text={"Add Experience"} />
       <TitleHeading title={"Add Experience Images"} />
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>

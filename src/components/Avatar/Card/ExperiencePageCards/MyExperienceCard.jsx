@@ -8,23 +8,28 @@ import { Link, useNavigate } from "react-router-dom";
 function MyExperienceCard({ item, onDelete }) {
   const navigate = useNavigate();
   const [deleteModalState, setDeleteModalState] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+
   const handleEditExperince = (item) => {
     navigate("/avatar/edit-experience/" + item?._id, { state: item });
   };
-  const handleDeleteExperince = async (item) => {
-    console.log(item?._id, item?.status);
-    const body = {
-      status: 1,
-    };
-    try {
-      const response = await deleteExperienceApi(item?._id, body);
-      if (response?.isSuccess) {
-        onDelete();
+
+  const handleOpenModal = (item) => {
+    setItemToDelete(item);
+    setDeleteModalState(true);
+  };
+
+  const handleDeleteExperince = async () => {
+    if (itemToDelete) {
+      try {
+        const response = await deleteExperienceApi(itemToDelete?._id, { status: 1 });
+        if (response?.isSuccess) {
+          onDelete();
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
-    console.log(item?._id, item?.status);
   };
   return (
     <>
@@ -34,9 +39,8 @@ function MyExperienceCard({ item, onDelete }) {
             <div onClick={() => handleEditExperince(item)} className="bg-white p-4 lg:p-2 rounded-md BoxShadowLessRounded">
               <img src={Images.edit} alt="edit" className="cursor-pointer w-6 h-6 " />
             </div>
-            <div onClick={() => handleDeleteExperince(item)} className="bg-white p-4 lg:p-2 rounded-md BoxShadowLessRounded">
-              {/* <img src={Images.redtrash} alt="redtrash" className="cursor-pointer w-6 h-6" onClick={() => setDeleteModalState(true)} /> */}
-              <img src={Images.redtrash} alt="redtrash" className="cursor-pointer w-6 h-6" onClick={() => setDeleteModalState(true)} />
+            <div onClick={() => handleOpenModal(item)} className="bg-white p-4 lg:p-2 rounded-md BoxShadowLessRounded">
+              <img src={Images.redtrash} alt="redtrash" className="cursor-pointer w-6 h-6" />
             </div>
           </div>
           <img src={item?.thumbnail} alt="banner" className="w-[100%] h-[300px] object-cover rounded-2xl lg:h-[200px]" />
@@ -49,7 +53,7 @@ function MyExperienceCard({ item, onDelete }) {
         </h3>
       </div>
 
-      {/* <DeleteExperienceModal deleteModalState={deleteModalState} setDeleteModalState={setDeleteModalState} /> */}
+      <DeleteExperienceModal deleteModalState={deleteModalState} setDeleteModalState={setDeleteModalState} onConfirm={handleDeleteExperince} />
     </>
   );
 }

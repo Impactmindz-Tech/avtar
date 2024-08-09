@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import Images from "@/constant/Images";
 
-const DeleteExperienceModal = ({ deleteModalState, setDeleteModalState }) => {
+const DeleteExperienceModal = ({ deleteModalState, setDeleteModalState , onConfirm }) => {
   const modalRef = useRef();
 
   const handleClickOutside = (event) => {
@@ -23,6 +23,11 @@ const DeleteExperienceModal = ({ deleteModalState, setDeleteModalState }) => {
   }, [deleteModalState]);
 
   if (!deleteModalState) return null;
+
+  const handleConfirm = ()=>{
+    onConfirm();
+    setDeleteModalState(false)
+  }
 
   return (
     <div className="fixed  flex items-end justify-center inset-0 bg-black bg-opacity-50 z-50">
@@ -49,13 +54,13 @@ const DeleteExperienceModal = ({ deleteModalState, setDeleteModalState }) => {
 
         <div className="flex mt-4 gap-2">
           <button
-            onClick={setDeleteModalState}
+            onClick={()=>setDeleteModalState(false)}
             className="bg-grey-900 text-white py-3 font-bold rounded md:text-sm w-[49%]"
           >
             Cancel
           </button>
           <button
-            onClick={setDeleteModalState}
+            onClick={handleConfirm}
             className="border border-grey-900 text-grey-900 py-3 font-bold rounded md:text-sm w-[49%]"
           >
             Delete

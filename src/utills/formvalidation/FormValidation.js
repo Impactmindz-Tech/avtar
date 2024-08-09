@@ -68,3 +68,11 @@ export const createOfferValidation = yup.object({
   ZipCode: yup.string().required("ZipCode is requird"),
   Notes: yup.string().required("Notes is requird"),
 });
+
+export const atarAvailableValidation = yup.object({
+  from: yup.string().required("From is required"),
+  to: yup.string().required("To is required"),
+  fromPeriod: yup.string().required("From Period is required"),
+  toPeriod: yup.string().required("To Period is required"),
+  timeZone: yup.string().required("Time Zone is required"),
+});
